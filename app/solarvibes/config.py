@@ -9,13 +9,16 @@ class Config:
 
 
     ########## GENERAL ##########
-    SECRET_KEY = environ.get('SECRET_KEY')
+    SECRET_KEY = 'ajg@#%$a68std8ag785r&%R$^&ED^$SD^Be564we56BU5e567'
+    # SECRET_KEY = environ.get('SECRET_KEY')
 
 
     ########## FLASK-SECURITY ##########
-    SECURITY_PASSWORD_HASH = environ.get('SECURITY_PASSWORD_HASH')
+    # SECURITY_PASSWORD_HASH = environ.get('SECURITY_PASSWORD_HASH')
     # SECURITY_PASSWORD_HASH = 'plaintext' # when change later, SALT must be configure too.
-    SECURITY_PASSWORD_SALT = environ.get('SECURITY_PASSWORD_SALT')
+    SECURITY_PASSWORD_HASH = 'bcrypt'
+    SECURITY_PASSWORD_SALT = 'kash&^%j^%$UV%&^578654*&TB7r^VE'
+    # SECURITY_PASSWORD_SALT = environ.get('SECURITY_PASSWORD_SALT')
     SECURITY_REGISTERABLE = True 	# allows register form template from flask-security
     SECURITY_CONFIRMABLE = False	# users must confirm their email throught nthe liunk provided in the welcome email
     SECURITY_RECOVERABLE = True		# allows user to recover email or reset password when forgot
@@ -36,7 +39,15 @@ class Config:
 
 
     ########## SQLALCHEMY ##########
-    SQLALCHEMY_DATABASE_URI = environ.get('SQLALCHEMY_DATABASE_URI')
+    host = 'db'
+    user = 'digital-farming-user'
+    password = 'digital-farming-password'
+    mydatabase = 'digital-farming-db'
+    # SQLALCHEMY_DATABASE_URI = environ.get('SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_DATABASE_URI = f'{host}://{user}:{password}@localhost:5432/{mydatabase}'
+
+
+
 
 
 

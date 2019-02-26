@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  app:
+    image: fantaso/digital-farming-webapp
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    labels:
+      digital-farming: "digital-farming"
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes: ./app:/digital-farming-app
+
+  db:
+    image: postgresql:11.2-alpine
+    environment:
+      - POSTGRESQL_DB=digital-farming-db
+      - POSTGRESQL_USER=digital-farming-user
+      - POSTGRESQL_PASSWORD=digital-farming-password
+      - PGDATA=/digital-farming-app
+    volumes:
+      - ./digital-farming-pgdata:/digital-farming-app
