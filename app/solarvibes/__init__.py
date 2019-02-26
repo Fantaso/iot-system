@@ -24,7 +24,7 @@ mail = Mail(application)
 # server = Server(host = '192.168.1.17', port = 8000, debug = True)
 manager = Manager(application)
 manager.add_command('db', MigrateCommand)
-manager.add_command('runserver', Server(host=None, port=None))
+manager.add_command('runserver', Server(host='0.0.0.0', port=5000))
 
 
 #############################
