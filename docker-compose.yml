@@ -11,6 +11,10 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./app:/digital-farming-app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
 
   db:
     image: postgresql:11.2-alpine
