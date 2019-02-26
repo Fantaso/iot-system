@@ -39,12 +39,14 @@ class Config:
 
 
     ########## SQLALCHEMY ##########
+    dialect_driver = 'postgresql'
     host = 'db'
-    user = 'digital-farming-user'
-    password = 'digital-farming-password'
-    mydatabase = 'digital-farming-db'
+    port = '5432'
+    user = 'postgres'
+    password = 'password'
+    mydatabase = 'mydb'
     # SQLALCHEMY_DATABASE_URI = environ.get('SQLALCHEMY_DATABASE_URI')
-    SQLALCHEMY_DATABASE_URI = f'{host}://{user}:{password}@localhost:5432/{mydatabase}'
+    SQLALCHEMY_DATABASE_URI = f'{dialect_driver}://{user}:{password}@{host}:{port}/{mydatabase}'
 
 
 
