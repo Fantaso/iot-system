@@ -9,7 +9,8 @@ services:
     labels:
       digital-farming: "digital-farming"
     command: python manage.py runserver 0.0.0.0:8000
-    volumes: ./app:/digital-farming-app
+    volumes:
+      - ./app:/digital-farming-app
 
   db:
     image: postgresql:11.2-alpine
