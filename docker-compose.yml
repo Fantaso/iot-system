@@ -2,7 +2,7 @@ version: "3"
 
 services:
   app:
-    image: fantaso/digital-farming-webapp
+    image: fantaso/digital-farming-webapp:1
     build:
       context: ./app
       dockerfile: Dockerfile
@@ -17,7 +17,7 @@ services:
       - db
 
   db:
-    image: postgresql:11.2-alpine
+    image: postgres:11.2-alpine
     environment:
       - POSTGRESQL_DB=digital-farming-db
       - POSTGRESQL_USER=digital-farming-user
