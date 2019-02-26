@@ -111,8 +111,8 @@ def add_agrisys():
         def get_bundle_identifiers(identifier):
             agrimodule_identifier = identifier
             # //TODO: must recognize all numbers instead of the las four digits. unless a uuid is created with a standarz characters qty.
-            agrisensor_identifier = 'agrisensor' + identifier[-5:]
-            agripump_identifier = 'agripump' + identifier[-5:]
+            agrisensor_identifier = 'agrisensor' + identifier[-4:]
+            agripump_identifier = 'agripump' + identifier[-4:]
             return agrimodule_identifier, agrisensor_identifier, agripump_identifier
 
         if not is_registered_in_solarvibes(agrimodule_identifier):
@@ -139,7 +139,7 @@ def add_agrisys():
                     agripump.identifier = agripump_identifier
 
                     # FLASH
-                    flash('Your agrimodule bundle has been re-registered with identifier: "{}"'.format(agrimodule_identifier))
+                    flash('Your agrimodule bundle has been re-registered with identifier: "{} -- {}-{}-{}"'.format(agrimodule_identifier, agrimodule_identifier, agrisensor_identifier, agripump_identifier))
                 else:
                     # OBJS TO DB
                     agrimodule = Agrimodule(name = agrimodule_name, identifier = agrimodule_identifier, user = user, batt_status = 0, lat = 0, lon = 0)
@@ -148,7 +148,7 @@ def add_agrisys():
                     # DB COMMANDS
                     db.session.add_all([agrimodule, agrisensor, agripump])
                     # FLASH
-                    flash('Your agrimodule bundle has been registered with identifier: "{}"'.format(agrimodule_identifier))
+                    flash('Your agrimodule bundle has been registered with identifier: "{} -- {}-{}-{}"'.format(agrimodule_identifier, agrimodule_identifier, agrisensor_identifier, agripump_identifier))
 
                 # update the registration form of agrimodule bundle
                 agrimodule_reg = AgrimoduleList.query.filter_by(identifier = agrimodule_identifier).first()
