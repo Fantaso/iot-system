@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+	Add Sensor
+{% endblock title %}
+
+{% block content %}
+<div class = "container">
+    <h1>Add Extra Sensor</h1>
+	<form method="POST" action="{{ url_for('agrimodule_settings.add_sensor') }}">
+		{{ form.csrf_token }}
+		{{ render_field_with_errors(form.agrimodule_choices) }}
+		{{ render_field_with_errors(form.sensor_choices) }}
+		{{ render_field_with_errors(form.identifier) }}
+		<input type="submit" class="waves-effect waves-light btn" value="Add sensor">
+	</form>
+
+	<br><br>
+  	<a href= "{{ url_for('settings.index') }}" class="waves-effect waves-light btn"><i class="fas fa-angle-left left"></i>Cancel</a>
+  	<br><br>
+
+</div>
+{% endblock %}

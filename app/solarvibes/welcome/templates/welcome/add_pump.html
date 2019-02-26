@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+	Farm Add Pump
+{% endblock %}
+
+{% block add_pump_active %}
+	active
+{% endblock %}
+
+{% block content %}
+<div class = "container">
+    <h4>Add Pump</h4>
+	<form method="POST" action="{{ url_for('welcome.add_pump') }}">
+		{{ form.csrf_token }}
+		{{ render_field_with_errors(form.pump_name) }}
+		{{ render_field_with_errors(form.pump_brand) }}
+		{{ render_field_with_errors(form.pump_flow_rate) }}
+		{{ render_field_with_errors(form.pump_head) }}
+		{{ render_field_with_errors(form.pump_watts) }}
+		<input type="submit" class="hoverable waves-effect waves-light btn" value="Add pump!">
+	</form>
+	<br>
+	<a href="{{ url_for('welcome.install_agrisys') }}" class="amber darken-1 waves-effect waves-light btn btn-small"><i class="material-icons left">arrow_back</i>Back</a>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Agripump
+{% endblock %}
+
+{% block agripump_active %}
+fh5co-active
+{% endblock %}
+
+{% block content %}
+<div id = "fh5co-main" class = "container" style = "margin-top: 5%;">
+	<div style="padding-left: 2%; text-align: left;">
+    <h1>Agripump</h1>
+	<div>
+        <hr>
+        <p>General links</p>
+        <ul>
+          <li><a href="{{ url_for('main.index') }}" style="color:#16B6A5;">Home</a></li>
+          <li><a href="{{ url_for('user_resources') }}" style="color:#16B6A5;">Resources</a></li>
+          <li><a href="{{ url_for('user_crop_planning') }}" style="color:#16B6A5;">Crop planning</a></li>
+        </ul>
+	</div>
+
+  <div>
+        <hr>
+        <p>Pump information</p>
+        <ul>
+          <li>Brand:                <span style="color: black;"> {{ pump.pump_brand }}</span></li>
+          <li>Flow rate:            <span style="color: black;"> {{ pump.pump_flow_rate }} lps</span></li>
+          <li>Max height:           <span style="color: black;"> {{ pump.pump_head }} m</span></li>
+          <li>kW:                   <span style="color: black;"> {{ pump.pump_watts }} kW</span></li>
+        </ul>
+  </div>
+
+  <div>
+        <hr>
+        <p>Pump status</p>
+        <ul>
+          {% if agripump.status == 1: %}
+          <li>now: <span style="color: green;">ON</span></li>
+          {% else %}
+          <li>now: <span style="color: red;">OFF</span></li>
+          {% endif %}
+        </ul>
+  </div>
+
+  <div>
+        <hr>
+        <p>Water usage</p>
+        <ul>
+          <li>Current flow: <span style="color: black;"> {% if agripump.status: %}     {{ pump.pump_flow_rate }}     {% else %}    {{ 0 }}     {% endif %}   lps</span></li>
+          <li><i>Today:                6,000 l</i></li>
+          <li>Per cultivation cycle</li>
+          <li><i>Used:                 80,000 l</i></li>
+          <li>Needed: <span style="color: black;">              {{ (field.field_water_required_day * (crop._dtg + crop._dtm)) / 1000 }} l</span></li>
+        </ul>
+  </div>
+
+  <div>
+        <hr>
+        <p>Energy usage</p>
+        <ul>
+          <li>Current consumption: <span style="color: black;"> {% if agripump.status: %}     {{ pump.pump_watts }}     {% else %}    {{ 0 }}     {% endif %} kWh</span></li>
+          <li><i>Today used:                3,000 KWh</i></li>
+          <li>Today needed: <span style="color: black;">               {{ pump_consumption_kwh_per_day|round(3, 'floor') }} KWh </span> </li>
+          <li>Per cultivation cycle</li>
+          <li><i>Used:                 15,000 kWh</i></li>
+          <li>Needed: <span style="color: black;">              {{ (pump_consumption_kwh_per_day * (crop._dtm + crop._dtg))|round(3, 'floor') }} kWh</span></li>
+        </ul>
+  </div>
+
+</div>
+
+{% endblock %}

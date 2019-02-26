@@ -1,0 +1,33 @@
+/*---------------------------------
+    Overlay Menu - Full Screen
+-----------------------------------*/
+#main, footer {
+  padding-left: 0px;
+}
+
+header .brand-logo {
+  margin: 1px 0px;
+  padding: 23px 60px;
+}
+
+header .brand-logo img {
+  width: 36px;
+}
+
+@media only screen and (min-width: 992px) {
+  .sidebar-collapse {
+    top: -52px;
+  }
+}
+
+.menu-sidebar-collapse {
+  margin: 0 10px 0 18px;
+}
+
+.header-search-wrapper {
+  margin-left: 250px;
+}
+
+.doughnut-chart-status {
+  top: -85px;
+}

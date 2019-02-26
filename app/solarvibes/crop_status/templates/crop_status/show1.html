@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Crop status
+{% endblock %}
+
+{% block crop_status_active %}
+active
+{% endblock %}
+
+{% block content %}
+<div id = "fh5co-main" class = "container" style = "margin-top: 5%;">
+	<div style="padding-left: 2%; text-align: left;">
+    <h1>Crop status</h1>
+  <div>
+        <hr>
+        <p>Crop information</p>
+        <ul>
+          <li>Variety:             <span style="color: black;">       {{ crop._variety|capitalize }}                                  </span>  </li>
+          <li>Name:                <span style="color: black;">       {{ crop._name|capitalize }}                                     </span>  </li>
+          <li>Area cultivated:     <span style="color: black;">       {{ field.field_cultivation_area / 10000 }} m<sup>2</sup>        </span>  </li>
+          <li>Amount of plants:    <span style="color: black;">       {{ field.field_num_plants }}                                    </span>  </li>
+          <li>Start cultivation:   <span style="color: black;">       {{ field.field_cultivation_start_date.strftime('%A, %b %d, %Y') }}  </span>  </li>
+          <li>Finish cultivation:  <span style="color: black;">       {{ field.field_cultivation_finish_date.strftime('%A, %b %d, %Y') }} </span>  </li>
+        </ul>
+  </div>
+
+  <div>
+        <hr>
+        <p>Resources status</p>
+        <ul>
+          <li><i>         Water:                Ok                         </i></li>
+          <li><i>         Fertilizer:           ~Ok                        </i></li>
+          <li><i>         Radiation:            Ok                         </i></li>
+          <li><i>         Status icon:          Icon                       </i></li>
+        </ul>
+  </div>
+
+  <div>
+        <hr>
+        <p>Time / Yield</p>
+        <ul>
+          <li>Time</li>
+          <li>            Cycle:        <span style="color: black;">      {{ crop._dtm + crop._dtg }} days                            </span>  </li>
+          <li>            So far:       <span style="color: black;">
+                                                                          {% if cycle_days_so_far >= 0 %}
+                                                                            {{ cycle_days_so_far }}
+                                                                          {% else %}
+                                                                            {{ 'Your cultivation starts in ' + cycle_days_so_far|abs|string }}
+                                                                          {% endif %}
+                                                                                                                days                  </span>  </li>
+
+          <li>Yield</li>
+          <li>            Projected:    <span style="color: black;">       {{ field.field_projected_yield / 1000 }} kg                </span>  </li>
+          <li>            So far:       <span style="color: black;">       {{ field.field_current_yield / 1000 }} kg                  </span>  </li>
+        </ul>
+  </div>
+
+</div>
+
+{% endblock %}
+
+<!-- <div>
+	<hr>
+	<p>General links</p>
+	<ul>
+	  <li><a href="#" style="color:#16B6A5;">Home</a><br></li>
+	  <li><a href="#" style="color:#16B6A5;">Agrimodule</a><br></li>
+	  <li><a href="#" style="color:#16B6A5;">Agripump</a><br></li>
+	  <li><a href="#" style="color:#16B6A5;">Alerts</a><br></li>
+	</ul>
+</div> -->

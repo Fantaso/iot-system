@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Crop Planning
+{% endblock %}
+
+{% block links_in_head %}
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"> -->
+{% endblock links_in_head %}
+
+{% block css_in_head %}
+{% endblock css_in_head %}
+
+{% block links_body %}
+{% endblock links_body %}
+
+{% block content %}
+<div class = "container" style = "margin-top: 5%;">
+	<div style="padding-left: 2%; text-align: left;">
+    <h1>Crop planning</h1>
+  <div>
+        <hr>
+        <p>Farmer links</p>
+        <ul>
+          <li><a href="{{ url_for('user_crop_planning') }}" style="color:#16B6A5;">Crop planning</a><br></li>
+          <li><a href="{{ url_for('user_resources') }}" style="color:#16B6A5;">Resources</a><br></li>
+          <li><a href="{{ url_for('user_crop_analyzer') }}" style="color:#16B6A5;">Crop analyzer</a><br></li>
+          <li><a href="{{ url_for('user_health_analyzer') }}" style="color:#16B6A5;">Health analyzer</a><br></li>
+        </ul>
+  </div>
+
+	<div>
+        <hr>
+        <p>General links</p>
+        <ul>
+          <li><a href="{{ url_for('main.index) }}" style="color:#16B6A5;">Home</a><br></li>
+          <li><a href="{{ url_for('crop_status.show') }}" style="color:#16B6A5;">Crop status</a><br></li>
+        </ul>
+	</div>
+
+</div>
+
+{% endblock %}

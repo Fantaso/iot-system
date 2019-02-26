@@ -1,0 +1,70 @@
+{% extends 'base_auth.html' %}
+{% from "security/_macros_edited.html" import render_field_with_errors, render_field %}
+
+{% block title %}
+	Login
+{% endblock %}
+
+{% block content %}
+<div id="login-page" class="row">
+  <div class="col s12 z-depth-4 card-panel">
+	{% include "security/_messages.html" %}
+	<form  action="{{ url_for_security('login') }}" method="POST" name="login_user_form" class="login-form">
+	  {{ login_user_form.hidden_tag() }}
+	  <div class="row">
+		<div class="input-field col s12 center">
+		  <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="" class="circle responsive-img valign profile-image-login">
+		  <p class="center login-form-text">LOGIN</p>
+		</div>
+	  </div>
+	  <div class="row margin">
+		<div class="input-field col s12">
+		  <i class="material-icons prefix pt-5">email</i>
+		  {{ render_field_with_errors(login_user_form.email) }}
+		</div>
+	  </div>
+	  <div class="row margin">
+		<div class="input-field col s12">
+		  <i class="material-icons prefix pt-5">lock_outline</i>
+		  {{ render_field_with_errors(login_user_form.password) }}
+		</div>
+	  </div>
+	  <div class="row">
+		<div class="col s12 m12 l12 ml-2 mt-3">
+		  {{ render_field_with_errors(login_user_form.remember) }}
+		  {{ render_field(login_user_form.next) }}
+		</div>
+	  </div>
+	  <div class="row">
+		<div class="input-field col s12">
+		  {{ render_field(login_user_form.submit, class="btn waves-effect waves-light col s12") }}
+		</div>
+	  </div>
+	  <div class="row">
+		<div class="input-field col s6 m6 l6">
+		  {% if security.registerable %}
+		    <p class="margin medium-small"><a href="{{ url_for_security('register') }}{% if 'next' in request.args %}?next={{ request.args.next|urlencode }}{% endif %}">Register Now!</a></p>
+		  {% endif %}
+		</div>
+		<div class="input-field col s6 m6 l6">
+		  {% if security.recoverable %}
+		    <p class="margin right-align medium-small"><a href="{{ url_for_security('forgot_password') }}">Forgot password ?</a></p>
+		  {% endif %}
+		</div>
+	  </div>
+	  <div class="row">
+		<div class="input-field col s6 m6 l6">
+		  {% if security.confirmable %}
+		    <p class="margin medium-small"><a href="{{ url_for_security('send_confirmation') }}">Resend confirmation</a></p>
+		  {% endif %}
+		</div>
+		<div class="input-field col s6 m6 l6">
+		  <p class="margin right-align medium-small"><a href="#">Login with <i class="fab fa-facebook-f"></i></a></p>
+		</div>
+	  </div>
+
+	</form>
+
+  </div>
+</div>
+{% endblock %}

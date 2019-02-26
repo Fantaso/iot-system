@@ -1,0 +1,79 @@
+{% extends 'base_auth.html' %}
+{% from "security/_macros_edited.html" import render_field_with_errors, render_field %}
+
+{% block title %}
+	Register
+{% endblock %}
+
+{% block content %}
+<!-- End Page Loading -->
+<div id="login-page" class="row">
+  <div class="col s12 z-depth-4 card-panel">
+	{% include "security/_messages.html" %}
+	<form action="{{ url_for_security('register') }}" method="POST" name="register_user_form" class="login-form">
+      {{ register_user_form.hidden_tag() }}
+	  <div class="row">
+		<div class="input-field col s12 center">
+		  <h4>Register</h4>
+		  <p class="center">Join Solarvibes community now !</p>
+		</div>
+	  </div>
+
+	  <div class="row margin">
+		<div class="input-field col s12">
+		  <i class="material-icons prefix pt-5">person_outline</i>
+		  {{ render_field_with_errors(register_user_form.name) }}
+		</div>
+	  </div>
+	  <div class="row margin">
+		<div class="input-field col s12">
+		  <i class="material-icons prefix pt-5">person_outline</i>
+		  {{ render_field_with_errors(register_user_form.last_name) }}
+		</div>
+	  </div>
+	  <div class="row margin">
+		<div class="input-field col s12">
+		  <i class="material-icons prefix pt-5">phone_iphone</i>
+		  {{ render_field_with_errors(register_user_form.mobile) }}
+		</div>
+	  </div>
+	  <div class="row margin">
+	   <div class="input-field col s12">
+		 <i class="material-icons prefix pt-5">perm_contact_calendar</i>
+		 {{ render_field_with_errors(register_user_form.birthday, class = "datepicker") }}
+	   </div>
+	 </div>
+	  <div class="row margin">
+		<div class="input-field col s12">
+		  <i class="material-icons prefix pt-5">email</i>
+		  {{ render_field_with_errors(register_user_form.email) }}
+		</div>
+	  </div>
+	  <div class="row margin">
+		<div class="input-field col s12">
+		  <i class="material-icons prefix pt-5">lock_outline</i>
+		  {{ render_field_with_errors(register_user_form.password) }}
+		</div>
+	  </div>
+	  {% if register_user_form.password_confirm %}
+	    <div class="row margin">
+		 <div class="input-field col s12">
+		   <i class="material-icons prefix pt-5">lock_outline</i>
+		   {{ render_field_with_errors(register_user_form.password_confirm) }}
+		 </div>
+   		</div>
+	  {% endif %}
+
+	  <div class="row">
+		<div class="input-field col s12">
+		   {{ render_field(register_user_form.submit, class="btn waves-effect waves-light col s12") }}
+		</div>
+		<div class="input-field col s12">
+		  <p class="margin center medium-small sign-up">Already have an account? <a href="{{ url_for_security('login') }}">Login</a></p>
+		</div>
+	  </div>
+	</form>
+  </div>
+</div>
+
+{% endblock %}

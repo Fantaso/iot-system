@@ -1,0 +1,72 @@
+/*----------------------------------------
+    Pricing Plan  Page
+------------------------------------------*/
+.plans-container {
+	.collection {
+		border: none;
+		.collection-item {
+			border-bottom: none;
+			text-align: center;
+			font-size: 1.07rem;
+			line-height: 1.6em;
+			&:before {
+				font-family: "Material Icons";
+				content: "check";
+				font-size: 1.28rem;
+				line-height: 1.6em;
+				color: color("teal", "accent-4");
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				-webkit-font-smoothing: antialiased;
+				margin-right: 10px;
+			}
+		}
+	}
+	.card {
+		.card-image {
+			position: relative;
+			width: 100%;
+			.card-title {
+				position: relative;
+				font-size: 1.28rem;
+				line-height: 1.6em;
+				text-align: center;
+				width: 100%;
+				padding: 10px 15px;
+				text-transform: uppercase;
+				background: rgba(0, 0, 0, 0.1);
+			}
+			.price {
+				position: relative;
+				font-size: 5rem;
+				line-height: 1.6em;
+				color: $white;
+				font-weight: 300;
+				text-align: center;
+				sup {
+					font-weight: 100;
+					font-size: 1.42rem;
+					line-height: 1.6em;
+					top: -35px;
+				}
+				sub {
+					font-weight: 100;
+					font-size: 1.42rem;
+					line-height: 1.6em;
+					top: 0;
+				}
+			}
+			.price-desc {
+				text-align: center;
+				color: $white;
+				padding-bottom: 10px;
+			}
+		}
+		.card-content {
+			padding: 0;
+		}
+	}
+}

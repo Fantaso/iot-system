@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Solarvibes | {% block title %}{% endblock %}</title>
+
+	<!-- Bulma -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+
+
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+	<!-- # NOT BULMA -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	<style type="text/css">
+		.outter-color{background-color: rgba(255, 255, 0, 0.3) !important;}
+		.inner-color{background-color: rgba(255, 255, 0, 0.5) !important;}
+		.bg_y{background-color: yellow;}
+		.bg_b{background-color: blue;}
+		.bg_gr{background-color: gray;}
+		.bg_r{background-color: red;}
+		.bg_g{background-color: green;}
+		.bg_dgr{background-color: darkgray;}
+		.bg_lgr{background-color: lightgray;}
+		.centrado{text-align: center;}
+		.padding{padding: 10px;}
+		.margin{margin: 10px;}
+
+		.flip_90 {
+		    -webkit-transform: rotate(90deg);
+		    -moz-transform: rotate(90deg);
+		    -o-transform: rotate(90deg);
+		    -ms-transform: rotate(90deg);
+		    transform: rotate(90deg);
+		}
+		.flip_180 {
+		    -webkit-transform: rotate(180deg);
+		    -moz-transform: rotate(180deg);
+		    -o-transform: rotate(180deg);
+		    -ms-transform: rotate(180deg);
+		    transform: rotate(180deg);
+		}
+		.flip_270 {
+		    -webkit-transform: rotate(270deg);
+		    -moz-transform: rotate(270deg);
+		    -o-transform: rotate(270deg);
+		    -ms-transform: rotate(270deg);
+		    transform: rotate(270deg);
+		}
+		.progress-height{
+			height: 10px !important;
+		}
+	</style>
+	<script type="text/javascript">
+        document.getElementById("nav-toggle").addEventListener ("click", toggleNav);
+        function toggleNav() {
+                var nav = document.getElementById("nav-menu");
+                var className = nav.getAttribute("class");
+                if(className == "nav-right nav-menu") {
+                    nav.className = "nav-right nav-menu is-active";
+                } else {
+                    nav.className = "nav-right nav-menu";
+                }
+        }
+    </script>
+</head>
+<body>
+
+	<!-- outter box -->
+	<div class="container outter-color padding">
+
+		<!-- header -->
+		<div class="row">
+			<div class="col s12 m10 offset-m1">
+				<div class="row">
+					<div class="col s8 offset-s2 center">Tabs</div>
+					<div class="col s1 offset-s1 right right-align">
+						<i class="far fa-2x fa-window-close"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end header -->
+
+		<!-- inner box -->
+		<div class="row inner-color">
+			<div class="col s12 m10 offset-m1">
+
+				<!-- main UI title -->
+				<div class="row center">
+					<div class="col s6">
+						<h5>CROP INFORMATION</h5>
+					</div>
+					<div class="col s3">
+						<h5>RESOURCES STATUS</h5>
+					</div>
+					<div class="col s3">
+						<h5>TIME & YIELD</h5>
+					</div>
+				</div>
+				<!-- end main UI title -->
+
+				<!-- main UI content -->
+				<div class="row center valign-wrapper">
+					<!-- crop Information content -->
+					<div class="col s6">
+						<!-- crop data -->
+						<div class="row valign-wrapper padding">
+							<div class="col s6 box z-depth-3">
+								<div class="col s12"><h6>Tomato</h6></div>
+								<br><br>
+								<div class="col s12 blue lighten-2 margin"><img class="responsive-img" src="../../../static/bulma/tomato.png"></div>
+							</div>
+							<div class="col s6 left-align">
+								<div class="col s12 teal-text text-lighten-2"><h6>Crop Data:</h6></div>
+								<div class="col s12">Plum</div>
+								<div class="col s12">780 m<sup>2</sup></div>
+								<div class="col s12">3120 plants</div>
+								<div class="col s12">4 plants / m<sup>2</sup></div>
+							</div>
+						</div>
+						<!-- end crop data -->
+
+						<!-- time -->
+						<div class="row center">
+							<div class="col s12">
+								<div class="col s4">
+									<p>Begin</p>
+								</div>
+								<div class="col s4">
+									<p>Today</p>
+								</div>
+								<div class="col s4">
+									<p>End</p>
+								</div>
+
+								<div class="col s12">
+									<progress class="progress is-danger z-depth-3 progress-height" value="70" max="100">15%</progress>
+								</div>
+
+								<div class="col s4">
+									<p>April 1st, 2018</p>
+								</div>
+								<div class="col s4">
+									<h6>June 5th, 2018</h6>
+								</div>
+								<div class="col s4">
+									<p>July 3rd, 2018</p>
+								</div>
+
+							</div>
+
+						</div>
+						<!-- end time -->
+					</div>
+					<!-- end crop Information content -->
+
+					<!-- crop alerts -->
+					<div class="col s3">
+						<div class="row center-align">
+							<div class="col s12"><h5>Water</h5></div>
+							<div class="col s6"><i class="far fa-2x fa-check-circle green-text"></i></div>
+							<div class="col s6"><i class="fas fa-2x fa-tint blue-text text-lighten-2"></i></div>
+						</div>
+
+						<div class="row center-align">
+							<div class="col s12"><h5>Radiation</h5></div>
+							<div class="col s6"><i class="far fa-2x fa-check-circle green-text"></i></div>
+							<div class="col s6"><i class="fas fa-2x fa-sun yellow-text text-lighten-2"></i></div>
+						</div>
+
+						<div class="row center-align">
+							<div class="col s12"><h5>Fertilizer<span class="new badge red">4</span></h5></div>
+							<div class="col s6"><i class="far fa-2x fa-times-circle red-text"></i></div>
+							<div class="col s6"><i class="fas fa-2x fa-leaf teal-text text-lighten-2"></i></div>
+						</div>
+					</div>
+					<!-- end crop alerts -->
+
+					<!-- time and yield -->
+					<div class="col s3">
+						<div class="col s12">
+							<div class="col s12"><h5>Cycle time</h5></div>
+							<div class="col s4 left-align">current</div>
+							<div class="col s8 right-align">total</div>
+							<div class="col s12">
+								<progress class="progress is-success z-depth-3 progress-height" value="3" max="100">15%</progress>
+							</div>
+							<div class="col s4 left-align">7</div>
+							<div class="col s8 right-align">180 days</div>
+						</div>
+						<div class="col s12">
+							<div class="col s12"><h5>Yield</h5></div>
+							<div class="col s4 left-align">current</div>
+							<div class="col s8 right-align">total</div>
+							<div class="col s12">
+								<progress class="progress is-success z-depth-3 progress-height" value="1" max="100">15%</progress>
+							</div>
+							<div class="col s4 left-align">0</div>
+							<div class="col s8 right-align">4.48 tons</div>
+						</div>
+
+					</div>
+					<!-- end time and yield -->
+
+				</div>
+				<!-- end main UI content -->
+
+			</div>
+		</div>
+		<!-- end inner box -->
+	</div>
+	<!-- end outter box -->
+
+</body>
+</html>

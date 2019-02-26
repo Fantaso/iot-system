@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Settings
+{% endblock %}
+
+{% block settings_active %}
+active
+{% endblock settings_active %}
+
+{% block content %}
+
+	<!-- PAGE CONTENT -->
+	<div class="container">
+    	<!-- tabs -->
+    	<ul id="tabs-swipe-demo" class="tabs col s12 transparent">
+		    <li class="tab col s3"><a href="#swipe-farms" class="svgreen-text">Farms</a></li>
+		    <li class="tab col s3"><a href="#swipe-agrimodules" class="svgreen-text">Agrimodules</a></li>
+		    <li class="tab col s3"><a href="#swipe-pumps" class="svgreen-text">Pumps</a></li>
+		    <div class="indicator teal accent-3" style="z-index: 1;"></div>
+		</ul>
+		<!-- end tabs -->
+
+		<!-- farms -->
+		<div id="swipe-farms">
+
+			<div class="row">
+	    		<div class="col s12">
+	    			<h5>My Farms</h5><a href="{{ url_for('farm_settings.new_farm') }}"><i class="material-icons small black-text tooltipped" data-position="bottom" data-tooltip="Create a new farm">add</i></a>
+					<table class="responsive-table highlight centered">
+						<thead>
+						<tr class="grey-text">
+							<th>Default</th>
+							<th>Farm Name</th>
+							<th>Farm Area</th>
+							<th>Location</th>
+							<th>Options</th>
+						</tr>
+						</thead>
+
+				        <tbody>
+				        	{% for farm in farms: %}
+					            <tr class="grey lighten-3">
+					                <td>
+					                	{% if farm._default: %}
+			            					<i class="material-icons black-text tooltipped" data-position="bottom" data-tooltip="This is your MAIN farm">radio_button_checked</i></a>
+			            				{% else %}
+			            					<a href="{{ url_for('farm_settings.default_farm', farm_id=farm.id) }}"><i class="material-icons black-text tooltipped" data-position="bottom" data-tooltip="Make this your Main farm">radio_button_unchecked</i></a>
+										{% endif %}
+					                </td>
+					                <td><h5>{{ farm.farm_name }}</h5></td>
+					                <td><h5>{{ farm.farm_area / 10000 }} m<sup>2</sup></h5></td>
+					                <td><h5>{{ farm.farm_location }}</h5></td>
+					                <td>
+					                	<a href="{{ url_for('farm_settings.new_crop', farm_id=farm.id) }}"><i class="material-icons svgreen-text tooltipped" data-position="bottom" data-tooltip="Add a new crop / field">add</i></a>
+					                	<a href="{{ url_for('farm_settings.edit_farm', farm_id=farm.id) }}"><i class="material-icons black-text tooltipped" data-position="bottom" data-tooltip="Edit your farm">edit</i></a>
+					                	<a href="{{ url_for('farm_settings.delete_farm', farm_id=farm.id) }}"><i class="material-icons red-text text-lighten-2 tooltipped" data-position="bottom" data-tooltip="Delete your farm forever">delete</i> </a>
+					                </td>
+					            </tr>
+					            <tr class="grey-text text-lighten-1">
+					                <td>Crop</td>
+					                <td>Field Area</td>
+					                <td>Progress</td>
+					                <!-- <td>Type</td> -->
+					                <td>Agrimodule</td>
+					                <td></td>
+					            </tr>
+
+						        {% for field in farm.fields.all(): %}
+						        	 {% for crop in field.crops.all() %}
+						            <tr>
+						                <td><h6>{{ crop._name|capitalize }}</h6></td>
+						                <td><h6>{{ field.field_cultivation_area / 10000 }} m<sup>2</sup></h6></td>
+						                <td><h6>{{ (( (timenow - field.field_cultivation_start_date).days / (crop._dtm + crop._dtg) ) * 100)|round(1, 'floor') }} %</h6></td>
+						                {# <td><h6>{{ field.field_cultivation_type|capitalize }}</h6></td> #}
+						                <td>
+						                	{% if field.agrimodule.name is not none: %}
+												<h6><i>{{ field.agrimodule.name }}</i></h6>
+											{% endif %}
+										</td>
+										<td>
+						                	<a href="{{ url_for('farm_settings.edit_crop', field_id=field.id) }}"><i class="material-icons black-text tooltipped" data-position="bottom" data-tooltip="Edit crop / field">edit</i></a>
+						                	<a href="{{ url_for('farm_settings.delete_crop', field_id=field.id) }}"><i class="material-icons red-text text-lighten-2 tooltipped" data-position="bottom" data-tooltip="Remove crop / field from farm">delete</i></a>
+						                </td>
+						            </tr>
+						            {% endfor %}
+						        {% endfor %}
+				            {% endfor %}
+				        </tbody>
+			        </table>
+	    		</div>
+			</div>
+		</div>
+		<!-- end farms -->
+
+		<!-- agrimodules -->
+		<div id="swipe-agrimodules">
+			<div class="row">
+				<div class="col s12">
+	    			<h5>My Agrimodules </h5><a href="{{ url_for('agrimodule_settings.new_agrimodule') }}"><i class="material-icons small black-text tooltipped" data-position="bottom" data-tooltip="Add a new agrimodule">add</i> </a>
+					<table class="responsive-table highlight centered">
+						<thead>
+						<tr class="grey-text">
+							<th>System Name</th>
+							<th>Farm</th>
+							<th>Field</th>
+							<th>Field Area</th>
+							<th>Options</th>
+						</tr>
+						</thead>
+
+				        <tbody>
+				        	<!-- agrimodules -->
+		        			{% for agrimodule in agrimodules: %}
+					            <tr class="grey lighten-3">
+					                <td><h5>{{ agrimodule.name }}</h5></td>
+					                <td>
+					                	{% if field_db.filter_by(id = agrimodule.field_id).first().farm_id: %}
+			        						<h5>{{ farm_db.filter_by( id = field_db.filter_by(id = agrimodule.field_id).first().farm_id ).first().farm_name }}</h5>
+			        					{% else %}
+			        						<h5>Not in Use</h5>
+			        					{% endif %}
+					                </td>
+					                <td><h5>{{ field_db.filter_by(id = agrimodule.field_id).first().field_name|capitalize }}</h5></td>
+					                <td>
+					                	{% if field_db.filter_by(id = agrimodule.field_id).first().field_cultivation_area: %}
+			        						<h5>{{ field_db.filter_by(id = agrimodule.field_id).first().field_cultivation_area / 10000 }} m<sup>2</sup></h5>
+			        					{% endif %}
+					                </td>
+					                <td>
+					                	<a href="{{ url_for('agrimodule_settings.add_sensor', agrimodule_id = agrimodule.id) }}"><i class="material-icons svgreen-text tooltipped" data-position="bottom" data-tooltip="Add agrisensor or agripump">add</i> </a>
+					                	<a href="{{ url_for('agrimodule_settings.edit_agrimodule', agrimodule_id = agrimodule.id) }}"><i class="material-icons black-text tooltipped" data-position="bottom" data-tooltip="Change crop to be monitored by agrimodule">edit</i></a>
+					                	<a href="{{ url_for('agrimodule_settings.delete_agrimodule', agrimodule_id = agrimodule.id) }}"><i class="material-icons red-text text-lighten-2 tooltipped" data-position="bottom" data-tooltip="Delete agrimodule and its sensors">delete</i> </a>
+					                </td>
+					            </tr>
+					            <tr class="grey-text text-lighten-1">
+					                <td>Type</td>
+					                <td>Identifier</td>
+					                <td>Lat & Lon</td>
+					                <td>Batt</td>
+					                <td></td>
+					            </tr>
+					            <tr>
+					                <td><h6>Agrimodule</h6></td>
+					                <td><h6>{{ agrimodule.identifier }}</h6></td>
+					                <td><h6>{{ agrimodule.lat }} {{ agrimodule.lon }}</h6></td>
+					                <td><h6>{{ agrimodule.batt_status }} %</h6></td>
+					                <td></td>
+					            </tr>
+					            <!-- end agrimodule -->
+
+					            <!-- agrisensors -->
+					            <tr class="grey-text text-lighten-1">
+					                <td>Type</td>
+					                <td>Identifier</td>
+					                <td>Lat & Lon</td>
+					                <td>Batt</td>
+					                <td></td>
+					            </tr>
+
+					            {% for agrisensor in agrimodule.agrisensors.all(): %}
+						            <tr>
+						                <td><h6>Agrisensor</h6></td>
+						                <td><h6>{{ agrisensor.identifier }}</h6></td>
+						                <td><h6>{{ agrisensor.lat }} {{ agrisensor.lon }}</h6></td>
+						                <td><h6>{{ agrisensor.batt_status }} %</h6></td>
+						                <td>
+						                	<a href="{{ url_for('agrimodule_settings.delete_agrisensor', agrisensor_id = agrisensor.id) }}"><i class="material-icons red-text text-lighten-2 tooltipped" data-position="bottom" data-tooltip="Remove agrisensor from agrimodule">delete</i></a>
+						                </td>
+						            </tr>
+						        {% endfor %}
+					            <!-- end agrisensors -->
+
+					            <!-- agripumps -->
+					            <tr class="grey-text text-lighten-1">
+					                <td>Type</td>
+					                <td>Identifier</td>
+					                <td>Pump</td>
+					                <td>Status</td>
+					                <td></td>
+					            </tr>
+					            {% for agripump in agrimodule.agripumps.all(): %}
+						            <tr>
+						                <td><h6>Agripump</h6></td>
+						                <td><h6>{{ agripump.identifier }}</</h6></td>
+						                <td><h6>{{ pump_db.filter_by(id = agripump.pump_id).first().pump_name }} {{ pump_db.filter_by(id = agripump.pump_id).first().pump_brand }}</h6></td>
+						                <td>
+						                	{% if agripump.status == 1: %}
+						                		<h6 class="svgreen-text">ON</h6>
+											{% else %}
+												<h6 class="red-text">OFF</h6>
+											{% endif %}
+						                </td>
+						                <td>
+						                	<a href="{{ url_for('agrimodule_settings.edit_agripump', agripump_id = agripump.id) }}"><i class="material-icons black-text tooltipped" data-position="bottom" data-tooltip="Change pump">edit</i></a>
+						                	<a href="{{ url_for('agrimodule_settings.delete_agripump', agripump_id = agripump.id) }}"><i class="material-icons red-text text-lighten-2 tooltipped" data-position="bottom" data-tooltip="Delete agripump">delete</i></a>
+						                </td>
+						            </tr>
+					            {% endfor %}
+					            <!-- end agripumps -->
+				            {% endfor %}
+				            <!-- end  agrimodules-->
+				        </tbody>
+			        </table>
+	    		</div>
+	    	</div>
+		</div>
+		<!-- end agrimodules -->
+
+		<!-- pumps -->
+		<div id="swipe-pumps">
+			<div class="row">
+	    		<div class="col s12">
+	    			<h5>My Pumps </h5><a href="{{ url_for('pump_settings.add_pump') }}"><i class="material-icons small black-text tooltipped" data-position="bottom" data-tooltip="Add a new pump for your farms">add</i> </a>
+					<table class="responsive-table highlight striped centered">
+						<thead>
+						<tr class="grey-text">
+							<th>Name</th>
+							<th>Brand</th>
+							<th>Flow rate</th>
+							<th>Power</th>
+							<th>Agripump Identifier</th>
+							<th>Options</th>
+						</tr>
+						</thead>
+
+				        <tbody>
+				        	{% for pump in pumps: %}
+					            <tr>
+					                <td><h5>{{ pump.pump_name }}</h5></td>
+					                <td><h5>{{ pump.pump_brand }}</h5></td>
+					                <td><h5>{{ pump.pump_flow_rate / (1000 * 60) }} <sup>lps</sup></h5></td>
+					                <td><h5>{{ pump.pump_watts / 1000 }} <sup>kW</sup></h5></td>
+					                <td><i><h6>{{ agripump_db.filter_by(pump_id = pump.id).first().identifier }}</h6></i></td>
+					                <td>
+					                	<a href="{{ url_for('pump_settings.edit_pump', pump_id=pump.id) }}"><i class="material-icons black-text tooltipped" data-position="bottom" data-tooltip="Edit pump">edit</i></a>
+					                	<a href="{{ url_for('pump_settings.delete_pump', pump_id=pump.id) }}"><i class="material-icons red-text text-lighten-2 tooltipped" data-position="bottom" data-tooltip="Delete pump">delete</i> </a>
+					                </td>
+					            </tr>
+				            {% endfor %}
+				        </tbody>
+			        </table>
+	    		</div>
+			</div>
+		</div>
+		<!-- end pumps -->
+
+
+    	<!-- end tabs -->
+
+	</div>
+
+
+{% endblock %}

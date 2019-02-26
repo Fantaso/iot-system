@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+	Farm install agrisys
+{% endblock %}
+
+{% block install_agrisys_active %}
+	active
+{% endblock %}
+
+{% block content %}
+{#<div class = "container">
+    <h4>Install_agrisys</h4>
+    <form method="POST" action="{{ url_for('welcome.install_agrisys') }}">
+      {{ form.csrf_token }}
+      {{ render_field_with_errors(form.agm_lat) }}
+      {{ render_field_with_errors(form.agm_lon) }}
+      {{ render_field_with_errors(form.ags_lat) }}
+      {{ render_field_with_errors(form.ags_lon) }}
+      {{ render_field_with_errors(form.agp_lat) }}
+      {{ render_field_with_errors(form.agp_lon) }}
+      <input type="submit" class="btn btn-primary btn-md" value="Install agrisys!">
+    </form>
+    <a href="{{ url_for('welcome.add_agrisys') }}" class="btn btn-secondary btn-sm" style="color:black;">Back</a>
+
+  <hr> #}
+  <h1>Instructions:</h1>
+  <hr>
+  <ul>
+    <li>1. Go install Agrimodule and Agrisensor where we tell you.</li>
+    <li>2. Go plug the Agripump to your farm pump.</li>
+  </ul>
+	<br>
+	<a href="{{ url_for('welcome.add_pump') }}" class="hoverable waves-effect waves-light btn">Next</a>
+	<br>
+	<br>
+	<a href="{{ url_for('welcome.add_agrisys') }}" class="amber darken-1 waves-effect waves-light btn btn-small"><i class="material-icons left">arrow_back</i>Back</a>
+</div>
+{% endblock content %}

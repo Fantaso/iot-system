@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+  Add Soil Test (OptionL)
+{% endblock %}
+
+{% block add_soil_test_active %}
+  active
+{% endblock %}
+
+{% block content %}
+<div class = "container">
+    <h1>Welcome add soil test</h1>
+    <hr>
+  <h1>Add Soil Test</h1>
+  <form method="POST" action="{{ url_for('welcome.add_soil_test') }}">
+    {{ form.csrf_token }}
+    {{ render_field_with_errors(form.soil_ph) }}
+    {{ render_field_with_errors(form.soil_ec) }}
+    {{ render_field_with_errors(form.soil_organic_carbon) }}
+    {{ render_field_with_errors(form.soil_nitrogen) }}
+    {{ render_field_with_errors(form.soil_p205) }}
+    {{ render_field_with_errors(form.soil_k20) }}
+    <input type="submit" class="hoverable waves-effect waves-light btn" value="Add soil test!">
+  </form>
+  <br>
+  <a href="{{ url_for('welcome.add_farm') }}" class="amber darken-1 waves-effect waves-light btn btn-small"><i class="material-icons left">arrow_back</i>Back</a>
+</div>
+{% endblock %}

@@ -1,0 +1,459 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	{{ current_user.name }}
+{% endblock %}
+
+{% block user_home_active %}
+grey lighten-2
+{% endblock %}
+
+{% block links_in_head %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+{% endblock links_in_head %}
+
+{% block css_in_head %}
+<style type="text/css">
+	h1{margin: 0 !important;}
+	/* .bg_y{background-color: yellow;}
+	.bg_b{background-color: blue;}
+	.bg_gr{background-color: gray;}
+	.bg_r{background-color: red;}
+	.bg_g{background-color: green;}
+	.bg_dgr{background-color: darkgray;}
+	.bg_lgr{background-color: lightgray;} */
+	.centrado{text-align: center;}
+	.margin-top{margin-top: 10px;}
+	.marginless{margin: 0 !important;}
+</style>
+{% endblock css_in_head %}
+
+{% block links_body %}
+{% endblock links_body %}
+
+{% block content %}
+	<div class = "container" style="padding: 25px;">
+
+		<div class="row center-align">
+			<div class="col s3 box lighten-2 z-depth-2">
+				<div class="row center-align valign-wrapper">
+
+					<!-- ICON -->
+					<div class="col s4">
+						<div class="row">
+							<div class="col s12">
+								<!-- Agripump SYSTEM NAME -->
+						    	<i class="fas fa-5x fa-cloud has-text-info"></i>
+							</div>
+						</div>
+					</div>
+					<!-- ICON -->
+
+
+					<!-- TEMP, HUM and PRESS -->
+					<div class="col s4">
+						<div class="row">
+							<div class="col s12">
+								<h5 class="">14<sup>°C</sup></h5>
+								<h5 class="">68<sup>%</sup></h5>
+							</div>
+						</div>
+					</div>
+					<!-- TEMP, HUM and PRESS -->
+
+					<!-- CITY, TIME LAT AND LON -->
+					<div class="col s4">
+						<div class="row">
+							<div class="col s12">
+								<h5 class="">Berlin</h5>
+								<!-- <p class="">LAT: 26</p>
+								<p class="">LON: 25</p> -->
+								<h5 class="">22:54</h5>
+							</div>
+						</div>
+					</div>
+					<!-- CITY, TIME LAT AND LON -->
+
+				</div>
+			</div>
+
+
+
+			<div class="col s4 offset-s1 box lighten-2 z-depth-2">
+				<div class=""><h4>{{ default_farm.farm_name }}'s Farm</h4></div>
+			</div>
+
+			<!-- ALERTS -->
+			<div class="col s3 offset-s1 box z-depth-2 padding">
+				<!-- WATER -->
+				<div class="row valign-wrapper">
+
+					<!-- NOTIFICATION -->
+					<div class="col s3">
+						  	<span class="new badge">4</span>
+					</div>
+					<!-- BAR -->
+					<div class="col s7 flip_180">
+						<progress class="progress is-info z-depth-3 progress-height" value="15" max="100">15%</progress>
+					</div>
+
+					<!-- ICON -->
+					<div class="col s2">
+						<i class="fas fa-2x fa-tint blue-text lighten-2"></i>
+					</div>
+				</div>
+
+				<!-- SUN -->
+				<div class="row valign-wrapper">
+				<!-- NOTIFICATION -->
+					<div class="col s3">
+						<span class="new badge">3</span>
+					</div>
+					<!-- BAR -->
+					<div class="col s7 flip_180">
+						<progress class="progress is-warning z-depth-3 progress-height" value="35" max="100">15%</progress>
+					</div>
+					<!-- ICON -->
+					<div class="col s2">
+							<i class="fas fa-2x fa-sun yellow-text lighten-2"></i>
+					</div>
+
+				</div>
+
+				<!-- FERTILZER -->
+				<div class="row valign-wrapper">
+
+					<!-- NOTIFICATION -->
+					<div class="col s3">
+						<span class="new badge">0</span>
+					</div>
+					<!-- BAR -->
+					<div class="col s7 flip_180">
+						<progress class="progress is-primary z-depth-3 progress-height" value="85" max="100">15%</progress>
+					</div>
+					<!-- ICON -->
+					<div class="col s2">
+						<i class="fas fa-2x fa-leaf has-text-primary"></i>
+					</div>
+				</div>
+
+			</div>
+			<!-- ALERTS -->
+
+		</div>
+
+		<br>
+		<br>
+		<!-- FIELDS-->
+		<div class="row">
+
+			{% for field in fields %}
+			<!-- FIELD 1 -->
+		  	<div class="col s6">
+		  		<!-- FIELD -->
+		  		<div class="row box lighten-2 z-depth-2" style="margin: 2%;">
+
+					<!-- CROP -->
+					<div class="col s4">
+
+						<div class="row">
+							{% for crop in field.crops %}
+							<div class="col s12 center-align center">
+								<!-- NAME -->
+
+								<a href="{{ url_for('crop_status.show', field_id = field.id) }}">
+									<h5 class="hoverable"><span class="black-text">Field:<br></span>{{ crop._name|capitalize }}</h5>
+								</a>
+								<!-- IMAGE -->
+								<!-- <div class="center"> -->
+									<figure class="image is-128x128 padding margin">
+										<img src="{{ crop.image }}">
+									</figure>
+								<!-- </div> -->
+								{#<img  class="responsive-img" src="{{ crop.image }}">#}
+								<!-- BAR -->
+								<p class="is-size-5">
+									{{ (( (timenow - field.field_cultivation_start_date).days / (crop._dtm + crop._dtg) ) * 100)|round(1, 'floor') }}%
+									 complete
+								</p>
+								<progress class="progress is-danger z-depth-3 progress-height" value="{{ (( (timenow - field.field_cultivation_start_date).days / (crop._dtm + crop._dtg) ) * 100)|round(1, 'floor') }}" max="100">{{ (( (timenow - field.field_cultivation_start_date).days / (crop._dtm + crop._dtg) ) * 100)|round(1, 'floor') }}%</progress>
+							</div>
+							{% endfor %}
+						</div>
+
+					</div>
+					<!-- CROP -->
+
+					<!-- SYSTEM -->
+					<div class="col s7">
+						{% if field.agrimodule is not none: %}
+						<!-- AGRIMODULE SYSTEM -->
+						<div class="row">
+							<!-- 1 Agrimodule OBJ -->
+							<div class="col s12">
+								<div class="row valign-wrapper">
+									<div class="col s2 center-align">
+										<!-- Agrimodule SYSTEM IMAGE -->
+										<a href="{{ url_for('agrimodule_bp.show_agrimodule', agrimodule_id = field.agrimodule.id) }}">
+											<img  class="responsive-img hoverable" src="../static/bulma/agrimodule-icon.png">
+										</a>
+
+									</div>
+									<!-- Agrimodule  -->
+									<div class="col s10">
+										{#<sup>LAT: {{ field.agrimodule.lat }} LON: {{ field.agrimodule.lon }}</sup>#}
+										<!-- Agrimodule SYSTEM NAME -->
+										<p class="is-size-5">{{ field.agrimodule.name }}</p>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<!-- AGRIMODULE SYSTEM -->
+
+						<!-- AGRISENSORS -->
+
+						<div class="row">
+							{% for agrisensor in field.agrimodule.agrisensors %}
+							<!-- 1 Agrisensor OBJ -->
+							<div class=" col s12">
+
+								<div class="row valign-wrapper">
+									<div class="col s2 center-align">
+										<!-- Agrisensor SYSTEM IMAGE -->
+										<a href="{{ url_for('agrimodule_bp.show_agrisensor', agrimodule_id = agrisensor.agrimodule_id, agrisensor_id = agrisensor.id) }}">
+											<img  class="responsive-img hoverable" src="../static/bulma/agrisensor-icon.png">
+										</a>
+									</div>
+									<!-- Agrisensor  -->
+									<div class="col s10">
+										{#<sup>LAT: {{ agrisensor.lat }} LON: {{ agrisensor.lon }}</sup>#}
+										<!-- Agrisensor SYSTEM NAME -->
+										<p class="is-size-5">{{ agrisensor.identifier }}</p>
+									</div>
+								</div>
+
+							</div>
+							{% endfor %}
+						<!-- AGRISENSORS -->
+						</div>
+
+
+						<!-- AGRIPUMPS -->
+
+						<div class="row">
+							{% for agripump in field.agrimodule.agripumps %}
+							<!-- 1 Agripump OBJ -->
+							<div class="col s12">
+
+								<div class="row valign-wrapper">
+									<div class="col s2 center-align">
+										<!-- Agripump SYSTEM IMAGE -->
+										<a href="{{ url_for('agripump_bp.show', agripump_id = agripump.id) }}">
+											<img  class="responsive-img hoverable" src="../static/bulma/agripump-icon.png">
+										</a>
+									</div>
+									<div class="col s10">
+										{#<sup>LAT: {{ agripump.lat }} LON: {{ agripump.lon }}</sup>#}
+										<!-- Agripump SYSTEM NAME -->
+										<p class="is-size-5">{{ agripump.identifier }}</p>
+									</div>
+								</div>
+
+							</div>
+							{% endfor %}
+						</div>
+						<!-- AGRIPUMPS -->
+						{% else %}
+							<h5 class="center-align">No agrimodule system installed!</h5>
+						{% endif %}
+					</div>
+					<!-- SYSTEM -->
+		  		</div>
+		  		<!-- FIELD -->
+		  	</div>
+
+		  	<!-- FIELD 1 -->
+		  	{% endfor %}
+
+
+
+		</div>
+		<!-- FIELDS -->
+
+
+
+
+		<br>
+		<br>
+		<br>
+
+		<!-- <div class="row">
+			<div class="col s4">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light blue lighten-3">
+				        <img class="responsive-img" src="../static/bulma/tomato.png" style="width:150px !important;">
+						<span class="card-title black-text">Plum field</span>
+						<br>
+						<div class="progress">
+							<div class="determinate red lighten-1" style="width: 15%;"></div>
+						</div>
+				    </div>
+					<div class="card-content">
+						<p>500 mts2, 1500 plants, 256kg</p>
+					</div>
+					<div class="card-tabs">
+						<ul class="tabs tabs-fixed-width">
+							<li class="tab"><a class="active" href="#agrimodule1"><img  class="responsive-img" src="../static/bulma/agrimodule-icon.png"></a></li>
+							<li class="tab"><a href="#agrisensor1">Agrisensor</a></li>
+							<li class="tab"><a href="#agripump1">Agripump</a></li>
+						</ul>
+					</div>
+					<div class="card-content grey lighten-4">
+						<div id="agrimodule1">agrimodule1</div>
+						<div id="agrisensor1">agrisensor1</div>
+						<div id="agripump1">agripump1</div>
+					</div>
+				</div>
+			</div>
+			<div class="col s4">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light blue lighten-3">
+				        <img class="responsive-img" src="../static/bulma/tomato.png" style="width:150px !important;">
+						<span class="card-title black-text">Plum field</span>
+						<br>
+						<div class="progress">
+							<div class="determinate red lighten-1" style="width: 15%;"></div>
+						</div>
+				    </div>
+					<div class="card-content">
+						<p>500 mts2, 1500 plants, 256kg</p>
+					</div>
+					<div class="card-tabs">
+						<ul class="tabs tabs-fixed-width">
+							<li class="tab"><a class="active" href="#agrimodule1">Agrimodule</a></li>
+							<li class="tab"><a href="#agrisensor1">Agrisensor</a></li>
+							<li class="tab"><a href="#agripump1">Agripump</a></li>
+						</ul>
+					</div>
+					<div class="card-content grey lighten-4">
+						<div id="agrimodule1">agrimodule1</div>
+						<div id="agrisensor1">agrisensor1</div>
+						<div id="agripump1">agripump1</div>
+					</div>
+				</div>
+			</div>
+			<div class="col s4">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light blue lighten-3">
+				        <img class="responsive-img" src="../static/bulma/tomato.png" style="width:150px !important;">
+						<span class="card-title black-text">Plum field</span>
+						<br>
+						<div class="progress">
+							<div class="determinate red lighten-1" style="width: 15%;"></div>
+						</div>
+				    </div>
+					<div class="card-content">
+						<p>500 mts2, 1500 plants, 256kg</p>
+					</div>
+					<div class="card-tabs">
+						<ul class="tabs tabs-fixed-width">
+							<li class="tab"><a class="active" href="#agrimodule1">Agrimodule</a></li>
+							<li class="tab"><a href="#agrisensor1">Agrisensor</a></li>
+							<li class="tab"><a href="#agripump1">Agripump</a></li>
+						</ul>
+					</div>
+					<div class="card-content grey lighten-4">
+						<div id="agrimodule1">agrimodule1</div>
+						<div id="agrisensor1">agrisensor1</div>
+						<div id="agripump1">agripump1</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+		<!-- Floating Action Button -->
+        <div class="fixed-action-btn horizontal" style="bottom: 50px; right: 19px;">
+          <a class="btn-floating btn-large svgreen gradient-shadow z-depth-2">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="">
+            <li class ="">
+              <a href="#" class="btn-floating svgreen">
+                <img  class="responsive-img" src="../static/bulma/farmer.png">
+              </a>
+            </li>
+            <li>
+              <a href="#" class="btn-floating svgreen">
+                <i class="fas fa-5x fa-user"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="btn-floating svgreen">
+                <i class="fas fa-5x fa-shopping-cart"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="btn-floating svgreen">
+                <i class="fas fa-5x fa-bell"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Floating Action Button -->
+		<!-- Floating Action Button -->
+        <!-- <div class="fixed-action-btn" style="bottom: 50px; right: 89px;">
+          <a class="btn-floating btn-large svyellow gradient-shadow">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="">
+            <li class ="">
+              <a href="css-helpers.html" class="btn-floating svyellow">
+                <img  class="responsive-img" src="../static/bulma/farmer.png">
+              </a>
+            </li>
+            <li>
+              <a href="cards-extended.html" class="btn-floating svyellow">
+                <i class="fas fa-5x fa-user"></i>
+              </a>
+            </li>
+            <li>
+              <a href="app-calendar.html" class="btn-floating svyellow">
+                <i class="fas fa-5x fa-shopping-cart"></i>
+              </a>
+            </li>
+            <li>
+              <a href="app-email.html" class="btn-floating svyellow">
+                <i class="fas fa-5x fa-bell"></i>
+              </a>
+            </li>
+          </ul>
+        </div> -->
+        <!-- Floating Action Button -->
+
+</div>
+
+{% endblock %}
+
+{#
+<p>Farmer links</p>
+<ul>
+	<li><a href="{{ url_for('user_crop_planning') }}" style="color:#16B6A5;">Crop planning</a><br></li>
+	<li><a href="{{ url_for('user_resources') }}" style="color:#16B6A5;">Resources</a><br></li>
+	<li><a href="{{ url_for('user_crop_analyzer') }}" style="color:#16B6A5;">Crop analyzer</a><br></li>
+	<li><a href="{{ url_for('user_health_analyzer') }}" style="color:#16B6A5;">Health analyzer</a><br></li>
+</ul>
+<p>General links</p>
+<ul>
+	<li><a href="{{ url_for('agrimodule_bp.show_agrimodule') }}" style="color:#16B6A5;">Agrimodule</a><br></li>
+	<li><a href="{{ url_for('agripump_bp.show') }}" style="color:#16B6A5;">Agripump</a><br></li>
+	<li><a href="{{ url_for('crop_status.show') }}" style="color:#16B6A5;">Crop status</a><br></li>
+	<li><a href="{{ url_for('user_market') }}" style="color:#16B6A5;">Market</a><br></li>
+	<li><a href="{{ url_for('user_weather') }}" style="color:#16B6A5;">Weather</a><br></li>
+	<li><a href="{{ url_for('user_alerts') }}" style="color:#16B6A5;">Alerts</a><br></li>
+	<li><a href="{{ url_for('users.profile') }}" style="color:#16B6A5;">Profile</a><br></li>
+</ul>
+#}
+{#
+
+#}

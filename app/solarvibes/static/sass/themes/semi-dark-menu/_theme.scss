@@ -1,0 +1,48 @@
+
+// Variables;
+@import "variables";
+
+// Typography
+@import "typography";
+
+.card {	
+	border-radius: 3px;
+}
+.nav-expanded .brand-sidebar{
+ 	background: #9c2e9d !important;
+}
+body.layout-semi-dark {
+	h1 span.logo-text{
+		padding-left: 0px;
+	}
+	#header .header-search-wrapper{
+	    margin: 10px auto 0 80px;
+	}
+	#header .header-search-wrapper.sideNav-lock {
+    	margin: 10px auto 0 260px;
+	}
+	#main{
+		.side-nav{
+			background: linear-gradient(45deg, #00AEFF 50%, #3369E6 100%) !important;
+			.collapsible-body, &.fixed .collapsible-body{
+				background: transparent !important;
+			}
+			.collapsible-header:after{
+				color: #f3f3f3;
+			}
+		}
+		#left-sidebar-nav{
+			.brand-sidebar{
+				background: linear-gradient(45deg, #1691f5 0%, #3369E6 100%) !important;
+	    		box-shadow: none;
+				.logo-wrapper{
+					padding: 22px 10px;
+				}
+			}
+		}
+	}
+}
+
+body.layout-semi-dark #main .side-nav .collapsible-body > ul:not(.collapsible) > li.active, body.layout-semi-dark #main .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active{
+	background: linear-gradient(45deg, #00AEFF 0%, #3369E6 100%) !important;	
+}

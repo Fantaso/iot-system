@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+	Set field
+{% endblock %}
+
+{% block add_crop_active %}
+	active
+{% endblock %}
+
+{# //TODO: datepicker needs to be formated to insert data into db #}
+
+{% block content %}
+<div class = "container">
+	<h3>Welcome set field</h3>
+    <hr>
+	<h4>Create a field inside your farm</h4>
+	<form method="POST" action="{{ url_for('welcome.add_crop') }}">
+		{{ form.csrf_token }}
+		{{ render_field_with_errors(form.field_cultivation_area) }}
+		{{ render_field_with_errors(form.field_cultivation_crop) }}
+		{{ render_field_with_errors(form.field_cultivation_start_date, class='datepicker') }}
+		{{ render_field_with_errors(form.field_cultivation_state) }}
+		{{ render_field_with_errors(form.field_cultivation_type) }}
+		<input type="submit" class="btn btn-primary btn-md" value="Create Field!">
+	</form>
+	<br>
+	<a href="{{ url_for('welcome.add_farm') }}" class="amber darken-1 waves-effect waves-light btn btn-small"><i class="material-icons left">arrow_back</i>Back</a>
+</div>
+{% endblock content %}

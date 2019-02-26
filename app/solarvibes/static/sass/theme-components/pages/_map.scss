@@ -1,0 +1,43 @@
+/*----------------------------------------
+    Contact Page (Map-card)
+------------------------------------------*/
+//@extend-elements
+
+//original selectors
+//.map-card .card .card-content .card-title, .map-card .card .card-reveal .card-title
+%map_extend {
+	font-size: 1.2rem;
+	line-height: 1.6rem;
+	font-weight: 400;
+}
+%map_canvas  {
+	width: 100%;
+	height: 250px;	
+}
+
+/* ---- Map card ----*/
+.map-card {
+	#map-canvas {		
+		@extend %map_canvas;
+	}
+	.card {
+		.card-content .card-title {
+			@extend %map_extend;
+		}
+		.card-reveal .card-title {
+			@extend %map_extend;
+		}
+	}
+	.btn-move-up {
+		top: -40px;
+	}
+}
+/* ---- Map Contact Page ----*/
+#map-canvas {
+	@extend %map_canvas;	
+}
+#contact-page{
+	.btn-move-up {
+		top: -40px;
+	}
+}

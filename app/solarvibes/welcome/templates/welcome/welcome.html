@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	{{ current_user.name }}
+{% endblock %}
+
+{% block index_active %}
+	active
+{% endblock %}
+
+{% block content %}
+	<div id = "fh5co-main" class = "container" style = "margin-top: 5%;">
+		<div style="padding-left: 2%; text-align: left;">
+		    <h1>Welcome</h1>
+		    <hr>
+
+			<h1>Hi, {{ current_user.name }} {{ current_user.last_name }}</h1>
+			<p>Looks like its your first time here!
+			<br>We will guide you through setting up your system in no time.</p>
+
+			{% if set_sys_flag: %}
+				<h4>First thing:</h4>
+				<label>1. Set up you Agrimodule</label><br>
+				<a href="{{ url_for('welcome.add_agrisys') }}" class="hoverable waves-effect waves-light btn">Set up agrimodule</a><br>
+			{% else %}
+				<h4>Second thing:</h4>
+				<label>2. Set up your Farm</label><br>
+				<a href="{{ url_for('welcome.add_farm') }}" class="hoverable waves-effect waves-light btn">Set up farm</a><br>
+			{% endif %}
+
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Agrimodule
+{% endblock %}
+
+{% block links_in_head %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+{% endblock links_in_head %}
+
+{% block css_in_head %}
+{% endblock css_in_head %}
+
+{% block links_body %}
+{% endblock links_body %}
+
+
+{% block content %}
+	<!-- outter box -->
+	<div class="margin-tp box z-depth-2">
+
+		<!-- header -->
+		<div class="row margin">
+			<div class="col s12 m12">
+				<div class="row">
+					<div class="col s8 offset-s2 center">
+
+					</div>
+					<div class="col s1 offset-s1 right right-align">
+						<a href="{{ url_for('main.index') }}">
+							<i class="far fa-2x fa-window-close yellow"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end header -->
+
+
+
+		<div class="row">
+			{% for field in fields: %}
+			<a href="{{ url_for('crop_status.show', field_id = field.id) }}">
+				<div class="col s12 m12 l12 xl6">
+					<!-- inner box -->
+					<div class="row box inner-color margin-tp hoverable">
+						<div class="col s12">
+
+							<!-- main UI title -->
+							<div class="row center ">
+								<div class="col s6">
+									<h5>CROP INFORMATION</h5>
+								</div>
+								<div class="col s3">
+									<h5>RESOURCES STATUS</h5>
+								</div>
+								<div class="col s3">
+									<h5>TIME & YIELD</h5>
+								</div>
+							</div>
+							<!-- end main UI title -->
+
+							<!-- main UI content -->
+							<div class="row center valign-wrapper margin-tp">
+								<!-- crop Information content -->
+								<div class="col s6 margin-tp">
+									<!-- crop data -->
+									<div class="row valign-wrapper">
+										<div class="col s6 box z-depth-3">
+											<div class="col s12 "><h5>{{ field.crops.first()._variety|capitalize }}</h5></div>
+											<br><br>
+											<div class="col s12 blue lighten-2  margin-tp"><img class="responsive-img" src="{{ field.crops.first().image }}"></div>
+										</div>
+										<div class="col s4 offset-s1 left-align">
+											<div class="col s12 teal-text text-lighten-2 "><h6>Crop Data:</h6></div>
+											<div class="col s12">{{ field.crops.first()._name|capitalize }}</div>
+											<div class="col s12">{{ field.field_cultivation_area / 10000 }} m<sup>2</sup></div>
+											<div class="col s12">{{ field.field_num_plants }} plants</div>
+											<!-- TODO: density must be calculated dynamically with space it takes and not from db field -->
+											<div class="col s12">{{ field.crops.first()._density * 10000 }} plants / m<sup>2</sup></div>
+										</div>
+									</div>
+									<!-- end crop data -->
+
+									<!-- time -->
+									<div class="row center margin-tp">
+										<div class="col s12">
+											<div class="col s4">
+												<p>Begin</p>
+											</div>
+											<div class="col s4">
+												<p class="svgreen-text">Today</p>
+											</div>
+											<div class="col s4">
+												<p>End</p>
+											</div>
+
+											<div class="col s12">
+												<progress class="progress is-danger z-depth-3 progress-height" value="{{ (( today - field.field_cultivation_start_date ).days * 100) / (field.crops.first()._dtm + field.crops.first()._dtg) }}" max="100">{{ (( today - field.field_cultivation_start_date ).days * 100) / (field.crops.first()._dtm + field.crops.first()._dtg) }}%</progress>
+											</div>
+
+											<div class="col s4">
+												<p>{{ field.field_cultivation_start_date.strftime('%A, %b %d, %Y') }}</p>
+											</div>
+											<div class="col s4 svgreen-text">
+												<h6>{{ today.strftime('%A, %b %d, %Y') }}</h6>
+											</div>
+											<div class="col s4">
+												<p>{{ field.field_cultivation_finish_date.strftime('%A, %b %d, %Y') }}</p>
+											</div>
+
+										</div>
+
+									</div>
+									<!-- end time -->
+								</div>
+								<!-- end crop Information content -->
+
+
+								<div class="vl z-depth-3"></div>
+
+
+								<!-- crop alerts -->
+								<div class="col s3">
+									<div class="row center-align margin-tp">
+										<div class="col s12 margin-tp"><h5>Water</h5></div>
+										<div class="col s6"><i class="far fa-2x fa-check-circle green-text"></i></div>
+										<div class="col s6"><i class="fas fa-2x fa-tint blue-text text-lighten-2"></i></div>
+									</div>
+
+									<div class="row center-align margin-tp">
+										<div class="col s12 margin-tp"><h5>Radiation</h5></div>
+										<div class="col s6"><i class="far fa-2x fa-check-circle green-text"></i></div>
+										<div class="col s6"><i class="fas fa-2x fa-sun yellow-text text-lighten-2"></i></div>
+									</div>
+
+									<div class="row center-align margin-tp">
+										<div class="col s12 margin-tp"><h5>Fertilizer<span class="new badge red">4</span></h5></div>
+										<div class="col s6"><i class="far fa-2x fa-times-circle red-text"></i></div>
+										<div class="col s6"><i class="fas fa-2x fa-leaf teal-text text-lighten-2"></i></div>
+									</div>
+								</div>
+								<!-- end crop alerts -->
+
+								<div class="vl z-depth-3"></div>
+
+								<!-- time and yield -->
+								<div class="col s3">
+									<div class="col s12 margin-tp">
+										<div class="col s12 "><h5>Cycle time</h5></div>
+										<div class="col s6 left-align">current</div>
+										<div class="col s6 right-align">total</div>
+										<div class="col s12">
+											<progress class="progress is-success z-depth-3 progress-height" value="{{ (( today - field.field_cultivation_start_date ).days * 100) / (field.crops.first()._dtm + field.crops.first()._dtg) }}" max="100">{{ (( today - field.field_cultivation_start_date ).days * 100) / (field.crops.first()._dtm + field.crops.first()._dtg) }}%</progress>
+										</div>
+										<div class="col s5 left-align">
+											{% if ( today - field.field_cultivation_start_date ).days >= 0: %}
+										    	{{ ( today - field.field_cultivation_start_date ).days }}
+										 	{% else %}
+										   		{{ 'Starts in ' + ( today - field.field_cultivation_start_date ).days|abs|string }}
+										 	{% endif %} days
+										</div>
+										<div class="col s7 right-align">{{ field.crops.first()._dtm + field.crops.first()._dtg }} days</div>
+									</div>
+									<div class="col s12 margin-tp">
+										<div class="col s12 "><h5>Yield</h5></div>
+										<div class="col s6 left-align">current</div>
+										<div class="col s6 right-align">total</div>
+										<div class="col s12">
+											<progress class="progress is-success z-depth-3 progress-height" value="{{ (field.field_current_yield * 100) / (field.field_projected_yield) }}" max="100">{{ (field.field_current_yield * 100) / (field.field_projected_yield) }}%</progress>
+										</div>
+										<div class="col s5 left-align">{{ field.field_current_yield / 1000 }} kg</div>
+										<div class="col s7 right-align">{{ field.field_projected_yield / 1000 }} kg</div>
+									</div>
+
+								</div>
+								<!-- end time and yield -->
+
+							</div>
+							<!-- end main UI content -->
+
+						</div>
+					</div>
+					<!-- end inner box -->
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+
+
+
+
+	</div>
+	<!-- end outter box -->
+{% endblock %}

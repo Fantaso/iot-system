@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+	Add Pump
+{% endblock %}
+
+{% block content %}
+<div class = "container">
+
+	<h1>Add Pump</h1>
+    <form method="POST" action="{{ url_for('pump_settings.add_pump') }}">
+		{{ form.csrf_token }}
+		{{ render_field_with_errors(form.pump_name, class="form-control") }}
+		{{ render_field_with_errors(form.pump_brand, class="form-control") }}
+		{{ render_field_with_errors(form.pump_flow_rate, class="form-control") }}
+		{{ render_field_with_errors(form.pump_head, class="form-control") }}
+		{{ render_field_with_errors(form.pump_watts, class="form-control") }}
+		<input type="submit" class="waves-effect waves-light btn" value="Add pump">
+	</form>
+
+	<br><br>
+  	<a href= "{{ url_for('settings.index') }}" class="waves-effect waves-light btn"><i class="fas fa-angle-left left"></i>Cancel</a>
+	<br><br>
+
+  </div>
+{% endblock %}

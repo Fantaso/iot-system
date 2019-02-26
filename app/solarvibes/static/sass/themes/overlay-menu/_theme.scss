@@ -1,0 +1,12 @@
+
+// Variables;
+@import "variables";
+
+// Typography
+@import "typography";
+
+
+.side-nav .collapsible-body > ul:not(.collapsible) > li.active a,
+.side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active a{
+	background:$primary-color;
+}

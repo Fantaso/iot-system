@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+
+// Mixins
+@import "components/mixins";
+@import "components/color";
+
+// Variables;
+// @import "components/variables";
+
+// Theme;
+/*
+  Tip: You can change the theme name here to generate new default style, you can also create your own !
+*/
+@import "theme";
+
+// Variables;
+@import "theme-components/variables";
+
+// Components
+@import "theme-components/global";
+@import "theme-components/helper";
+@import "theme-components/typography";
+@import "theme-components/color";
+@import "theme-components/avatar";
+@import "theme-components/icons";
+@import "theme-components/pulse";
+@import "theme-components/preloader";
+@import "theme-components/header";
+
+@import "theme-components/sidebar";
+@import "theme-components/slideout";
+
+@import "theme-components/breadcrumb";
+@import "theme-components/forms";
+@import "theme-components/table";
+@import "theme-components/card";
+@import "theme-components/chart";
+@import "theme-components/calendar";
+
+// Miscellaneous
+@import "theme-components/miscellaneous";
+
+// Pages
+@import "theme-components/pages/icon";
+@import "theme-components/pages/error";
+@import "theme-components/pages/login";
+@import "theme-components/pages/email";
+@import "theme-components/pages/blog";
+@import "theme-components/pages/invoice";
+@import "theme-components/pages/product";
+@import "theme-components/pages/gallary";
+@import "theme-components/pages/map";
+@import "theme-components/pages/pricing";
+@import "theme-components/pages/profile";
+@import "theme-components/pages/dashboard";
+
+// Footer
+@import "theme-components/footer";

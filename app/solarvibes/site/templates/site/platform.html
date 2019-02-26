@@ -1,0 +1,232 @@
+{% extends 'site/base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+	Platform
+{% endblock %}
+
+{% block web_platform_active %}
+fh5co-active
+{% endblock %}
+
+{% block content %}
+<div id="fh5co-main">
+
+<!-- BANNER -->
+
+	<section class="cd-slider">
+			  <ul class="banner-text-color">
+			    <li>
+			      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/cropUI.png') }}')">
+			        <blockquote>
+			          <span>Pretty sleack GUI design</span>
+			          <p>ALL IN ONE GUI</p>
+			        </blockquote>
+			      </div>
+			    </li>
+			    <li data-color="#000000">
+			      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/mainUI.png') }}')">
+			        <blockquote>
+			          <span>As if it were a real environment.</span>
+			          <p>INTUITIVE</p>
+			        </blockquote>
+			      </div>
+			    </li>
+			    <li data-color="#000000">
+			      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/pumpUI.png') }}')">
+			        <blockquote>
+			          <span>Understand to interact it in no time.</span>
+			          <p>EASY TO USE</p>
+			        </blockquote>
+			      </div>
+			    </li>
+			  </ul>
+			  <nav>
+			    <div><a class="prev" href="#"></a></div>
+			    <div><a class="next" href="#"></a></div>
+			  </nav>
+	</section>
+<!-- END BANNER -->
+
+
+<!-- WHAT IT DOES -->
+	<div class="fh5co-narrow-content fh5co-border-bottom">
+		<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">What Can I Do <span>With The App</span></h2>
+		<div class="row">
+			<div class="col-md-offset-3 col-md-6">
+				<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+					<div class="fh5co-icon">
+						<i class="icon-search2"></i>
+					</div>
+					<div class="fh5co-text">
+						<h3>ASSESS</h3>
+						<p>DISCOVER YOUR FARM'S POTENTIAL<br> See what grows best, profitable and eco-friendly in your farm. </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+					<div class="fh5co-icon">
+						<i class="icon-strategy"></i>
+					</div>
+
+					<div class="fh5co-text">
+						<h3>PLAN</h3>
+						<p>PLAN ENTIRE CULTIVATION PROCESS<br> From seed till harvest and bale.  </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+					<div class="fh5co-icon">
+						<i class="icon-telescope"></i>
+					</div>
+					<div class="fh5co-text">
+						<h3>MONITOR</h3>
+						<p>RECEIVE SMART ALERTS<br> Check needs of your farm's and take action. </p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+					<div class="fh5co-icon">
+						<i class="icon-circle-compass"></i>
+					</div>
+					<div class="fh5co-text">
+						<h3>MANAGE</h3>
+						<p>GET VALUABLE REPORTS<br> Check soil's health, crop current growth, projected profits. </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+					<div class="fh5co-icon">
+						<i class="icon-tools-2"></i>
+					</div>
+					<div class="fh5co-text">
+						<h3>OPERATE</h3>
+						<p>CONTROL YOUR PUMP AT EASE<br> Automated or manually pump control. </p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+<!-- END WHAT IT DOES -->
+
+
+
+<!-- FEATURES -->
+	<div class="fh5co-cards">
+		<div class="fh5co-narrow-content">
+			<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Features</h2>
+
+			<div class="fh5co-flex-wrap">
+				<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
+					<img src="{{ url_for('site.static', filename='images/app_crop.png') }}" alt="" class="img-responsive"><br>
+					<h5>Crop Analyzer</h5>
+					<p>Discover the soil's true potential. Our AI allows you to analyze what would grow best in your soil, in the most efficient, sustainable and profitable for your site-specific farm..</p>
+
+					<!-- <p><a href="#" class="btn btn-md btn-primary">Learn More</a></p> -->
+				</div>
+				<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
+					<img src="{{ url_for('site.static', filename='images/app_health.png') }}" alt="" class="img-responsive"><br>
+					<h5>Health Analyzer</h5>
+					<p>Our health analyzer feature allows you to check what is wrong with your plants. Take pictures of your plant or leaf and upload it to get a report with results and actions to take. Detect diseases,take action and prevent spread-outs</p>
+					<!-- <img src="images/katana_logo.png" alt="" class="img-responsive"> -->
+					<!-- <p><a href="#" class="btn btn-md btn-primary">Learn More</a></p> -->
+				</div>
+				<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
+					<img src="{{ url_for('site.static', filename='images/app_remote.png') }}" alt="" class="img-responsive"><br>
+					<h5>Remote Operations</h5>
+					<p>Control your pump remotely at ease. Check water usage. Let our Crop Intelligence automatically irrigate your field or you can control it manually at anytime you want.</p>
+					<!-- <img src="images/katana_logo.png" alt="" class="img-responsive"> -->
+					<!-- <p><a href="#" class="btn btn-md btn-primary">Learn More</a></p> -->
+				</div>
+			<!-- 	<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
+					<img src="images/katana_logo.png" alt="" class="img-responsive"><br>
+					<h5>Precision Farming Crop Planning</h5>
+					<p>Using inbuilt Smart crop intelligence algorithm and sensor data provide accurate information on farm´s water and agro-chemical needs.</p>
+				</div> -->
+
+				<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
+					<img src="{{ url_for('site.static', filename='images/app_planning.png') }}" alt="" class="img-responsive"><br>
+					<h5>Crop Planning</h5>
+					<p>Plan your entire cultivation process. Our AI helps you grow if you don't know how to. It guides and tells you step by step throughtout the whole cultivation process of what you need to do.</p>
+					<!-- <img src="images/katana_logo.png" alt="" class="img-responsive"> -->
+					<!-- <p><a href="#" class="btn btn-md btn-primary">Learn More</a></p> -->
+				</div>
+				<div class="fh5co-card animate-box" data-animate-effect="fadeInLeft">
+					<img src="{{ url_for('site.static', filename='images/app_comm.png') }}" alt="" class="img-responsive"><br>
+					<h5>Fair Market Community</h5>
+					<p>Access farmer communities. Find affordable farming products and sell your produce in the fair market.</p>
+					<!-- <img src="images/katana_logo.png" alt="" class="img-responsive"> -->
+					<!-- <p><a href="#" class="btn btn-md btn-primary">Learn More</a></p> -->
+				</div>
+			</div>
+
+		</div>
+	</div>
+<!-- END FEATURES -->
+
+<!-- KATANA -->
+	<!-- <a href="https://katanareward.opencircleproject.com/campaign/170/join-hands-with-solarvibes-to-empower-small-farmers" target="_blank"> -->
+		<div class="fh5co-counters" style="background-image: url('{{ url_for('site.static', filename='images/katana.png') }}'); border: solid white; border-left: 15px; border-right: 15px;" data-stellar-background-ratio="0.7" id="counter-animate">
+			<div class="fh5co-narrow-content animate-box">
+				<div class="row" >
+					<div class="col-md-offset-8 col-md-4 text-center animate-box">
+						<h2 class="" style="color: white;">Pre-Order NOW!</h2>
+						<span><p><a href="https://katanareward.opencircleproject.com/campaign/170/join-hands-with-solarvibes-to-empower-small-farmers" target="_blank" class="btn btn-primary btn-outline">Pre-order</a></p></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- </a> -->
+<!-- END KATANA -->
+
+<!-- COMMMUNITY -->
+		<!-- Access to farmers community
+	Support Buy directly
+	Check whats being growth on your are
+-->
+
+<!-- END COMMUNITY -->
+
+<!-- SPAN -->
+	<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft">
+
+		<div class="row">
+			<div class="col-md-4">
+				<h1>Tell Us What You Like About The Platform</h1>
+			</div>
+		</div>
+		<form method="POST" action="{{ url_for('site.platform') }}">
+			{{ form.csrf_token }}
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								{{ render_field_with_errors(form.email, class="form-control") }}
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								{{ render_field_with_errors(form.msg, class="form-control") }}
+							</div>
+							<div class="form-group">
+								<input type="submit" class="btn btn-primary btn-md" value="Tell!">
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+<!-- END SPAN -->
+</div>
+
+{% endblock %}

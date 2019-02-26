@@ -1,0 +1,18 @@
+
+// Variables;
+@import "variables";
+
+// Typography
+@import "typography";
+
+.card {	
+	border-radius: 3px;
+}
+.nav-expanded .brand-sidebar{
+ 	background: #9c2e9d !important;
+}
+body{
+    #header .header-search-wrapper{
+        margin: 10px auto 0 80px;
+    }
+}

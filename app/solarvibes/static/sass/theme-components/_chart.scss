@@ -1,0 +1,187 @@
+
+/*----------------------------------------
+    Charts
+------------------------------------------*/
+
+#card-stats{
+	padding-top: 12px;
+}
+#chart-dashboard {		
+	.card{
+		overflow:hidden;
+	}
+	.card .card-content {
+		padding: 10px 14px;
+	}	
+}
+
+#line-updated {
+}
+.sample-chart-wrapper {
+	width: 100%;
+}
+.chart-title {
+	font-size: 1.6rem;
+	font-weight: 300;
+}
+/* Revenue Chart */
+.chart-revenue {
+	float: right;
+	text-align: center;
+	padding: 8px;	
+	border-radius: 3px;
+	.chart-revenue-total {
+		font-size: 0.9rem;
+		margin: 0;
+	}
+	.chart-revenue-per {
+		font-size: 0.8rem;
+		margin: 0;
+		i {
+			position: relative;
+			top: 5px;
+		}
+	}
+}
+.chart-revenue-switch {
+	padding-top: 28px;
+	padding-right: 10px;
+	color: $white;
+	text-align: right;
+}
+/* doughnut chart */
+.doughnut-chart-status {
+	position: relative;
+	top: -75px;
+	left: 0;
+	font-size: 16px;
+	font-weight: 500;
+	height: 0;
+	text-align: center;
+	p {
+		margin-top: -5px;
+	}
+}
+.doughnut-chart-legend li {
+	padding: 2px 0;
+	font-size: 0.9rem;
+	&:before {
+		content: "";
+		width: 8px;
+		height: 8px;
+		display: block;
+		float: left;
+		margin-top: 6px;
+		margin-right: 4px;
+	}
+}
+a.button-collapse.top-nav {
+	position: absolute;
+	left: 7.5%;
+	top: 0;
+	float: none;
+	margin-left: 1.5rem;
+	color: $white;
+	font-size: 32px;
+	z-index: 2;
+}
+/* trending bar chart */
+.trending-bar-chart-wrapper {
+	width: 100%;
+}
+.btn-move-up {
+	position: relative;
+	top: -28px;
+	right: -18px;
+	margin-right: 10px !important;
+}
+
+/* Flot Chart*/
+
+.flotchart-placeholder {
+	width: 100%;
+	height: 300px;
+	font-size: 13px;
+	line-height: 1.2em;
+}
+#flotchart {
+	table {
+		position: absolute;
+		top: 13px;
+		right: 17px;
+		font-size: smaller;
+		color: #545454;
+		width: 100px;
+	}
+	td {
+		padding: 5px;
+	}
+}
+th {
+	padding: 5px;
+}
+/* xCharts */
+
+.xchart-placeholder {
+	width: 90%;
+	height: 300px;
+}
+/*Sparkline*/
+.jqstooltip {
+  border: none !important;
+  box-sizing: content-box;
+}
+.tooltip-class {
+	overflow: hidden;
+	color: $white;
+	height: 20px;
+	width: 30px;
+}
+
+#ct2-chart .ct-series.ct-series-a {
+	.ct-area {
+		fill: #00bcd4;
+	}
+	.ct-point {
+		stroke: #00bcd4;
+	}
+	.ct-line {
+		stroke: #54e2f4;
+	}
+}
+
+/*  Widget */
+
+.socialbox {
+	.logo {
+		color: $white;
+		font-size: 28px;
+		left: 20px;
+		bottom: 20px;
+		position: absolute;
+	}
+	.info {
+		color: $white;
+		margin: 0;
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+		font-size: 15px;
+		padding: 0;
+	}
+}
+
+
+@media only screen and(min-device-width : 320px) and(max-device-width : 480px) {
+	.doughnut-chart-status {
+		display: none;
+	}
+}
+@media only screen and(min-device-width : 768px) and(max-device-width : 1024px) {
+	.doughnut-chart-status {
+		display: none;
+	}
+	#card-stats .card-stats-compare {
+		font-size: 0.8rem;
+	}
+}

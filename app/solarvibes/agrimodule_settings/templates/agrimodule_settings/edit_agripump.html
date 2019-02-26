@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+	Edit agripump
+{% endblock %}
+
+{% block content %}
+<div class = "container">
+    <h1>Edit Agripump</h1>
+
+	<ul class="collapsible">
+		<li>
+			<div class="collapsible-header"><i class="fas fa-shoe-prints"></i>Instructions</div>
+			<div class="collapsible-body"><span>
+				<p>Which pump you want to add to agripump {{ agripump_to_edit.identifier }}</p>
+			</span></div>
+		</li>
+	</ul>
+
+	<form method="POST" action="{{ url_for('agrimodule_settings.edit_agripump', agripump_id = agripump_to_edit.id) }}">
+		{{ form.csrf_token }}
+		{{ render_field_with_errors(form.pump_choices) }}
+		<input type="submit" class="waves-effect waves-light btn" value="Edit agripump">
+	</form>
+
+	<br><br>
+  	<a href= "{{ url_for('settings.index') }}" class="waves-effect waves-light btn"><i class="fas fa-angle-left left"></i>Cancel</a>
+  	<br><br>
+
+</div>
+{% endblock %}

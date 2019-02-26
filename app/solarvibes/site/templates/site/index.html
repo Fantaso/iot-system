@@ -1,0 +1,262 @@
+{% extends 'site/base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+	AgTech
+{% endblock %}
+
+{% block web_index_active %}
+fh5co-active
+{% endblock %}
+
+{% block content %}
+<div id="fh5co-main">
+
+	<section class="cd-slider">
+	  <ul class="banner-text-color">
+	    <li>
+	      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/ag_agrimodule2.png') }}')">
+	        <blockquote>
+
+	          <span>REVOLUTIONIZING THE WAY AGRICULTURE IS DONE</span>
+	          <p>Adopting Farmers</p>
+	          <img src="{{ url_for('site.static', filename='images/katana_logo.png') }}" alt="" class="img-responsive"><br>
+	          <span>Pre-order now on Katana crowdfund platform</span>
+	          <a href="https://katanareward.opencircleproject.com/campaign/170/join-hands-with-solarvibes-to-empower-small-farmers" target="_blank" class="btn btn-primary btn-outline">Pre-order</a>
+	        </blockquote>
+	      </div>
+	    </li>
+	    <li data-color="#000000">
+	      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/ba_assistant.png') }}')">
+	        <blockquote>
+	          <span>IS THE BEST ASSISTANT A FARMER CAN HAVE</span>
+	          <p>Agrimodule</p>
+	          <a href="{{ url_for('site.agrimodule') }}" class="btn btn-primary btn-outline">Read more</a>
+	        </blockquote>
+	      </div>
+	    </li>
+	    <li data-color="#000000">
+	      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/ba_sustainable.png') }}')">
+	        <blockquote>
+	          <span>AGRIMODULE'S AI HELPS FARMERS MAKE SUSTAINABLE AND PROFITABLE DECISIONS AT THEIR FARMS</span>
+	          <p>Crop Intelligence</p>
+	          <a href="{{ url_for('site.agrimodule') }}" class="btn btn-primary btn-outline">Read more</a>
+	        </blockquote>
+	      </div>
+	    </li>
+	    <li data-color="#000000">
+	      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/ba_fingertip.png') }}')">
+	        <blockquote>
+	          <span>AGRIMODULE'S APP HELPS FARMERS ASSESS, PLAN, MONITOR, MANAGE AND OPERATE THEIR FARM AT THE TOUCH OF THEIR FINGERTIPS</span>
+	          <p>One Solution All Together</p>
+	          <a href="{{ url_for('site.platform') }}" class="btn btn-primary btn-outline">Read more</a>
+	        </blockquote>
+	      </div>
+	    </li>
+	  </ul>
+	  <nav>
+	    <div><a class="prev" href="#"></a></div>
+	    <div><a class="next" href="#"></a></div>
+	  </nav>
+	</section>
+
+	<!-- <div class="fh5co-counters" style="background-image: url(images/katana.png); border: solid white; border-left: 15px; border-right: 15px;" data-stellar-background-ratio="0.7" id="counter-animate">
+		<iframe width="260" height="650" src="https://katanareward.opencircleproject.com/embed/card-view/170" frameborder="0" scrolling="no"> </iframe>
+	</div> -->
+<!-- KATANA -->
+	<div class="fh5co-counters" style="background-image: url('{{ url_for('site.static', filename='images/katana.png') }}'); border: solid white; border-left: 15px; border-right: 15px;" data-stellar-background-ratio="0.7" id="counter-animate">
+		<div class="fh5co-narrow-content animate-box">
+			<div class="row" >
+				<div class="col-md-4 ">
+					<iframe width="260" height="580" src="https://katanareward.opencircleproject.com/embed/card-view/170" frameborder="0" scrolling="no"></iframe>
+				</div>
+				<div class="col-md-offset-4 col-md-4 text-center animate-box">
+					<h2 class="" style="color: white;">Watch Our Campaing in Katana platform...</h2>
+					<span><p><a href="https://katanareward.opencircleproject.com/campaign/170/join-hands-with-solarvibes-to-empower-small-farmers" target="_blank" class="btn btn-primary btn-outline">Watch</a></p></span>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- END KATANA -->
+
+<!-- ASS -->
+	<div class="fh5co-counters" style="background-image: url('{{ url_for('site.static', filename='images/HOME_ASS_bg.png') }}');" data-stellar-background-ratio="0.5" id="counter-animate">
+		<div class="fh5co-narrow-content animate-box">
+			<h2 class="fh5co-heading" style="color: white;">Agrimodule Smart System</span></h2>
+			<div class="row" >
+				<div class="col-md-4 text-center">
+					<span><img src="{{ url_for('site.static', filename='images/ASS_agrimodule.png') }}"></span><br><br>
+					<span class="fh5co-counter-label">Stay connected to your crops</span>
+					<span style="color: white;"><p>Agrimodule monitors continously your field’s weather and soil conditions 24/7.</p></span>
+				</div>
+				<div class="col-md-4 text-center">
+					<span><img src="{{ url_for('site.static', filename='images/ASS_mobile.png') }}"></span><br><br>
+					<span class="fh5co-counter-label">Receive real-time data at your fingertips</span>
+					<span style="color: white;"><p>Agrimodule connects through SIM card or Wi-Fi network to give you valuable data and reports through Solarvibes app.</p></span>
+				</div>
+				<div class="col-md-4 text-center">
+					<span><img src="{{ url_for('site.static', filename='images/ASS_pump.png') }}"></span><br><br>
+					<span class="fh5co-counter-label">Control your farm and pump remotely</span>
+					<span style="color: white;"><p>Agripump gives automatically your crops exactly the necessary water they need.</p></span>
+
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- end ASS -->
+
+
+<!-- Main -->
+<!-- agrimodule -->
+	<div class="fh5co-narrow-content">
+		<div class="row">
+			<div class="col-md-5">
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><span>Agrimodule</span></h2>
+				<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">Keep track of what is hapenning in your farm.</p>
+				<p class="animate-box" data-animate-effect="fadeInLeft"> Weather conditions are continuosly changing, knowing exactly how that affects to your crops determines a healthy growth. Forget about under or overirrigating your crops. Agrimodule keeps track of your weather conditions to determine exactly how much water your crops needs at any time.</p>
+			</div>
+			<div class="col-md-6 col-md-push-1 animate-box" data-animate-effect="fadeInLeft">
+				<img src="site.static/images/asset3.png" alt="asset3" class="img-responsive">
+			</div>
+		</div>
+	</div>
+
+	<div class="fh5co-narrow-content">
+		<div class="row">
+			<div class="col-md-5">
+				<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">Know what is hapenning in your soil.</p>
+				<p class="animate-box" data-animate-effect="fadeInLeft"> Most of the times crop problems tend to be within the soil. Forget about over using fertilizers. Agrimodule keeps tracks of what is going on beneath your soil and let you know exactly when and how much fertilizer your crops required.</p>
+				<p><a href="https://katanareward.opencircleproject.com/campaign/170/join-hands-with-solarvibes-to-empower-small-farmers" target="_blank" class="btn btn-primary btn-outline">Pre-order</a></p>
+			</div>
+			<div class="col-md-6 col-md-push-1 animate-box" data-animate-effect="fadeInLeft">
+				<img src="{{ url_for('site.static', filename='images/asset2.png') }}" alt="asset2" class="img-responsive">
+			</div>
+		</div>
+	</div>
+
+<!-- end agrimodule -->
+
+<!-- agrimodule AI -->
+	<div class="fh5co-narrow-content">
+		<div class="row">
+			<div class="col-md-5">
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><span>Agrimodule's AI</span></h2>
+				<p class="animate-box" data-animate-effect="fadeInLeft"> AgriModule's integrated AI helps farmers plan, manage, operate and apply lean farming and best practices in agriculture. AgriModule's help range from crop timing plantation to post-harvest and bale operation and planning, from crop planting rotation to soil long term fertility planning, from preventive pest attack and disease outbreaks to soil infections and more.</p>
+			</div>
+			<div class="col-md-6 col-md-push-1 animate-box" data-animate-effect="fadeInLeft">
+				<img src="{{ url_for('site.static', filename='images/main_ag1.png') }}" alt="solarvibes" class="img-responsive">
+			</div>
+		</div>
+	</div>
+	<div class="fh5co-narrow-content">
+		<div class="row">
+			<div class="col-md-5">
+				<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft"> Run a sustainable farm </p>
+				<p class="animate-box" data-animate-effect="fadeInLeft"> It makes precise calculations based on climate data, soil conditions, historical conditions and understanding long-term soil fertility and yield on a given piece of land versus as it's subject to multiple treatments over many years.</p>
+			</div>
+			<div class="col-md-6 col-md-push-1 animate-box" data-animate-effect="fadeInLeft">
+				<img src="{{ url_for('site.static', filename='images/main_runsustainable.png') }}" alt="solarvibes" class="img-responsive">
+			</div>
+		</div>
+
+	</div>
+<!-- end agrimodule AI	 -->
+
+
+<!-- agrimodule app			 -->
+	<div class="fh5co-narrow-content">
+		<div class="row">
+			<div class="col-md-5">
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft"><span>Agrimodule's App</span></h2>
+				<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft"> Analyze</p>
+				<p class="animate-box" data-animate-effect="fadeInLeft"> Our Crop Analyzer allows you to know the full potencial of your soil. It analyzes weather, soil conditions and crop market price to determine what grows best and more profitable for you. Considering of course, your soil's long term health.</p>
+			</div>
+			<div class="col-md-6 col-md-push-1 animate-box" data-animate-effect="fadeInLeft">
+				<img src="{{ url_for('site.static', filename='images/_CropAnalyzer.png') }}" alt="solarvibes" class="img-responsive">
+			</div>
+		</div>
+	</div>
+	<div class="fh5co-narrow-content">
+		<div class="row">
+			<div class="col-md-5">
+				<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">Prevent</p>
+				<p class="animate-box" data-animate-effect="fadeInLeft"> Our Health Analyzer feature allows you to check online what is wrong with your plants. Take pictures of your plant or leaf and upload it to get a report with results and actions to take.</p>
+			</div>
+			<div class="col-md-6 col-md-push-1 animate-box" data-animate-effect="fadeInLeft">
+				<img src="{{ url_for('site.static', filename='images/_HealthAnalyzer.png') }}" alt="solarvibes" class="img-responsive">
+			</div>
+		</div>
+
+	</div>
+
+	<div class="fh5co-narrow-content">
+		<div class="row">
+			<div class="col-md-5">
+				<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">Learn</p>
+				<p class="animate-box" data-animate-effect="fadeInLeft"> Our Crop Planning allows to grow any type of crop within our database. It guides and tells you step by step throughtout the whole cultivation process of what you need to do.</p>
+				<p><a href="{{ url_for('site.platform') }}" class="btn btn-primary btn-outline">Read more</a></p>
+			</div>
+			<div class="col-md-6 col-md-push-1 animate-box" data-animate-effect="fadeInLeft">
+				<img src="{{ url_for('site.static', filename='images/_CropPlanning.png') }}" alt="solarvibes" class="img-responsive">
+			</div>
+		</div>
+	</div>
+<!-- endagrimodule app -->
+
+
+	<div class="fh5co-counters" style="background-image: url('{{ url_for('site.static', filename='images/hero1.png') }}');" data-stellar-background-ratio="0.3" id="counter-animate">
+		<div class="fh5co-narrow-content animate-box">
+			<div class="row" >
+				<div class="col-md-4 text-center animate-box">
+					<br><br><br><br><br><br><br><br>
+					<br><br><br><br><br><br><br><br><br><br>
+				</div>
+				<div class="col-md-4 text-center animate-box">
+
+				</div>
+				<div class="col-md-4 text-center animate-box">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft">
+
+		<div class="row">
+			<div class="col-md-4">
+				<h1>Join Our Community</h1>
+				<p>We promise we won't float your e-mail box with unimportant news</p>
+			</div>
+		</div>
+
+
+		<form method="POST" action="{{ url_for('site.index') }}">
+			{{ form.csrf_token }}
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								{{ render_field_with_errors(form.email, class="form-control") }}
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="submit" class="btn btn-primary btn-md" value="Join!">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+
+	</div>
+</div>
+
+{% endblock %}

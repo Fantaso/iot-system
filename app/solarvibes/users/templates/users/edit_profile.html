@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+Edit profile
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h4>Farmer Information</h4>
+    <!-- FIRST FORM -->
+    <form method="POST" action="{{ url_for('users.edit_profile') }}" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div>
+            <h5>{{ form.name.data }} {{ form.last_name.data }}</h5>
+        </div>
+        <!-- Image -->
+        <div class="row">
+            <div class="col s12">
+                <!-- User Image -->
+                {% if current_user.image == None %}
+                <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="Solarvibes logo" width="100px" height="auto">
+                {% else %}
+                <img src="{{ current_user.image }}"  alt="Profile Picture" class="img-responsive" width="100px" height="100">
+                {% endif %}
+            </div>
+        </div>
+        <br>
+
+
+
+        <div class="row">
+            <div class="col s12 m6">
+                {{ render_field_with_errors(form.username) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                {{ render_field_with_errors(form.name) }}
+            </div>
+            <div class="col s6">
+                {{ render_field_with_errors(form.last_name) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                {{ render_field_with_errors(form.email) }}
+            </div>
+            <div class="col s6">
+                {{ render_field_with_errors(form.mobile) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                {{ render_field_with_errors(form.email_rec) }}
+            </div>
+            <div class="col s6">
+                {{ render_field_with_errors(form.birthday, class='datepicker') }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                {{ render_field_with_errors(form.address) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s4">
+                {{ render_field_with_errors(form.city) }}
+            </div>
+            <div class="col s2">
+                {{ render_field_with_errors(form.zipcode) }}
+            </div>
+            <div class="col s2">
+                {{ render_field_with_errors(form.state) }}
+            </div>
+            <div class="col s4">
+                {{ render_field_with_errors(form.country) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                {{ form.image }}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col s6">
+                <input type="submit" class="btn waves-effect waves-light" value="Save">
+            </div>
+            <div class="col s6">
+                <a href="{{ url_for('users.profile') }}" class="btn waves-effect waves-light">Cancel</a>
+            </div>
+        </div>
+    </form>
+
+    <br>
+    <br>
+
+    {#
+    {% if current_user.is_authenticated: %}
+    <div class="collection black-text">
+        <a href="{{ url_for('users.profile') }}" class="collection-item grey-text">Home
+            <div class="secondary-content"><i class="material-icons svgreen-text">home</i></div>
+        </a>
+    </div>
+    {% endif %}
+    #}
+
+</div>
+{% endblock %}

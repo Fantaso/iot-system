@@ -1,0 +1,109 @@
+/*================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 4.0
+	Author: PIXINVENT
+	Author URL: https://themeforest.net/user/pixinvent/portfolio
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+.gradient-45deg-svgreen-svyellow {
+  background: #16b6a5;
+  background: -webkit-linear-gradient(45deg, #16b6a5 0%, #cf9b1e 100%);
+  background: linear-gradient(45deg, #16b6a5 0%, #cf9b1e 100%);
+}
+
+.gradient-45deg-svgreen-svyellow.gradient-shadow {
+  box-shadow: 0 6px 20px 0 rgba(94, 92, 92, 0.5);
+}
+.gradient-45deg-svyellow-svgreen {
+  background: #cf9b1e;
+  background: -webkit-linear-gradient(45deg, #cf9b1e 0%, #16b6a5 100%);
+  background: linear-gradient(45deg, #cf9b1e 0%, #16b6a5 100%);
+}
+
+.gradient-45deg-svyellow-svgreen.gradient-shadow {
+  box-shadow: 0 6px 20px 0 rgba(94, 92, 92, 0.5);
+}
+.nav-expanded .brand-sidebar {
+  /*background: #16B6A5 !important;*/
+  background: transparent !important;
+}
+
+.svgreen-text{
+	color: #16b6a5 !important;
+}
+
+.svyellow-text{
+	color: #cf9b1e !important;
+}
+
+.svgrey-text{
+	color: #5E5C5C !important;
+}
+.svgreen{
+	background-color: #16b6a5;
+}
+
+.svyellow{
+	background-color: #cf9b1e;
+}
+
+.svgrey{
+	background-color: #5E5C5C;
+}
+
+/*////////////////////////////////////*/
+/* flip*/
+/*///////////////////////////////////*/
+.flip_90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.flip_180 {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.flip_270 {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.progress-height{height: 12px !important;}
+.outter-color{background-color: rgba(255, 255, 0, 0.3) !important;}
+.inner-color{background-color: rgba(255, 255, 0, 0.5) !important;}
+.bg_y{background-color: yellow;}
+.bg_b{background-color: blue;}
+.bg_gr{background-color: gray;}
+.bg_r{background-color: red;}
+.bg_g{background-color: green;}
+.bg_dgr{background-color: darkgray;}
+.bg_lgr{background-color: lightgray;}
+.centrado{text-align: center;}
+.padding{padding: 10px !important;}
+.margin{margin: 10px !important;}
+.margin-tp{margin: 10px 0 10px 0 !important;}
+.padding-tp{padding: 10px 0 10px 0 !important;}
+.vl {border-left: 2px solid  #16b6a5; height: 400px;}
+/*////////////////////////////////////*/
+/* settings*/
+/*///////////////////////////////////*/
+
+/* table swipable*/
+.carousel .carousel-item{
+  width:100%;
+  height: 3500px !important;
+  /*height: auto !important;*/
+}
+/*table no padding*/
+td, tr {padding: 1px;}

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Solarvibes | {% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+	<!-- # NOT BULMA -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	<style type="text/css">
+		
+		.bg_y{background-color: yellow;}
+		.bg_b{background-color: blue;}
+		.bg_gr{background-color: gray;}
+		.bg_r{background-color: red;}
+		.bg_g{background-color: green;}
+		.bg_dgr{background-color: darkgray;}
+		.bg_lgr{background-color: lightgray;}
+		.centrado{text-align: center;}
+
+	</style>
+	<script type="text/javascript">
+        document.getElementById("nav-toggle").addEventListener ("click", toggleNav);
+        function toggleNav() {
+                var nav = document.getElementById("nav-menu");
+                var className = nav.getAttribute("class");
+                if(className == "nav-right nav-menu") {
+                    nav.className = "nav-right nav-menu is-active";
+                } else {
+                    nav.className = "nav-right nav-menu";
+                }
+        }
+    </script>
+</head>
+<body>
+	
+
+
+
+
+	<div class="container">
+		<section class="section">
+
+			<div class="tabs is-centered is-boxed">
+				<ul>
+					<li class="is-active">
+						<a>
+							<!-- <figure class="image is-24x24">
+								<img src="../static/bulma/agripump-icon.png">
+							</figure> -->
+							
+							<span>West</span>
+						</a>
+					</li>
+					<li>
+						<a>
+							<!-- <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span> -->
+							<span>East</span>
+						</a>
+					</li>
+					<li>
+						<a>
+							<!-- <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span> -->
+							<span>North</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<br>
+			<br>
+
+
+			<div class="columns is-centered is-vcentered">
+				<div class="column is-4 has-text-centered">
+
+					<div class="columns is-centered is-vcentered">
+						<div class="column is-12 has-text-centered">
+							<p class="is-size-2">West Pump</p>
+						</div>
+					</div>
+					<hr>
+					
+					<div class="columns is-centered is-vcentered has-text-centered">
+						<div class="column is-6">
+							<h3 class="is-size-5">Brand</h3>
+							<h3 class="is-size-5">Capacity</h3>
+							<h3 class="is-size-5">Power</h3>
+						</div>
+						<div class="column is-6">
+							<h3 class="is-size-5">Pumpetera</h3>
+							<h3 class="is-size-5">155 lps</h3>
+							<h3 class="is-size-5">1.1 kWh</h3>
+						</div>
+					</div>
+					<!-- <div class="columns is-centered is-vcentered has-text-centered">
+						<div class="column is-6">
+							<h3 class="is-size-5">Capacity</h3>
+						</div>
+						<div class="column is-6">
+							<h3 class="is-size-5">155 lps</h3>
+						</div>
+					</div>
+					<div class="columns is-centered is-vcentered has-text-centered">
+						<div class="column is-6">
+							<h3 class="is-size-5">Power</h3>
+						</div>
+						<div class="column is-6">
+							<h3 class="is-size-5">1.1 kWh</h3>
+						</div>
+					</div> -->
+						
+
+
+					<div class="">
+						<figure class="image">
+							<img src="../static/bulma/waterpump.png">
+						</figure>
+					</div>
+					<hr>
+
+					<div class="tags has-addons is-centered">
+						<span class="tag is-light is-large">Status</span>
+						<a href="#"><span class="tag is-success is-large">ON</span></a>
+						<!-- <a href="#"><span class="tag is-dark is-large">OFF</span></a> -->
+					</div>
+				</div>
+
+
+				<div class="column is-8">
+
+					<div class="columns is-centered is-vcentered">
+						<div class="column is-3 has-text-centered">
+							<span class="icon is-large has-text-info">
+								<i class="fas fa-5x fa-tint"></i>
+							</span>
+							<!-- <figure class="image">
+								<img src="../static/bulma/tomato.png">
+							</figure> -->
+						</div>
+						<div class="column is-6 has-text-centered">
+							<h1 class="is-size-2">Consumption</h1>
+						</div>
+						<div class="column is-3 has-text-centered">
+							<span class="icon is-large has-text-success">
+								<i class="fas fa-5x fa-bolt"></i>
+							</span>
+							<!-- <figure class="image">
+								<img src="../static/bulma/tomato.png">
+							</figure> -->
+						</div>
+					</div>
+					<hr>
+					
+
+					<div class="columns has-text-centered">
+						<div class="column is-3">
+							<h1 class="is-size-4">150 lps</h1>
+						</div>
+						<div class="column is-6">
+							<h1 class="is-size-5">Current usage</h1>
+						</div>
+						
+						<div class="column is-3">
+							<h1 class="is-size-4">1.1 kWh</h1>
+						</div>
+					</div>
+					
+
+					<div class="columns has-text-centered">
+						<div class="column is-3">
+							<h1 class="is-size-4">25,000 l</h1>
+						</div>
+						<div class="column is-6">
+							<h1 class="is-size-5">Used today</h1>
+						</div>
+						
+						<div class="column is-3">
+							<h1 class="is-size-4">3.6 kWh</h1>
+						</div>
+					</div>
+					<br>
+
+					<div class="columns is-centered is-vcentered">
+						<div class="column is-12 has-text-centered">
+							<h1 class="is-size-4">Cultivation cycle</h1>
+						</div>
+					</div>
+					<hr>
+
+					<div class="columns is-centered is-vcentered">
+						<div class="column is-6">
+							<progress class="progress is-info is-large" value="78" max="100">78%</progress>
+						</div>
+						<div class="column is-6" style="-webkit-transform: rotate(-180deg); transform: rotate(-180deg);">
+							<progress class="progress is-success is-large" value="78" max="100">78%</progress>
+						</div>
+					</div>
+					
+
+					<div class="columns is-centered is-vcentered has-text-centered">
+
+						<div class="column is-3">
+							<h1 class="is-size-4">80,000l</h1>
+						</div>
+						<div class="column is-3">
+							<h1 class="is-size-3">120,000l</h1>
+						</div>
+						<div class="column is-3">
+							<h1 class="is-size-3">27,5 kWh</h1>
+						</div>
+						<div class="column is-3">
+							<h1 class="is-size-4">120,3 kWh</h1>
+						</div>
+					</div>
+
+					<div class="columns is-centered is-vcentered has-text-centered">
+
+						<div class="column is-3">
+							<h1 class="is-size-6">Used</h1>
+						</div>
+						<div class="column is-6">
+							<h1 class="is-size-6">Needed</h1>
+						</div>
+						<div class="column is-3">
+							<h1 class="is-size-6">Used</h1>
+						</div>
+					</div>
+					
+					<hr>
+
+			
+					
+				</div>
+
+				<!-- <div class="column is-4">
+					<h1 class="is-size-3">Water Usage</h1>
+					<h1 class="is-size-3">Water Usage</h1>
+					<h1 class="is-size-3">Water Usage</h1>
+					<h1 class="is-size-3">Water Usage</h1>
+					<h1 class="is-size-3">Water Usage</h1>
+					<h1 class="is-size-3">Water Usage</h1>
+					<h1 class="is-size-3">Water Usage</h1>
+				</div>
+ -->
+			</div>
+			
+		</section>
+		
+
+	</div>
+
+		
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+<!-- 
+
+<div>
+				        
+				        <p>Energy usage</p>
+				        <ul>
+				          <li>Current consumption: 21 kWh</span></li>
+				          <li><i>Today used: 3,000 KWh</i></li>
+				          <li>Today needed: 76 KWh </span> </li>
+				          <li>Per cultivation cycle</li>
+				          <li><i>Used: 15,000 kWh</i></li>
+				          <li>Needed: 76 kWh</span></li>
+				        </ul>
+				  </div> -->
+
+
+
+
+
+<!-- <a class="delete"></a> -->
+
+
+
+
+
+
+<!-- FOOTER -->
+<!-- <div class="columns is-tablet is-centered">
+
+	<div class="bg_y column is-1 centrado">
+		<span class="icon is-large bg_lgr">
+	    	<i class="fas fa-2x fa-bars"></i>
+	  	</span>
+	</div>
+
+	<div class="bg_y column is-1 is-offset-6 centrado">
+		<span class="icon is-large bg_lgr">
+	    	<i class="fas fa-2x fa-user-circle"></i>
+	  	</span>
+	</div>
+
+	<div class="bg_y column is-1 centrado">
+		<span class="icon is-large bg_lgr">
+	    	<i class="fas fa-2x fa-user"></i>
+	  	</span>
+	</div>
+
+	<div class="bg_y column is-1 centrado">
+		<span class="icon is-large bg_lgr">
+	    	<i class="fas fa-2x fa-shopping-cart"></i>
+	  	</span>
+	</div>
+
+	<div class="bg_y column is-1 centrado">
+		<span class="icon is-large  bg_lgr">
+	    	<i class="fas fa-2x fa-bell"></i>
+	    </span>
+	</div>
+</div> -->
+
+
+
+
+
+<!-- 
+				<div class="dropdown is-hoverable">
+				  <div class="dropdown-trigger">
+				    <div aria-haspopup="true" aria-controls="dropdown-menu4">
+				      <img src="../static/uploads/carlos.png">
+				    </div>
+				  </div>
+				  <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+				    <div class="dropdown-content">
+				      <div class="dropdown-item">
+				        <p>Lat: <strong>25.25</strong><br>
+				        	Lon:  <strong>25.25</strong></p>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+ -->
+
+<!-- 
+	<div class="columns is-tablet is-centered">
+	  <div class="bg_y column is-one-quarter">Field 3</div>
+	  <div class="bg_y column is-one-quarter">Field 4</div>
+	  <div class="bg_y column is-one-quarter">Field 5</div>
+	</div>
+ -->
+
+
+
+
+<!-- 
+<section class="section">
+	<div class="container">
+		<h1 class="title">
+		Hello World
+		</h1>
+		<p class="subtitle">
+		My first website with <strong>Bulma</strong>!
+		</p>
+	</div>
+</section> -->
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Weather</p>
+      <p class="subtitle">Berlin</p>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Farm Name</p>
+      <p class="subtitle">Owner</p>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Alerts</p>
+      <p class="subtitle">Water</p>
+      <p class="subtitle">Sun</p>
+      <p class="subtitle">Fertilizer</p>
+    </article>
+  </div>
+</div>
+
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-9">
+    <div class="tile">
+      <div class="tile is-parent">
+        <article class="tile is-child box">
+          <p class="title">Five</p>
+          <p class="subtitle">Subtitle</p>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
+          </div>
+        </article>
+      </div>
+      <div class="tile is-8 is-vertical">
+        <div class="tile">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title">Six</p>
+              <p class="subtitle">Subtitle</p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title">Seven</p>
+              <p class="subtitle">Subtitle</p>
+            </article>
+          </div>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child box">
+            <p class="title">Eight</p>
+            <p class="subtitle">Subtitle</p>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="tile">
+      <div class="tile is-8 is-parent">
+        <article class="tile is-child box">
+          <p class="title">Nine</p>
+          <p class="subtitle">Subtitle</p>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+          </div>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child box">
+          <p class="title">Ten</p>
+          <p class="subtitle">Subtitle</p>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <div class="content">
+        <p class="title">Eleven</p>
+        <p class="subtitle">Subtitle</p>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
+          <p>Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Twelve</p>
+      <p class="subtitle">Subtitle</p>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut.</p>
+      </div>
+    </article>
+  </div>
+  <div class="tile is-parent is-6">
+    <article class="tile is-child box">
+      <p class="title">Thirteen</p>
+      <p class="subtitle">Subtitle</p>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+      </div>
+    </article>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Fourteen</p>
+      <p class="subtitle">Subtitle</p>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut.</p>
+      </div>
+    </article>
+  </div>
+</div> -->

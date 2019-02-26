@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Solarvibes | {% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+	<!-- # NOT BULMA -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	<style type="text/css">
+		
+		.bg_y{background-color: yellow;}
+		.bg_b{background-color: blue;}
+		.bg_gr{background-color: gray;}
+		.bg_r{background-color: red;}
+		.bg_g{background-color: green;}
+		.bg_dgr{background-color: darkgray;}
+		.bg_lgr{background-color: lightgray;}
+		.centrado{text-align: center;}
+
+	</style>
+	<script type="text/javascript">
+        document.getElementById("nav-toggle").addEventListener ("click", toggleNav);
+        function toggleNav() {
+                var nav = document.getElementById("nav-menu");
+                var className = nav.getAttribute("class");
+                if(className == "nav-right nav-menu") {
+                    nav.className = "nav-right nav-menu is-active";
+                } else {
+                    nav.className = "nav-right nav-menu";
+                }
+        }
+    </script>
+</head>
+<body>
+	
+
+
+
+	<!-- WRAPPERS -->
+	<div class="container">
+		<section class="section">
+		<!-- WRAPPERS -->
+
+			<!-- TABS -->
+			<div class="tabs is-centered is-boxed">
+				<ul>
+					<li class="is-active">
+						<a>
+							<span>Agrimodule</span>
+						</a>
+					</li>
+					<li>
+						<a>
+							<span>Agrisensor</span>
+						</a>
+					</li>
+					<li>
+						<a>
+							<span>Agrisensor</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- TABS -->
+
+			<!-- BODY -->
+			<!-- BODY -->
+			<div class="columns is-centered is-vcentered">
+				<div class="column is-12 has-text-centered">
+
+					<!-- FIRST ROW -->
+					<div class="columns">	
+						<!-- LEFT COLUMN -->
+						<div class="column is-4 has-text-centered bg_g">	
+							<!-- TITLE -->
+							<div class="columns is-vcentered is-centered is-marginless is-paddingless">
+
+								<div class="column is-2 is-offset-2 has-text-centered is-paddingless">
+									<h3 class="is-size-6">min</h3>
+								</div>
+
+								<div class="column is-4 has-text-centered is-paddingless">
+									<h3 class="is-size-6">now</h3>
+								</div>
+
+								<div class="column is-2 has-text-centered is-paddingless">
+									<h3 class="is-size-6">max</h3>
+								</div>
+							</div>
+
+							
+
+							<!-- RADIATION -->
+							<div class="columns is-vcentered is-marginless is-paddingless">
+								<!-- ICON -->
+								<div class="column is-2 has-text-centered is-marginless">
+									<span class="icon is-large has-text-warning is-marginless is-paddingless">
+										<i class="fas fa-2x fa-sun"></i>
+									</span>
+								</div>
+								<div class="column is-10 is-marginless">
+									<!-- DATA -->
+									<div class="columns is-centered is-vcentered is-marginless">
+										<div class="column is-2 has-text-centered is-paddingless">
+											<p class="is-size-5">40</p>
+										</div>
+										<div class="column is-6 has-text-centered is-paddingless">
+											<p class="is-size-5">600 <sup>W/m<sup>2</sup></sup></p>
+										</div>
+										<div class="column is-2 has-text-centered is-paddingless" style="">
+											<p class="is-size-5">840</p>
+										</div>
+									</div>
+									<!-- BAR -->
+									<div class="columns is-centered is-vcentered">
+										<div class="column is-12 has-text-centered" style="">
+											<progress class="progress is-warning" data-fa-transform="rotate-90" value="80" max="100">15%</progress>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- RADIATION -->
+
+							<!-- TEMPERAURE -->
+							<div class="columns is-vcentered is-marginless is-paddingless">
+								<!-- ICON -->
+								<div class="column is-2 has-text-centered is-marginless">
+									<span class="icon is-large has-text-danger is-marginless is-paddingless">
+										<i class="fas fa-2x fa-thermometer-empty"></i>
+									</span>
+								</div>
+								<div class="column is-10 is-marginless">
+									<!-- DATA -->
+									<div class="columns is-centered is-vcentered is-marginless is-paddingless">
+										<div class="column is-2 has-text-centered is-paddingless">
+											<p class="is-size-5">15</p>
+										</div>
+										<div class="column is-6 has-text-centered is-paddingless">
+											<p class="is-size-5">24<sup>°C</sup></p>
+										</div>
+										<div class="column is-2 has-text-centered is-paddingless" style="">
+											<p class="is-size-5">29</p>
+										</div>
+									</div>
+									<!-- BAR -->
+									<div class="columns is-centered is-vcentered">
+										<div class="column is-12 has-text-centered" style="">
+											<progress class="progress is-danger" data-fa-transform="rotate-90" value="70" max="100">15%</progress>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- HUMIDITY -->
+							<div class="columns is-vcentered is-marginless is-paddingless">
+								<!-- ICON -->
+								<div class="column is-2 has-text-centered is-marginless">
+									<span class="icon is-large has-text-info is-marginless is-paddingless">
+										<i class="fas fa-2x fa-tint"></i>
+									</span>
+								</div>
+								<div class="column is-10 is-marginless">
+									<!-- DATA -->
+									<div class="columns is-centered is-vcentered is-marginless is-paddingless">
+										<div class="column is-2 has-text-centered is-paddingless">
+											<p class="is-size-5">55</p>
+										</div>
+										<div class="column is-6 has-text-centered is-paddingless">
+											<p class="is-size-5">64<sup>%</sup></p>
+										</div>
+										<div class="column is-2 has-text-centered is-paddingless" style="">
+											<p class="is-size-5">80</p>
+										</div>
+									</div>
+									<!-- BAR -->
+									<div class="columns is-centered is-vcentered">
+										<div class="column is-12 has-text-centered" style="">
+											<progress class="progress is-info" data-fa-transform="rotate-90" value="64" max="100">15%</progress>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+
+						<!-- MIDDLE COLUMN -->
+						<div class="column is-8 has-text-centered bg_b">	
+							<div class="columns">
+
+								<!-- AGRIMODUELE SYSTEM -->
+								<div class="column is-2 bg_y is-marginless">
+									<!-- DATA -->
+									<div class="columns is-centered is-vcentered">
+										<div class="column is-6 has-text-centered  is-marginless is-paddingless">
+											<p class="is-size-6">85 <sup>%</sup></p>
+										</div>
+										<div class="column is-6 has-text-centered  is-marginless is-paddingless">
+											<span class="icon is-large has-text-success">
+												<i class="fas fa-2x fa-battery-three-quarters"></i>
+											</span>
+										</div>
+									</div>
+									<!-- BAR -->
+									<div class="columns is-centered is-vcentered">
+										<div class="column is-12 has-text-centered is-marginless" style="">
+											<progress class="progress is-success" value="85" max="100">15%</progress>
+										</div>
+									</div>
+								</div>
+
+								<!-- WEATHER AND PLANTS -->
+								<div class="column is-10 bg_lgr">
+									<!-- WEATHER forecast -->
+									<div class="columns">
+										<div class="column is-6">
+											<span class="icon is-large has-text-info bg_lgr">
+										    	<i class="fas fa-5x fa-cloud"></i>
+										    </span>
+										</div>
+										<div class="column is-6">
+											<p class="is-size-4">25 mm</p>
+											<p class="is-size-4">75 %</p>
+										</div>
+									</div>
+									<!-- WEATHER FORECAST -->
+
+									<br>
+
+									<!-- PLANTS -->
+									<div class="columns is-centered bg_r">
+										<div class="column is-3 has-text-centered is-clipped">
+											<figure class="image is-64x64">
+												<img src="../static/bulma/tomato-plant.png">
+											</figure>
+										</div>
+										<div class="column is-3 has-text-centered">
+											<figure class="image is-128x128">
+												<img src="../static/bulma/lettuce-plant.jpg">
+											</figure>
+										</div>
+									</div>
+									<!-- END PLANTS -->
+
+								</div>
+								<!-- WEATHER AND PLANTS -->
+
+							</div>
+						</div>
+						<!-- END RIGHT COLUMN -->
+
+						
+
+
+					</div>
+					<!-- END FIRST ROW -->
+
+				</div>
+			</div>
+			<!--  -->
+
+
+
+
+			<!-- SOIL LINE -->
+			<hr>
+			<!-- END SOIL LINE -->
+
+
+
+
+
+			<!-- SOIL -->
+			<div class="columns is-centered is-vcentered">
+				<div class="column is-12 has-text-centered">
+
+					<!-- ROW -->
+					<div class="columns is-vcentered">	
+						<!-- PH AND EC -->
+						<div class="column is-4 has-text-centered">
+							<!-- TITLE -->
+							<div class="columns is-vcentered is-centered is-marginless is-paddingless">
+								<div class="column is-2 is-offset-2 has-text-centered is-paddingless">
+									<h3 class="is-size-6">max</h3>
+								</div>
+								<div class="column is-4 has-text-centered is-paddingless">
+									<h3 class="is-size-6">now</h3>
+								</div>
+								<div class="column is-2 has-text-centered is-paddingless">
+									<h3 class="is-size-6">min</h3>
+								</div>
+							</div>
+							
+							<!-- SOIL TEMPERATURE -->
+							<div class="columns is-vcentered is-marginless is-paddingless">
+								<!-- ICON -->
+								<div class="column is-2 has-text-centered is-marginless">
+									<span class="icon is-large has-text-danger is-paddingless">
+										<i class="fas fa-2x fa-thermometer-empty"></i>
+									</span>
+								</div>
+								<div class="column is-10 is-marginless">
+									<!-- DATA -->
+									<div class="columns is-centered is-vcentered is-marginless">
+										<div class="column is-2 has-text-centered is-paddingless">
+											<p class="is-size-5">14</p>
+										</div>
+										<div class="column is-6 has-text-centered is-paddingless">
+											<p class="is-size-5">22<sup>°C</sup></p>
+										</div>
+										<div class="column is-2 has-text-centered is-paddingless">
+											<p class="is-size-5">26</p>
+										</div>
+									</div>
+									<!-- BAR -->
+									<div class="columns is-centered is-vcentered">
+										<div class="column is-12 has-text-centered" style="">
+											<progress class="progress is-danger" data-fa-transform="rotate-90" value="65" max="100">15%</progress>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- SOIL HUMIDITY -->
+							<div class="columns is-vcentered is-marginless is-paddingless">
+								<!-- ICON -->
+								<div class="column is-2 has-text-centered is-marginless">
+									<span class="icon is-large has-text-info is is-marginless is-paddingless">
+										<i class="fas fa-2x fa-tint"></i>
+									</span>
+								</div>
+								<div class="column is-10 is-marginless">
+									<!-- DATA -->
+									<div class="columns is-centered is-vcentered is-marginless">
+										<div class="column is-2 has-text-centered is-paddingless">
+											<p class="is-size-5">35</p>
+										</div>
+										<div class="column is-6 has-text-centered is-paddingless">
+											<p class="is-size-5">55<sup>%</sup></p>
+										</div>
+										<div class="column is-2 has-text-centered is-paddingless" style="">
+											<p class="is-size-5">75</p>
+										</div>
+									</div>
+									<!-- BAR -->
+									<div class="columns is-centered is-vcentered">
+										<div class="column is-12 has-text-centered" style="">
+											<progress class="progress is-info" data-fa-transform="rotate-90" value="50" max="100">15%</progress>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- SOIL HUMIDITY -->
+						</div>
+						<!-- TEMP AND HUMIDITY -->
+					
+
+						
+						<!-- pH and EC -->
+						<div class="column is-4 is-offset-4 has-text-centered">
+							<!-- TITLE -->
+							<div class="columns is-vcentered is-marginless">
+								<div class="column is-2 is-offset-1 has-text-centered is-paddingless">
+									<h3 class="is-size-6">max</h3>
+								</div>
+
+								<div class="column is-4 has-text-centered is-paddingless">
+									<h3 class="is-size-6">now</h3>
+								</div>
+
+								<div class="column is-2 has-text-centered is-paddingless">
+									<h3 class="is-size-6">min</h3>
+								</div>
+							</div>
+
+
+							<!-- PH -->
+							<div class="columns is-vcentered is-marginless is-paddingless">
+								<div class="column is-10 is-marginless">
+									<!-- DATA -->
+									<div class="columns is-centered is-vcentered is-marginless is-paddingless">
+										<div class="column is-2 has-text-centered is-paddingless">
+											<p class="is-size-5">7.2</p>
+										</div>
+										<div class="column is-6 has-text-centered is-paddingless">
+											<p class="is-size-5">6.3<sup>pH</sup></p>
+										</div>
+										<div class="column is-2 has-text-centered" style="">
+											<p class="is-size-5 is-paddingless">5.4</p>
+										</div>
+									</div>
+									<!-- BAR -->
+									<div class="columns is-centered is-vcentered">
+										<div class="column is-12 has-text-centered" style="-webkit-transform: rotate(-180deg); transform: rotate(-180deg);">
+											<progress class="progress is-primary" data-fa-transform="rotate-90" value="45" max="100">15%</progress>
+										</div>
+									</div>
+								</div>
+								<!-- ICON -->
+								<div class="column is-2 has-text-centered is-marginless">
+									<span class="icon is-large has-text-primary is-marginless is-paddingless">
+										<i class="fas fa-2x fa-flask"></i>
+									</span>
+								</div>
+							</div>
+							<!-- PH -->
+
+							<!-- EC -->
+							<div class="columns is-vcentered is-marginless is-paddingless">
+								<div class="column is-10 is-marginless">
+									<!-- DATA -->
+									<div class="columns is-centered is-vcentered is-marginless is-paddingless">
+										<div class="column is-2 has-text-centered is-paddingless">
+											<p class="is-size-5">60</p>
+										</div>
+										<div class="column is-6 has-text-centered is-paddingless">
+											<p class="is-size-5">45<sup>%</sup></p>
+										</div>
+										<div class="column is-2 has-text-centered is-paddingless" style="">
+											<p class="is-size-5">35</p>
+										</div>
+									</div>
+									<!-- BAR -->
+									<div class="columns is-centered is-vcentered">
+										<div class="column is-12 has-text-centered" style="-webkit-transform: rotate(-180deg); transform: rotate(-180deg);">
+											<progress class="progress" data-fa-transform="rotate-90" value="40" max="100">15%</progress>
+										</div>
+									</div>
+								</div>
+								<!-- ICON -->
+								<div class="column is-2 has-text-centered is-marginless">
+									<span class="icon is-large is-paddingless is-paddingless">
+										<i class="fas fa-2x fa-leaf"></i>
+									</span>
+								</div>
+							</div>
+							<!-- EC -->
+							
+						</div>
+						<!-- PH UND EC -->
+					</div>
+					<!-- ROW -->
+				</div>
+			</div>
+			<!-- SOIL -->
+
+
+
+			
+
+
+			<!-- BODY -->
+			<!-- BODY -->
+
+
+		 <!-- WRAPPERS -->
+		</section>
+	</div>
+	<!-- WRAPPERS -->
+		
+
+</body>
+</html>

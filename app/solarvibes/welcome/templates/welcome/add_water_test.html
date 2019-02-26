@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+  Add Water Test (Optional)
+{% endblock %}
+
+{% block add_water_test_active %}
+  active
+{% endblock %}
+
+{% block content %}
+<div class = "container">
+    <h1>Welcome add water test</h1>
+    <hr>
+  <h1>Add Water Test</h1>
+  <form method="POST" action="{{ url_for('welcome.add_water_test') }}">
+    {{ form.csrf_token }}
+    {{ render_field_with_errors(form.water_ph) }}
+    {{ render_field_with_errors(form.water_ec) }}
+    {{ render_field_with_errors(form.water_bicarbonates) }}
+    {{ render_field_with_errors(form.water_carbonates) }}
+    {{ render_field_with_errors(form.water_potasium) }}
+    {{ render_field_with_errors(form.water_sulphate) }}
+    <input type="submit" class="hoverable waves-effect waves-light btn" value="Add water test!">
+  </form>
+  <br>
+  <a href="{{ url_for('welcome.add_soil_test') }}" class="amber darken-1 waves-effect waves-light btn btn-small"><i class="material-icons left">arrow_back</i>Back</a>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+/*---------------------------------
+    Horizontal Menu
+    -----------------------------------*/
+
+    #main, footer {
+      padding-left: 0px;
+    }
+
+    header .brand-logo {
+      margin: 1px 0px;
+      padding: 22px 20px;
+      img {
+        height: 18px;
+      }
+    }
+    #layouts-horizontal{
+      .sidebar-collapse {
+       position: absolute;
+       left: 10px;
+       top: 7px;
+       z-index:999;
+     }  
+   }
+   #ul-horizontal-nav > li > a{
+    padding: 0 18px;
+  }
+
+  #horizontal-nav {
+    margin-top: 64px;
+    z-index: -1;
+  }
+
+  @media only screen and (min-width: 993px) {
+    #content {
+      margin-top: 65px;
+    }
+  }
+
+  .doughnut-chart-status {
+    top: -85px;
+  }
+
+  #horizontal-nav {
+    box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.04), 
+    0 1px 5px 0 rgba(0, 0, 0, 0.02), 
+    0 3px 1px -2px rgba(0, 0, 0, 0.02);
+    ul li {
+      text-align: center;
+      a {
+        i {
+          height: 0px;
+          line-height: 45px;
+          font-size: 1.4rem;
+          color: #787878;
+        }
+        span {
+          position: relative;
+          top: 14px;
+          color: rgba(0, 0, 0, 0.87);
+        }
+      }
+    }
+    .dropdown-menu span i {
+      font-size: 14px;
+      position: absolute;
+      top: -12px;
+      right: -14px;
+    }
+  }
+  .dropdown-content li{
+    min-height: 43px;
+    a{
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+
+  .dropdown-horizontal-list li a {
+    min-width: 150px;
+    text-align: left;
+    font-size: 1.0rem;
+    padding: 10px;
+    font-weight: 400;
+  }
+
+  nav.navbar-color{
+    box-shadow:none;
+  }
+
+  /*IE Specific CSS */
+  @media screen and (min-width: 0\0) and (min-resolution: +72dpi) {
+    #horizontal-nav {
+      ul li {
+        min-width: 110px;
+      }
+      .dropdown-menu span i {
+        line-height: 0px;
+        position: absolute;
+        top: 10px;
+        right: -20px;
+      }
+    }
+  }

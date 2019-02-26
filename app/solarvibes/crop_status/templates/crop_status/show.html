@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Agrimodule
+{% endblock %}
+
+{% block links_in_head %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+{% endblock links_in_head %}
+
+{% block css_in_head %}
+<style type="text/css">
+	.outter-color{background-color: rgba(255, 255, 0, 0.3) !important;}
+	.inner-color{background-color: rgba(255, 255, 0, 0.5) !important;}
+	.bg_y{background-color: yellow;}
+	.bg_b{background-color: blue;}
+	.bg_gr{background-color: gray;}
+	.bg_r{background-color: red;}
+	.bg_g{background-color: green;}
+	.bg_dgr{background-color: darkgray;}
+	.bg_lgr{background-color: lightgray;}
+	.centrado{text-align: center;}
+	.padding{padding: 10px !important;}
+	.margin{margin: 10px !important;}
+	.margin-tp{margin: 10px 0 10px 0 !important;}
+</style>
+{% endblock css_in_head %}
+
+{% block links_body %}
+{% endblock links_body %}
+
+
+{% block content %}
+
+	<nav class="container svgreen lighten-2 margin-top">
+		<div class="nav-wrapper">
+			<div class="col s12">
+				<a class="breadcrumb">{{ farm.farm_name }}</a>
+				<a class="breadcrumb">{{ field.field_name }}</a>
+				<a class="breadcrumb">{{ system_name }}</a>
+			</div>
+		</div>
+	</nav>
+	<!-- outter box -->
+	<div class="padding box margin z-depth-2">
+
+		<!-- header -->
+		<div class="row margin">
+			<div class="col s12 m12">
+				<div class="row">
+					<div class="col s8 offset-s2 center">
+
+					</div>
+					<div class="col s1 offset-s1 right right-align">
+						<a href="{{ url_for('main.index') }}">
+							<i class="far fa-2x fa-window-close yellow"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end header -->
+
+		<!-- inner box -->
+		<div class="row box margin-tp padding-tp">
+			<div class="col s12 m12 offset-">
+
+				<!-- main UI title -->
+				<div class="row center padding">
+					<div class="col s6">
+						<h5>CROP INFORMATION</h5>
+					</div>
+					<div class="col s3">
+						<h5>RESOURCES STATUS</h5>
+					</div>
+					<div class="col s3">
+						<h5>TIME & YIELD</h5>
+					</div>
+				</div>
+				<!-- end main UI title -->
+
+				<!-- main UI content -->
+				<div class="row center valign-wrapper margin-tp">
+					<!-- crop Information content -->
+					<div class="col s6 margin-tp">
+						<!-- crop data -->
+						<div class="row valign-wrapper">
+							<div class="col s6 box z-depth-3">
+								<div class="col s12 padding"><h5>{{ crop._variety|capitalize }}</h5></div>
+								<br><br>
+								<div class="col s12 blue lighten-2 padding margin-tp"><img class="responsive-img" src="{{ crop.image }}"></div>
+							</div>
+							<div class="col s4 offset-s1 left-align">
+								<div class="col s12 teal-text text-lighten-2 padding"><h6>Crop Data:</h6></div>
+								<div class="col s12">{{ crop._name|capitalize }}</div>
+								<div class="col s12">{{ field.field_cultivation_area / 10000 }} m<sup>2</sup></div>
+								<div class="col s12">{{ field.field_num_plants }} plants</div>
+								<!-- TODO: density must be calculated dynamically with space it takes and not from db field -->
+								<div class="col s12">{{ crop._density * 10000 }} plants / m<sup>2</sup></div>
+							</div>
+						</div>
+						<!-- end crop data -->
+
+						<!-- time -->
+						<div class="row center margin-tp">
+							<div class="col s12">
+								<div class="col s4">
+									<p>Begin</p>
+								</div>
+								<div class="col s4">
+									<p class="svgreen-text">Today</p>
+								</div>
+								<div class="col s4">
+									<p>End</p>
+								</div>
+
+								<div class="col s12">
+									<progress class="progress is-danger z-depth-3 progress-height" value="{{ time_bar_percentage }}" max="100">{{ time_bar_percentage }}%</progress>
+								</div>
+
+								<div class="col s4">
+									<p>{{ field.field_cultivation_start_date.strftime('%A, %b %d, %Y') }}</p>
+								</div>
+								<div class="col s4 svgreen-text">
+									<h6>{{ today.strftime('%A, %b %d, %Y') }}</h6>
+								</div>
+								<div class="col s4">
+									<p>{{ field.field_cultivation_finish_date.strftime('%A, %b %d, %Y') }}</p>
+								</div>
+
+							</div>
+
+						</div>
+						<!-- end time -->
+					</div>
+					<!-- end crop Information content -->
+
+
+					<div class="vl z-depth-3"></div>
+
+
+					<!-- crop alerts -->
+					<div class="col s3">
+						<div class="row center-align margin-tp">
+							<div class="col s12 margin-tp"><h5>Water</h5></div>
+							<div class="col s6"><i class="far fa-2x fa-check-circle green-text"></i></div>
+							<div class="col s6"><i class="fas fa-2x fa-tint blue-text text-lighten-2"></i></div>
+						</div>
+
+						<div class="row center-align margin-tp">
+							<div class="col s12 margin-tp"><h5>Radiation</h5></div>
+							<div class="col s6"><i class="far fa-2x fa-check-circle green-text"></i></div>
+							<div class="col s6"><i class="fas fa-2x fa-sun yellow-text text-lighten-2"></i></div>
+						</div>
+
+						<div class="row center-align margin-tp">
+							<div class="col s12 margin-tp"><h5>Fertilizer<span class="new badge red">4</span></h5></div>
+							<div class="col s6"><i class="far fa-2x fa-times-circle red-text"></i></div>
+							<div class="col s6"><i class="fas fa-2x fa-leaf teal-text text-lighten-2"></i></div>
+						</div>
+					</div>
+					<!-- end crop alerts -->
+
+					<div class="vl z-depth-3"></div>
+
+					<!-- time and yield -->
+					<div class="col s3">
+						<div class="col s12 margin-tp">
+							<div class="col s12 padding"><h5>Cycle time</h5></div>
+							<div class="col s6 left-align">current</div>
+							<div class="col s6 right-align">total</div>
+							<div class="col s12">
+								<progress class="progress is-success z-depth-3 progress-height" value="{{ time_bar_percentage }}" max="100">{{ time_bar_percentage }}%</progress>
+							</div>
+							<div class="col s5 left-align">
+								{% if cycle_days_so_far >= 0: %}
+							    	{{ cycle_days_so_far }}
+							 	{% else %}
+							   		{{ 'Starts in ' + cycle_days_so_far|abs|string }}
+							 	{% endif %} days
+							</div>
+							<div class="col s7 right-align">{{ crop._dtm + crop._dtg }} days</div>
+						</div>
+						<div class="col s12 margin-tp">
+							<div class="col s12 padding"><h5>Yield</h5></div>
+							<div class="col s6 left-align">current</div>
+							<div class="col s6 right-align">total</div>
+							<div class="col s12">
+								<progress class="progress is-success z-depth-3 progress-height" value="{{ yield_bar_percentage }}" max="100">{{ yield_bar_percentage }}%</progress>
+							</div>
+							<div class="col s5 left-align">{{ field.field_current_yield / 1000 }} kg</div>
+							<div class="col s7 right-align">{{ field.field_projected_yield / 1000 }} kg</div>
+						</div>
+
+					</div>
+					<!-- end time and yield -->
+
+				</div>
+				<!-- end main UI content -->
+
+			</div>
+		</div>
+		<!-- end inner box -->
+	</div>
+	<!-- end outter box -->
+{% endblock %}

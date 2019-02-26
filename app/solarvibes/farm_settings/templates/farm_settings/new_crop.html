@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+	New Crop
+{% endblock %}
+
+{% block new_crop_active %}
+active
+{% endblock %}
+
+{% block content %}
+<div class = "container">
+    <h1>New crop</h1>
+	<form method="POST" action="{{ url_for('farm_settings.new_crop') }}">
+		{{ form.csrf_token }}
+		<!-- Choose farm -->
+		{{ render_field_with_errors(form.farm_choices) }}
+		{{ render_field_with_errors(form.field_cultivation_area) }}
+		{{ render_field_with_errors(form.field_cultivation_crop) }}
+		{{ render_field_with_errors(form.field_cultivation_start_date, class="datepicker") }}
+		{{ render_field_with_errors(form.field_cultivation_state) }}
+		{{ render_field_with_errors(form.field_cultivation_type) }}
+		<input type="submit" class="waves-effect waves-light btn" value="Create Field!">
+	</form>
+
+	<br><br>
+	<a href= "{{ url_for('settings.index') }}" class="waves-effect waves-light btn"><i class="fas fa-angle-left left"></i>Cancel</a>
+	<br><br>
+
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Weather
+{% endblock %}
+
+{% block content %}
+<div id = "fh5co-main" class = "container" style = "margin-top: 5%;">
+	<div style="padding-left: 2%; text-align: left;">
+    <h1>Weather</h1>
+	<div>
+        <hr>
+        <p>General links</p>
+        <ul>
+          <li><a href="{{ url_for('main.index') }}" style="color:#16B6A5;">Home</a><br></li>
+          <li><a href="{{ url_for('user_crop_planning') }}" style="color:#16B6A5;">Crop Planning</a><br></li>
+          <li><a href="{{ url_for('agripump_bp.show') }}" style="color:#16B6A5;">Agripump</a><br></li>
+          <li><a href="{{ url_for('agrimodule_bp.show') }}" style="color:#16B6A5;">Agrimodule</a><br></li>
+        </ul>
+	</div>
+
+</div>
+
+{% endblock %}

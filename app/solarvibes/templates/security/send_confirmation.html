@@ -1,0 +1,38 @@
+{% extends 'base_auth.html' %}
+{% from "security/_macros_edited.html" import render_field_with_errors, render_field %}
+
+{% block title %}
+	Confirm Email
+{% endblock %}
+
+{% block content %}
+<div id="login-page" class="row">
+  <div class="col s12 z-depth-4 card-panel">
+	{% include "security/_messages.html" %}
+	<form class="login-form">
+	{{ send_confirmation_form.hidden_tag() }}
+	  <div class="row">
+		<div class="input-field col s12 center">
+		  <h4>Resend email confirmation</h4>
+		  <p class="center">You are registered but have not confirmed your email</p>
+		</div>
+	  </div>
+	  <div class="row margin">
+		<div class="input-field col s12">
+		  <i class="material-icons prefix pt-5">email</i>
+		  {{ render_field_with_errors(send_confirmation_form.email) }}
+		</div>
+	  </div>
+
+	  <div class="row">
+		<div class="input-field col s12">
+		  {{ render_field(send_confirmation_form.submit, class="btn waves-effect waves-light col s12") }}
+		</div>
+		<div class="input-field col s12">
+		  <p class="margin sign-up"><a href="{{ url_for_security('login') }}">Login</a> <a href="{{ url_for_security('register') }}" class="right">Register</a></p>
+		</div>
+	  </div>
+	</form>
+  </div>
+</div>
+{% endblock %}

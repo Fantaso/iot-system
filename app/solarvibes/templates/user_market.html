@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Market
+{% endblock %}
+
+{% block user_market_active %}
+fh5co-active
+{% endblock %}
+
+{% block content %}
+<div id = "fh5co-main" class = "container" style = "margin-top: 5%;">
+	<div style="padding-left: 2%; text-align: left;">
+   		<h1>Market</h1>
+	<div>
+        <hr>
+        <p>General links</p>
+        <ul>
+          <li><a href="{{ url_for('main.index') }}" style="color:#16B6A5;">Home</a><br></li>
+        </ul>
+	</div>
+
+</div>
+
+{% endblock %}

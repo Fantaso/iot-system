@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Agripump
+{% endblock %}
+
+{% block links_in_head %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+{% endblock links_in_head %}
+
+{% block css_in_head %}
+<style type="text/css">
+	h1{margin: 0 !important;}
+	/* .bg_y{background-color: yellow;}
+	.bg_b{background-color: blue;}
+	.bg_gr{background-color: gray;}
+	.bg_r{background-color: red;}
+	.bg_g{background-color: green;}
+	.bg_dgr{background-color: darkgray;}
+	.bg_lgr{background-color: lightgray;} */
+	.centrado{text-align: center;}
+	.margin-top{margin-top: 10px;}
+	.marginless{margin: 0 !important;}
+</style>
+{% endblock css_in_head %}
+
+{% block links_body %}
+{% endblock links_body %}
+
+{% block content %}
+<nav class="container svgreen lighten-2">
+	<div class="nav-wrapper">
+		<div class="col s12">
+			<a class="breadcrumb">{{ farm.farm_name }}</a>
+			<a class="breadcrumb">{{ field.field_name }}</a>
+			<a class="breadcrumb">{{ system_name }}</a>
+			<a class="breadcrumb">{{ sensortype }}</a>
+			<a class="breadcrumb">{{ agripump.identifier }}</a>
+		</div>
+	</div>
+</nav>
+
+<div class="row margin-tp padding-tp box z-depth-2">
+	<!-- header -->
+	<div class="row margin">
+		<div class="col s12 m12">
+			<div class="row">
+				<div class="col s8 offset-s2 center">
+
+				</div>
+				<div class="col s1 offset-s1 right right-align">
+					<a href="{{ url_for('main.index') }}">
+						<i class="far fa-2x fa-window-close yellow"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->
+
+	<section class="section box margin">
+		<div class="columns is-centered is-vcentered">
+			<div class="column is-4 has-text-centered">
+
+				<div class="columns is-centered is-vcentered">
+					<div class="column is-12 has-text-centered is-marginless">
+						<p class="is-size-2">{{ pump.pump_name }}</p>
+					</div>
+				</div>
+
+				<div class="columns is-centered is-vcentered has-text-centered is-marginless">
+					<div class="column is-6">
+						<h3 class="is-size-5">Brand</h3>
+						<h3 class="is-size-5">Capacity</h3>
+						<h3 class="is-size-5">Power</h3>
+					</div>
+					<div class="column is-6">
+						<h3 class="is-size-5">{{ pump.pump_brand }}</h3>
+						<h3 class="is-size-5">{{ pump.pump_flow_rate }} lps</h3>
+						<h3 class="is-size-5">{{ pump.pump_watts }} kWh</h3>
+					</div>
+				</div>
+
+				<div class="box z-depth-2">
+					<figure class="image">
+						<img src="../static/bulma/waterpump.png">
+					</figure>
+				</div>
+				<hr>
+
+				<div class="tags has-addons is-centered">
+					<span class="tag is-light is-large">Status</span>
+					 {% if agripump.status == true: %}
+						<a href="#"><span class="tag is-success is-large">ON</span></a>
+					{% else %}
+						<a href="#"><span class="tag is-danger is-large">OFF</span></a>
+					{% endif %}
+				</div>
+			</div>
+
+			<div class="column is-8 is-marginless">
+				<div class="columns is-centered is-vcentered">
+					<div class="column is-3 has-text-centered">
+						<span class="icon is-large has-text-info">
+							<i class="fas fa-5x fa-tint"></i>
+						</span>
+					</div>
+					<div class="column is-6 has-text-centered">
+						<h1 class="is-size-2">Consumption</h1>
+					</div>
+					<div class="column is-3 has-text-centered">
+						<span class="icon is-large has-text-success">
+							<i class="fas fa-5x fa-bolt"></i>
+						</span>
+					</div>
+				</div>
+				<hr>
+
+				<div class="columns has-text-centered">
+					<div class="column is-3">
+						<h1 class="is-size-4">
+							{% if agripump.status: %}
+								{{ pump.pump_flow_rate }}
+							{% else %}
+								{{ '0' }}
+							{% endif %} lps
+						</h1>
+					</div>
+					<div class="column is-6">
+						<h1 class="is-size-5">Current usage</h1>
+					</div>
+
+					<div class="column is-3">
+						<h1 class="is-size-4">
+							{% if agripump.status: %}
+								{{ pump.pump_watts }}
+							{% else %}
+								{{ '0' }}
+							{% endif %} kWh
+						</h1>
+					</div>
+				</div>
+
+
+				<div class="columns has-text-centered">
+					<div class="column is-3">
+						<h1 class="is-size-4">1,500 l</h1>
+					</div>
+					<div class="column is-6">
+						<h1 class="is-size-5">Used today</h1>
+					</div>
+
+					<div class="column is-3">
+						<h1 class="is-size-4">2.3 Wh</h1>
+					</div>
+				</div>
+
+				<div class="columns has-text-centered">
+					<div class="column is-3">
+						<h1 class="is-size-4">
+							{{ (field.field_water_required_day) / 1000 }} l
+						</h1>
+					</div>
+					<div class="column is-6">
+						<h1 class="is-size-5">Needed per day</h1>
+					</div>
+
+					<div class="column is-3">
+						<h1 class="is-size-4">
+							{{ (pump_consumption_kwh_per_day * 1000)|round(3, 'floor') }} Wh
+						</h1>
+					</div>
+				</div>
+
+
+
+				<br>
+				<br>
+
+				<div class="columns is-centered is-vcentered">
+					<div class="column is-12 has-text-centered">
+						<h1 class="is-size-4">Cultivation cycle</h1>
+					</div>
+				</div>
+
+				<div class="columns is-centered is-vcentered">
+					<div class="column is-6">
+						<progress class="progress is-info progress-height z-depth-2" value="78" max="100">78%</progress>
+					</div>
+					<div class="column is-6" style="-webkit-transform: rotate(-180deg); transform: rotate(-180deg);">
+						<progress class="progress is-success progress-height z-depth-2" value="78" max="100">78%</progress>
+					</div>
+				</div>
+
+				<div class="columns is-centered is-vcentered has-text-centered">
+					<div class="column is-3">
+						<h1 class="is-size-4">80,000 l</h1>
+					</div>
+					<div class="column is-3">
+						<h1 class="is-size-3">
+							{{ (field.field_water_required_day * (crop._dtg + crop._dtm)) / 1000 }} l
+						</h1>
+					</div>
+					<div class="column is-3">
+						<h1 class="is-size-3">
+							{{ ((pump_consumption_kwh_per_day * (crop._dtm + crop._dtg)) * 1000)|round(3, 'floor') }} Wh
+						</h1>
+					</div>
+					<div class="column is-3">
+						<h1 class="is-size-4">327,3 Wh</h1>
+					</div>
+				</div>
+
+				<div class="columns is-centered is-vcentered has-text-centered">
+					<div class="column is-3">
+						<h1 class="is-size-6">Used</h1>
+					</div>
+					<div class="column is-6">
+						<h1 class="is-size-6">Needed</h1>
+					</div>
+					<div class="column is-3">
+						<h1 class="is-size-6">Used</h1>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+</div>
+{% endblock %}

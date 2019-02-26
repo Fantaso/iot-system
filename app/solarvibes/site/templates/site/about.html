@@ -1,0 +1,302 @@
+{% extends 'site/base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+	About Us
+{% endblock %}
+
+{% block web_about_active %}
+fh5co-active
+{% endblock %}
+
+{% block content %}
+<div id="fh5co-main">
+
+<!-- BANNER -->
+	<section class="cd-slider">
+			  <ul class="banner-text-color">
+			    <li>
+			      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/ba_small_farmer.png') }}')">
+			        <blockquote>
+			          <span>MOST SMALL FARMERS SUFFER FROM SIMILAR PROBLEMS</span>
+			          <p>Why Have We Developed The Agrimodule?</p>
+			        </blockquote>
+			      </div>
+			    </li>
+			    <li data-color="#000000">
+			      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/ba_lowprod.png') }}')">
+			        <blockquote>
+			          <span>Not giving the crops exactly what they need.</span>
+			          <p>1. LOW CROP PRODUCTIVITY</p>
+			        </blockquote>
+			      </div>
+			    </li>
+			    <li data-color="#000000">
+			      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/ba_highcost.png') }}')">
+			        <blockquote>
+			          <span>High energy, water and fertilizer consumption.</span>
+			          <p>2. HIGH FARMING COSTS</p>
+			        </blockquote>
+			      </div>
+			    </li>
+			    <li data-color="#000000">
+			      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/ba_failure.png') }}')">
+			        <blockquote>
+			          <span>No preventive pest & diseases actions.</span>
+			          <p>3. CROP FAILURES</p>
+			        </blockquote>
+			      </div>
+			    </li>
+			    <li data-color="#000000">
+			      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/ba_knowhow.png') }}')">
+			        <blockquote>
+			          <span>No access to modern, efficient farming techniques.</span>
+			          <p>4. LACK OF KNOW-HOW</p>
+			        </blockquote>
+			      </div>
+			    </li>
+			  </ul>
+			  <nav>
+			    <div><a class="prev" href="#"></a></div>
+			    <div><a class="next" href="#"></a></div>
+			  </nav>
+	</section>
+
+<!-- END BANNER -->
+<!-- MISION	 -->
+	<div class="fh5co-narrow-content">
+		<div class="row">
+			<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
+				<h3 class="fh5co-heading-colored" style="font-style:italic; font-weight:1px;">and that is why, our mission is to ...</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+				<h1 class="fh5co-heading-colored">Empower Farmers & Help The Transition To Tackle The Biggest Problem Of The Century; <br><br>The "Energy-Water-Food" Nexus.</h1>
+			</div>
+		</div>
+	</div>
+<!-- END MISION -->
+
+
+
+<!-- DID YOU KNOW -->
+	<div class="fh5co-counters" style="background-image: url('{{ url_for('site.static', filename='images/hero.jpg') }}');" data-stellar-background-ratio="0.5" id="counter-animate">
+		<div class="fh5co-narrow-content animate-box">
+			<div class="row">
+				<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
+					<h1 class="fh5co-heading-colored" style="color:white;">Did You Know That With Agrimodule, Small Farmers Can</h1>
+				</div>
+				<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+					<h1 class="fh5co-heading-colored"></h1>
+				</div>
+			</div>
+			<div class="row" >
+				<div class="col-md-4 text-center">
+					<span class="fh5co-counter-label">Use less energy to light</span>
+				</div>
+				<div class="col-md-4 text-center">
+					<span class="fh5co-counter-label">Save more water to hydrate</span>
+				</div>
+				<div class="col-md-4 text-center">
+					<span class="fh5co-counter-label">Produce more food to feed</span>
+				</div>
+			</div>
+			<div class="row" >
+				<div class="col-md-4 text-center">
+					<span class="fh5co-counter js-counter" data-from="0" data-to="5" data-speed="1000" data-refresh-interval="1"></span>
+					<span class="fh5co-counter-label">Houses</span>
+				</div>
+				<div class="col-md-4 text-center">
+					<span class="fh5co-counter js-counter" data-from="0" data-to="1510" data-speed="4000" data-refresh-interval="5"></span>
+					<span class="fh5co-counter-label">Persons</span>
+				</div>
+				<div class="col-md-4 text-center">
+					<span class="fh5co-counter js-counter" data-from="0" data-to="1458" data-speed="5000" data-refresh-interval="5"></span>
+					<span class="fh5co-counter-label">Persons</span>
+				</div>
+			</div>
+			<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+				<br><span class="fh5co-counter-label" style="color:white; text-align: center; font-size: 120%;">every year</span>
+				<br>
+			</div>
+		</div>
+	</div>
+<!-- END DID YOU KNOW -->
+
+<!-- SB -->
+
+	<div class="fh5co-testimonial" >
+		<div class="fh5co-narrow-content">
+			<div class="owl-carousel-fullwidth animate-box" data-animate-effect="fadeInLeft">
+            <div class="item">
+            	<figure>
+            		<img src="{{ url_for('site.static', filename='images/sb_icon.png') }}" alt="Free HTML5 Bootstrap Template">
+            	</figure>
+              	<p class="text-center quote">&ldquo;HOW SOLARVIBES CONTRIBUTES FOR A SUSTAINABLE FUTURE?</p>
+            </div>
+            <div class="item">
+            	<figure>
+            		<img src="{{ url_for('site.static', filename='images/sb_water.png') }}" alt="Free HTML5 Bootstrap Template">
+            	</figure>
+              	<p class="text-center quote">&ldquo;Protecs ground water reservois &rdquo;<cite class="author">&mdash;</cite></p>
+            </div>
+            <div class="item">
+            	<figure>
+            		<img src="{{ url_for('site.static', filename='images/sb_soil.png') }}" alt="Free HTML5 Bootstrap Template">
+            	</figure>
+              	<p class="text-center quote">&ldquo;Protects soil health & fertility &rdquo;<cite class="author">&mdash;</cite></p>
+            </div>
+            <div class="item">
+            	<figure>
+            		<img src="{{ url_for('site.static', filename='images/sb_empowers.png') }}" alt="Free HTML5 Bootstrap Template">
+            	</figure>
+              	<p class="text-center quote">&ldquo;Empowers farmers &rdquo;<cite class="author">&mdash;</cite></p>
+            </div>
+            <div class="item">
+            	<figure>
+            		<img src="{{ url_for('site.static', filename='images/sb_community.png') }}" alt="Free HTML5 Bootstrap Template">
+            	</figure>
+              	<p class="text-center quote">&ldquo;Creates farming communities &rdquo;<cite class="author">&mdash;</cite></p>
+            </div>
+            <div class="item">
+            	<figure>
+            		<img src="{{ url_for('site.static', filename='images/sb_encourages.png') }}" alt="Free HTML5 Bootstrap Template">
+            	</figure>
+              	<p class="text-center quote">&ldquo;and Encourages enthusiasts growers &rdquo;<cite class="author">&mdash;</cite></p>
+            </div>
+          </div>
+		</div>
+	</div>
+
+<!-- END SB -->
+<!-- KATANA -->
+		<div class="fh5co-counters" style="background-image: url('{{ url_for('site.static', filename='images/katana.png') }}'); border: solid white; border-left: 15px; border-right: 15px;" data-stellar-background-ratio="0.7" id="counter-animate">
+			<div class="fh5co-narrow-content animate-box">
+				<div class="row" >
+					<div class="col-md-offset-8 col-md-4 text-center animate-box">
+						<h2 class="" style="color: white;">If you like what we do. Support us Now in KATANA crowdfund...</h2>
+						<span><p><a href="https://katanareward.opencircleproject.com/campaign/170/join-hands-with-solarvibes-to-empower-small-farmers" target="_blank" class="btn btn-primary btn-outline">Support us</a></p></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- </a> -->
+<!-- END KATANA -->
+
+
+
+<!-- TEAM -->
+	<div class="fh5co-narrow-content  animate-box" data-animate-effect="fadeInLeft">
+		<h2 class="fh5co-heading" >The Team</span></h2>
+
+		<div class="row">
+			<div class="col-md-4 fh5co-staff">
+				<img src="{{ url_for('site.static', filename='images/t_swathish.png') }}" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<h3>Swathis Ravi</h3>
+				<h4>Co-Founder, CEO</h4>
+				<p>Product development, market & business analyst</p>
+
+			</div>
+			<div class="col-md-4 fh5co-staff">
+				<img src="{{ url_for('site.static', filename='images/t_carlos.png') }}" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<h3>Carlos Rosas</h3>
+				<h4>Co-Founder, CSO</h4>
+				<p>Electrical & tool development & web development</p>
+
+			</div>
+			<div class="col-md-4 fh5co-staff">
+				<img src="{{ url_for('site.static', filename='images/t_pavarthi.png') }}" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<h3>Parvathi Devi</h3>
+				<h4>Co-Founder, CTO</h4>
+				<p>Product development (electronics) & firmware back-end development</p>
+
+			</div>
+			<div class="col-md-4 fh5co-staff">
+				<img src="{{ url_for('site.static', filename='images/t_mansoor.png') }}" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<h3>Moghul Mansoor</h3>
+				<h4>Consultant</h4>
+				<p> Product development & system design</p>
+
+			</div>
+			<div class="col-md-4 fh5co-staff">
+				<img src="{{ url_for('site.static', filename='images/t_vanky.jpg') }}" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<h3>Venkatesh Pampana</h3>
+				<h4>Software</h4>
+				<p>Full-stack, mobile app & IoT integrator</p>
+
+			</div>
+			<div class="col-md-4 fh5co-staff">
+				<img src="{{ url_for('site.static', filename='images/t_vanthana.png') }}" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<h3>Vanthana Murugavel</h3>
+				<h4>Soil Science</h4>
+				<p>Soil tests, pest management & control & plant pathology analyst</p>
+
+			</div><div class="col-md-4 fh5co-staff">
+				<img src="{{ url_for('site.static', filename='images/t_karthik.png') }}" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<h3>Karthik Kalimutu</h3>
+				<h4>Vegetable Science</h4>
+				<p>Crop inputs & suitable fertilizers for vegetable cultivation</p>
+
+			</div>
+			<div class="col-md-4 fh5co-staff">
+				<img src="{{ url_for('site.static', filename='images/t_veera.png') }}" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<h3>Veera Abillash</h3>
+				<h4>Precision Farming</h4>
+				<p>Analysis & feasability of smart farming potential for developing countries</p>
+
+			</div>
+			<div class="col-md-4 fh5co-staff">
+				<img src="{{ url_for('site.static', filename='images/t_prasath.png') }}" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+				<h3>Prasath Ganesan</h3>
+				<h4>Fruit Science</h4>
+				<p>Crop inputs & suitable fertilizers for fruit cultivation</p>
+
+			</div>
+		</div>
+	</div>
+<!-- END TEAM -->
+
+
+
+
+<!-- SPAN -->
+	<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft">
+
+		<div class="row">
+			<div class="col-md-4">
+				<h1>Would You Like To Work With Us</h1>
+				<p>Drop us a line...</p>
+			</div>
+		</div>
+		<form method="POST" action="{{ url_for('site.about') }}">
+			{{ form.csrf_token }}
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								{{ render_field_with_errors(form.email, class="form-control") }}
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								{{ render_field_with_errors(form.msg, class="form-control") }}
+							</div>
+							<div class="form-group">
+								<input type="submit" class="btn btn-primary btn-md" value="Drop!">
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+<!-- END SPAN -->
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% from "_renderfield.html" import render_field, render_field_with_errors %}
+
+{% block title %}
+	New farm
+{% endblock %}
+
+{% block content %}
+	<div class = "container">
+	    <h1>New farm</h1>
+		<form method="POST" action="{{ url_for('farm_settings.new_farm') }}">
+			{{ form.csrf_token }}
+				{{ render_field_with_errors(form.farm_name) }}
+				{{ render_field_with_errors(form.farm_location) }}
+				{{ render_field_with_errors(form.farm_area, ) }}
+				{{ render_field_with_errors(form.farm_cultivation_process, ) }}
+				<input type="submit" class="waves-effect waves-light btn" value="Add Farm">
+		</form>
+
+		<br><br>
+		<a href= "{{ url_for('settings.index') }}" class="waves-effect waves-light btn"><i class="fas fa-angle-left left"></i>Cancel</a>
+
+	</div>
+{% endblock %}
