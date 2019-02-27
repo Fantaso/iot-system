@@ -8,7 +8,7 @@
 }
 /* =======================================================
 *
-* 	Template Style 
+* 	Template Style
 *	Edit this section
 *
 * ======================================================= */
@@ -161,14 +161,23 @@ a {
   bottom: 5%;
   left: 4%;
   z-index: 2;
-  max-width: 45%;
+  max-width: 45
+  background: black;
+}
+blockquote{
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border-color: #16B6A5 !important;
+  border-type: solid;
+  border-width: 4px;
 }
 blockquote p {
   font-size: 4rem;
   margin-bottom: 2rem;
+  color: rgba(0, 0, 0, 0.8);
 }
 blockquote span {
   font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.6);
 }
 /* current slide
 ---------------------------------*/

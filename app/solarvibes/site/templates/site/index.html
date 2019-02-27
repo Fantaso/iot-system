@@ -14,13 +14,13 @@ fh5co-active
 
 	<section class="cd-slider">
 	  <ul class="banner-text-color">
-	    <li>
+	    <li data-color="#000000">
 	      <div class="content" style="background-image:url('{{ url_for('site.static', filename='images/ag_agrimodule2.png') }}')">
 	        <blockquote>
 
 	          <span>REVOLUTIONIZING THE WAY AGRICULTURE IS DONE</span>
 	          <p>Adopting Farmers</p>
-	          <img src="{{ url_for('site.static', filename='images/katana_logo.png') }}" alt="" class="img-responsive"><br>
+	          <img src="{{ url_for('site.static', filename='images/katana-logo-green.png') }}" alt="" class="img-responsive"><br>
 	          <span>Pre-order now on Katana crowdfund platform</span>
 	          <a href="https://katanareward.opencircleproject.com/campaign/170/join-hands-with-solarvibes-to-empower-small-farmers" target="_blank" class="btn btn-primary btn-outline">Pre-order</a>
 	        </blockquote>
@@ -116,7 +116,7 @@ fh5co-active
 				<p class="animate-box" data-animate-effect="fadeInLeft"> Weather conditions are continuosly changing, knowing exactly how that affects to your crops determines a healthy growth. Forget about under or overirrigating your crops. Agrimodule keeps track of your weather conditions to determine exactly how much water your crops needs at any time.</p>
 			</div>
 			<div class="col-md-6 col-md-push-1 animate-box" data-animate-effect="fadeInLeft">
-				<img src="site.static/images/asset3.png" alt="asset3" class="img-responsive">
+				<img src="{{ url_for('site.static', filename='images/asset3.png') }}" alt="asset3" class="img-responsive">
 			</div>
 		</div>
 	</div>
