@@ -2,17 +2,19 @@ version: "3"
 
 services:
   app:
-    image: fantaso/digital-farming-webapp:1
-    container_name: digital-farming-webapp-web
+    restart: always
+    image: fantaso/digital-farming-app:2
+    container_name: digital-farming-app
     build:
       context: ./app
       dockerfile: Dockerfile
     labels:
       /app: "Digital Farming Web Application"
       /site: "Website"
+      /admin: "Administrator Manager"
     command: python application.py runserver
     volumes:
-      - ./app:/digital-farming-app
+      - ./app:/app
     ports:
       - "5000:5000"
     networks:
@@ -21,20 +23,29 @@ services:
       - db
 
   db:
+    restart: always
     image: postgres:11.2
     hostname: db
-    container_name: digital-farming-webapp-db
+    container_name: digital-farming-db
     environment:
       - POSTGRES_DB=mydb
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
-      - PGDATA=/digital-farming-app
+      - PGDATA=/app_db
     ports:
       - "5432:5432"
     volumes:
-      - ./digital-farming-pgdata:/digital-farming-app
+      - ./app_db:/app_db
     networks:
       - db_net
+
+  db_client:
+      image: adminer
+      restart: always
+      ports:
+        - "8080:8080"
+      networks:
+        - db_net
 
 networks:
   db_net:

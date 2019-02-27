@@ -3,7 +3,7 @@ FROM python:3.7
 MAINTAINER fantaso "fantaso.code@gmail.com"
 
 ENV PYTHONUNBUFRFERED 1
-ENV APP_DIR=/digital-farming-app
+ENV APP_DIR=/app
 
 WORKDIR $APP_DIR
 
