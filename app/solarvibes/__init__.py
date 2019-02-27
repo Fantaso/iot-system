@@ -33,6 +33,7 @@ manager.add_command('runserver', Server(host='0.0.0.0', port=5000))
 from solarvibes.models import roles_users, Role, User
 from solarvibes.models import Farm, Field, DailyFieldInput, Crop
 from solarvibes.models import Agrimodule, Agrisensor, Measurement, Agripump, Pump
+from solarvibes.site.models import NewsletterTable, AgrimoduleFBTable, PlatformFBTable, WorkWithUsTable, ContactUsTable
 #############################
 # End Import Models
 #############################
@@ -52,7 +53,7 @@ security = Security(application, user_datastore, register_form=RegisterFormExt, 
 # Begin Import Views
 #############################
 from solarvibes import views
-# from solarvibes.site.views import site
+from solarvibes.site.views import site
 from solarvibes.users.views import users
 from solarvibes.welcome.views import welcome
 from solarvibes.main.views import main
@@ -68,7 +69,7 @@ from solarvibes.admin.views import admin_bp
 from solarvibes.agrimodule_api.views_new import agrimodule_api
 from solarvibes.crop_planning.views import crop_planning_bp
 
-# application.register_blueprint(site, url_prefix='/site')
+application.register_blueprint(site, url_prefix='/site')
 application.register_blueprint(users, url_prefix='/users')
 application.register_blueprint(welcome, url_prefix='/welcome')
 application.register_blueprint(main, url_prefix='/main')
