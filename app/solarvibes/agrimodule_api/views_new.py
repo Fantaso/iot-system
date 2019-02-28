@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, current_app
 from solarvibes import db
 
 from solarvibes.models import User, Agrimodule, Agripump, Measurement, Agrisensor
@@ -475,7 +475,7 @@ def unregister(identifier = None, mac = None):
 
 #### flask-restless basic configuration.
 # from flask_restless import APIManager
-# manager = APIManager(application, flask_sqlalchemy_db = db)
+# manager = APIManager(current_app, flask_sqlalchemy_db = db)
 # manager.create_api(Agrimodule)
 # manager.create_api(Agrisensor, methods=['GET'])
 # manager.create_api(Agripump, methods=['GET'])

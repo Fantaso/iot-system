@@ -1,7 +1,7 @@
 # Automatically add crops to the db through SQLAlchemy
-# in run.py directory
-# 				from utils.db.crop_db import *
-
+# in manage.py.py directory
+# 				from utils.db_postgresql.crop_db import *
+# 				add_crops()
 def add_crops(crops):
 	print('Importing db and Crop')
 	from solarvibes import db
@@ -12,8 +12,9 @@ def add_crops(crops):
 		db.session.add(crop_to_db)
 	db.session.commit()
 	print('Crops added to db! Done!')
-
-
+######################################################################
+# crop database
+######################################################################
 crops = {
 			'plum':
 					{

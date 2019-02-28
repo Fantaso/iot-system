@@ -2,17 +2,17 @@ version: "3"
 
 services:
   app:
-    restart: always
+    # restart: always
     image: fantaso/digital-farming-app:3
     container_name: digital-farming-app
     build:
       context: ./app
       dockerfile: Dockerfile
     labels:
-      /app: "Digital Farming Web Application"
+      /app: "IoT Digital Farming Web Application"
       /site: "Website"
       /admin: "Administrator Manager"
-    command: python application.py runserver
+    command: python manage.py runserver
     volumes:
       - ./app:/app
     ports:
@@ -23,7 +23,7 @@ services:
       - db
 
   db:
-    restart: always
+    # restart: always
     image: postgres:11.2
     hostname: db
     container_name: digital-farming-db
@@ -41,7 +41,7 @@ services:
 
   db_client:
       image: adminer
-      restart: always
+      # restart: always
       ports:
         - "8080:8080"
       networks:

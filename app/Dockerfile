@@ -16,4 +16,4 @@ EXPOSE 5000
 
 ADD . $APP_DIR
 
-CMD python application.py runserver 0.0.0.0:5000
+CMD python manage.py runserver 0.0.0.0:5000
