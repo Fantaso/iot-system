@@ -85,7 +85,7 @@
 					<li class="{% block web_platform_active %}{% endblock %}"><a href="{{ url_for('site.platform') }}">Platform</a></li>
 					<li class="{% block web_about_active %}{% endblock %}"><a href="{{ url_for('site.about') }}">About Us</a></li>
 					<li class="{% block web_contact_active %}{% endblock %}"><a href="{{ url_for('site.contact') }}">Contact Us</a></li>
-					{# <li class="{% block web_login_active %}{% endblock %}"><a style="color:#16B6A5;" href="{{ url_for_security('login') }}{% if 'next' in request.args %}?next={{ request.args.next|urlencode }}{% endif %}">{{ _('Login') }}</a></li> #}
+					<li class="{% block web_login_active %}{% endblock %}"><a style="color: #16B6A5; font-size:%;" href="{{ url_for_security('login') }}{% if 'next' in request.args %}?next={{ request.args.next|urlencode }}{% endif %}">LOGIN</a></li>
 				</ul>
 			</nav>
 
