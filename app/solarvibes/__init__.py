@@ -1,4 +1,3 @@
-
 from flask_sqlalchemy import SQLAlchemy
 from flask_security import Security
 from flask_migrate import Migrate
@@ -7,63 +6,35 @@ from flask_uploads import IMAGES, UploadSet
 # from solarvibes.admin.views import admin
 
 
-
-
-
-
 photos =  UploadSet('photos', IMAGES)               # Flask-Uploads
-# configure_uploads(photos)
 db = SQLAlchemy()                                # create database connection object
 migrate = Migrate()                          # creates a migration object for the application db migrations]\
 mail = Mail()
-#############################
-# Begin Setup Flask-Security
-#############################
 security = Security()
-#############################
-# End Setup Flask-Security
-#############################
-
-# # TO MANAGE THE MIGRATIONS WITH FLASK-SCRIPT WITH PYTHON EXTERNAL SCRIPTS > goes together to migrations for migraing db
-# # server = Server(host = '192.168.1.17', port = 8000, debug = True)
-# manager = Manager()
-# manager.add_command('db', MigrateCommand)
-# manager.add_command('runserver', Server(host='0.0.0.0', port=5000))
-
-
-
-
-
-
 
 
 def create_app():
+    # general imports
+    #############################
     from flask import Flask
     from flask_security import SQLAlchemyUserDatastore
     from solarvibes.forms import RegisterFormExt
     from flask_uploads import configure_uploads
     from solarvibes.config import Config
 
-    #############################
-    # Begin Import Models
+    # models import
     #############################
     from solarvibes.models import roles_users, Role, User
     from solarvibes.models import Farm, Field, DailyFieldInput, Crop
     from solarvibes.models import Agrimodule, Agrisensor, Measurement, Agripump, Pump
     from solarvibes.site.models import NewsletterTable, AgrimoduleFBTable, PlatformFBTable, WorkWithUsTable, ContactUsTable
-    #############################
-    # End Import Models
-    #############################
-    #####################################
+
     # App initilization and configuration
     #####################################
     application = Flask(__name__)                               # creates the flask application
     application.config['UPLOADED_PHOTOS_DEST'] = 'static/uploads'       # Flask-Uploads
     application.config.from_object(Config)                   # imports application configuration from config.py
 
-
-
-    #####################################
     # init external packages
     #####################################
     configure_uploads(application, photos)
@@ -73,10 +44,9 @@ def create_app():
     user_datastore = SQLAlchemyUserDatastore(db, User, Role)
     security.init_app(application, user_datastore, register_form=RegisterFormExt, confirm_register_form=RegisterFormExt)
     # admin.init_app(application)
+
+    # blueprint imports
     #############################
-    # Begin Import Views
-    #############################
-    # from solarvibes import views
     from solarvibes.boot.views import boot
     from solarvibes.app.views import app
     from solarvibes.site.views import site
@@ -95,6 +65,8 @@ def create_app():
     from solarvibes.agrimodule_api.views_new import agrimodule_api
     from solarvibes.crop_planning.views import crop_planning_bp
 
+    # blueprint registration
+    #############################
     application.register_blueprint(boot, url_prefix='/')
     application.register_blueprint(app, url_prefix='/app')
     application.register_blueprint(site, url_prefix='/site')
@@ -112,8 +84,6 @@ def create_app():
     # application.register_blueprint(admin_bp, url_prefix='/admin')
     application.register_blueprint(agrimodule_api, url_prefix='/agrimodule_api')
     application.register_blueprint(crop_planning_bp, url_prefix='/crop_planning')
-    #############################
-    # End Import Views
-    #############################
+
 
     return application
