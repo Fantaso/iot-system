@@ -49,28 +49,28 @@
       <div class="navbar-fixed">
         <nav class="navbar-color gradient-45deg-svgreen-svyellow gradient-shadow">
           <div class="nav-wrapper">
-            <div class="header-search-wrapper hide-on-med-and-down sideNav-lock">
+            <!-- <div class="header-search-wrapper hide-on-med-and-down sideNav-lock">
               <i class="material-icons">search</i>
               <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize" />
-            </div>
+            </div> -->
             <ul class="right hide-on-med-and-down">
-              <li>
+              <!-- <li>
                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light translation-button" data-activates="translation-dropdown">
                   <span class="flag-icon flag-icon-gb"></span>
                 </a>
-              </li>
+              </li> -->
               <li>
                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen">
                   <i class="material-icons">settings_overscan</i>
                 </a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown">
                   <i class="material-icons">notifications_none
                     <small class="notification-badge">5</small>
                   </i>
                 </a>
-              </li>
+              </li> -->
               <li>
                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
                   <span class="avatar-status avatar-online">
@@ -83,11 +83,11 @@
                   </span>
                 </a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse">
                   <i class="material-icons">format_indent_increase</i>
                 </a>
-              </li>
+              </li> -->
             </ul>
             <!-- translation-button -->
             <ul id="translation-dropdown" class="dropdown-content">
@@ -198,19 +198,19 @@
                 <span class="nav-text">Crop Status</span>
               </a>
             </li>
-             <li class="{% block user_crop_planning_active %}{% endblock %}">
+             {# <li class="{% block user_crop_planning_active %}{% endblock %}">
               <a href="{{ url_for('crop_planning_bp.show') }}">
                 <i class="material-icons svgreen-text">event</i>
                 <span class="nav-text">Crop Planning</span>
               </a>
-            </li>
+            </li> #}
             <li class="{% block settings_active %}{% endblock %}">
               <a href="{{ url_for('farm_settings.new_crop') }}">
                 <i class="material-icons svgreen-text">add</i>
                 <span class="nav-text">New Crop</span>
               </a>
             </li>
-            <li class="{% block user_crop_analyzer_active %}{% endblock %}">
+            {# <li class="{% block user_crop_analyzer_active %}{% endblock %}">
               <a href="{{ url_for('user_crop_analyzer') }}">
                 <i class="material-icons svgreen-text">filter_vintage</i>
                 <span class="nav-text">Crop Analyzer</span>
@@ -226,6 +226,12 @@
               <a href="{{ url_for('user_market') }}">
                 <i class="material-icons svgreen-text">shopping_cart</i>
                 <span class="nav-text">Market</span>
+              </a>
+            </li> #}
+            <li class="{% block user_market_active %}{% endblock %}">
+              <a href="{{ url_for('settings.index') }}">
+                <i class="material-icons svgreen-text">settings</i>
+                <span class="nav-text">Farm/Agrimodule Settings</span>
               </a>
             </li>
             {% else %}
