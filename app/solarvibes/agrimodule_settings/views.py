@@ -226,7 +226,8 @@ def add_sensor(agrimodule_id = 0):
     def agripump_is_in_used_by_current_user(identifier):
         agripump_reg = AgripumpList.query.filter_by(identifier = identifier).first()
         agripump = Agripump.query.filter_by(identifier= identifier).first()
-        agrimodule = Agrimodule.query.filter_by(id = agripump.agrimodule_id).first()
+        if agripump:
+            agrimodule = Agrimodule.query.filter_by(id = agripump.agrimodule_id).first()
         if agripump_reg and agripump and agrimodule:
             if agripump_reg.has_user_registered and current_user.id == agripump_reg.user_id:
                 return True
@@ -234,7 +235,7 @@ def add_sensor(agrimodule_id = 0):
         return False
     def agripump_is_registered_by_current_user(identifier):
         agripump_reg = AgripumpList.query.filter_by(identifier = identifier).first()
-        if agrimpump_reg:
+        if agripump_reg:
             if agripump_reg.has_user_registered and current_user.id == agripump_reg.user_id:
                 return True
             return False
@@ -258,7 +259,8 @@ def add_sensor(agrimodule_id = 0):
     def agrisensor_is_in_used_by_current_user(identifier):
         agrisensor_reg = AgripumpList.query.filter_by(identifier = identifier).first()
         agrisensor = Agrisensor.query.filter_by(identifier= identifier).first()
-        agrimodule = Agrimodule.query.filter_by(id = agrisensor.agrimodule_id).first()
+        if agrisensor:
+            agrimodule = Agrimodule.query.filter_by(id = agrisensor.agrimodule_id).first()
         if agrisensor_reg and agrisensor and agrimodule:
             if agrisensor_reg.has_user_registered and current_user.id == agrisensor_reg.user_id:
                 return True
