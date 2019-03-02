@@ -2,7 +2,8 @@
 # Edit at https://www.gitignore.io/?templates=flask,python
 
 ### I ADDED ###
-digital-farming-pgdata/
+app_db/
+app/migrations/
 
 ### Flask ###
 instance/*
