@@ -48,6 +48,11 @@ def show(field_id = None):
     time_bar_percentage = (cycle_days_so_far * 100) / (crop._dtm + crop._dtg)
     yield_bar_percentage = (field.field_current_yield * 100) / (field.field_projected_yield)
 
+    system_name = 'No agrimodule assign to this field'
+    if agrimodule:
+        system_name = agrimodule.name
+
+
     return render_template('crop_status/show.html',
                                 crop = crop,
                                 farm = farm,
@@ -56,7 +61,7 @@ def show(field_id = None):
                                 cycle_days_so_far = cycle_days_so_far,
                                 time_bar_percentage = time_bar_percentage,
                                 yield_bar_percentage = yield_bar_percentage,
-                                system_name = agrimodule.name)
+                                system_name = system_name)
 
 
 ##################
