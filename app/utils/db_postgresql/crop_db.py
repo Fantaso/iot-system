@@ -21,7 +21,7 @@ crops = {
 					'image':'/static/images/crops/tomato.png',
 					'_name':'plum',
 					'_variety':'tomato',
-				 	'_family':'fruit',
+				 	'_family':'fruity',
 					'_yield':2800, # gr
 					'_space_x':30, # cm
 					'_space_y':30, # cm
@@ -98,7 +98,7 @@ crops = {
 					{
 					'image':'/static/images/crops/radicchio.png',
 					'_name':'radicchio',
-					'_variety':'unknown',
+					'_variety':'chioggia',
 				 	'_family':'leafy',
 					'_yield':626,
 					'_space_x':20,
@@ -124,8 +124,8 @@ crops = {
 					{
 					'image':'/static/images/crops/bell_pepper.png',
 					'_name':'bell pepper',
-					'_variety':'something',
-				 	'_family':'something',
+					'_variety':'peppers',
+				 	'_family':'fruity',
 					'_yield':626,
 					'_space_x':20,
 					'_space_y':20,
@@ -150,7 +150,7 @@ crops = {
 					{
 					'image':'/static/images/crops/cabbage.png',
 					'_name':'cabbage',
-					'_variety':'something',
+					'_variety':'choy',
 				 	'_family':'something',
 					'_yield':626,
 					'_space_x':20,
@@ -176,8 +176,8 @@ crops = {
 					{
 					'image':'/static/images/crops/coriander.png',
 					'_name':'coriander',
-					'_variety':'something',
-				 	'_family':'something',
+					'_variety':'herb',
+				 	'_family':'leafy',
 					'_yield':626,
 					'_space_x':20,
 					'_space_y':20,
@@ -202,8 +202,8 @@ crops = {
 					{
 					'image':'/static/images/crops/basil.png',
 					'_name':'basil',
-					'_variety':'something',
-				 	'_family':'something',
+					'_variety':'cinnamon',
+				 	'_family':'leafy',
 					'_yield':626,
 					'_space_x':20,
 					'_space_y':20,
@@ -228,8 +228,8 @@ crops = {
 					{
 					'image':'/static/images/crops/squash.png',
 					'_name':'squash',
-					'_variety':'something',
-				 	'_family':'something',
+					'_variety':'tropical',
+				 	'_family':'fruity',
 					'_yield':626,
 					'_space_x':20,
 					'_space_y':20,
@@ -254,8 +254,8 @@ crops = {
 					{
 					'image':'/static/images/crops/chive.png',
 					'_name':'chive',
-					'_variety':'something',
-				 	'_family':'something',
+					'_variety':'chive',
+				 	'_family':'leafy',
 					'_yield':626,
 					'_space_x':20,
 					'_space_y':20,
@@ -306,8 +306,8 @@ crops = {
 					{
 					'image':'/static/images/crops/black_beans.png',
 					'_name':'black bean',
-					'_variety':'something',
-				 	'_family':'something',
+					'_variety':'black beans',
+				 	'_family':'legumes',
 					'_yield':626,
 					'_space_x':20,
 					'_space_y':20,
@@ -332,8 +332,8 @@ crops = {
 					{
 					'image':'/static/images/crops/strawberry.png',
 					'_name':'strawberry',
-					'_variety':'something',
-				 	'_family':'something',
+					'_variety':'tropical',
+				 	'_family':'fruity',
 					'_yield':626,
 					'_space_x':20,
 					'_space_y':20,
@@ -358,8 +358,8 @@ crops = {
 					{
 					'image':'/static/images/crops/tomato2.png',
 					'_name':'plum2',
-					'_variety':'something',
-				 	'_family':'something',
+					'_variety':'tomato',
+				 	'_family':'fruity',
 					'_yield':626,
 					'_space_x':20,
 					'_space_y':20,
@@ -384,8 +384,8 @@ crops = {
 					{
 					'image':'/static/images/crops/rice.png',
 					'_name':'rice',
-					'_variety':'something',
-				 	'_family':'something',
+					'_variety':'ayran',
+				 	'_family':'cereals',
 					'_yield':626,
 					'_space_x':20,
 					'_space_y':20,
