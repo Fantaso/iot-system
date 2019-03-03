@@ -267,6 +267,10 @@ class AgrimoduleList(db.Model):
     user_id = db.Column(db.Integer)
     has_agrimodule_registered = db.Column(db.Boolean)
 
+    def __repr__(self):
+        return f'<{self.__class__}({self.__dict__})>'
+
+
 class AgrisensorList(db.Model):
     __tablename__ = 'agrisensorlist'
     id = db.Column(db.Integer, primary_key=True)
@@ -277,6 +281,10 @@ class AgrisensorList(db.Model):
     user_id = db.Column(db.Integer)
     has_agrimodule_registered = db.Column(db.Boolean)
 
+    def __repr__(self):
+        return f'<{self.__class__}({self.__dict__})>'
+
+
 class AgripumpList(db.Model):
     __tablename__ = 'agripumplist'
     id = db.Column(db.Integer, primary_key=True)
@@ -286,6 +294,10 @@ class AgripumpList(db.Model):
     has_user_registered = db.Column(db.Boolean)
     user_id = db.Column(db.Integer)
     has_agrimodule_registered = db.Column(db.Boolean)
+
+    def __repr__(self):
+        return f'<{self.__class__}({self.__dict__})>'
+
 
 class WelcomeLog(db.Model):
     __tablename__ = 'welcome'
