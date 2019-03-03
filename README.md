@@ -43,7 +43,7 @@ docker-compose run --rm app python manage.py addusers
 docker-compose run --rm app python manage.py addcrops
 ```
 
-8. Add the licenses data to the database (licenses are string identifiers that allows to control which IoT sensors belongs to which user, and it is used for the IoT sensors to send the sensor data to the web app )
+8. Add the licenses data to the database (licenses are string identifiers that allows to control which IoT sensors belongs to which user, and it is used for the IoT sensors to send the sensor data to the web app)
 ```sh
 docker-compose run --rm app python manage.py addlicenses
 ```
