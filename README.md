@@ -43,7 +43,12 @@ docker-compose run --rm app python manage.py addusers
 docker-compose run --rm app python manage.py addcrops
 ```
 
-8. Run the Docker containers
+8. Add the crops data to the database
+```sh
+docker-compose run --rm app python manage.py addlicenses
+```
+
+9. Run the Docker containers
 ```sh
 docker-compose up
 ```
@@ -59,7 +64,7 @@ The web application should be running and you can access it in your web browser 
 
 #### 2. Access App - Flask
 Access the web app at _http://0.0.0.0:5000/app_
-You will be prompt to enter **Username** and **Password**, which we have registered in *Step # 6* of the installation. Or you could register a new user following the link at the login page.
+You will be prompt to enter **Username** and **Password**, which we have registered in `Step # 6` of the installation. Or you could register a new user following the link at the login page.
 
 Login information:
 - Username = fan@fantaso.de
@@ -68,7 +73,7 @@ Login information:
 
 #### 3. Access Database Client - Adminer
 Access the web app at _http://0.0.0.0:8080_
-You will be prompt to enter **System**, **Server**, **Username**, **Password**, **Database** which has been pre-configure within the web app configuration and the docker-compose.yml files.
+You will be prompt to enter **System**, **Server**, **Username**, **Password**, **Database** which has been pre-configured within the web app at `config.py` and the `docker-compose.yml` files.
 
 Login information:
 - System = **PostgreSQL**
