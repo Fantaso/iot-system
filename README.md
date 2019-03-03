@@ -2,68 +2,79 @@
 > demo website and demo agrimodule webapp for IoT digital farming.
 
 
-![](app/solarvibes/static/images/mainUI.png)
+![very|20x20,20%](app/solarvibes/static/images/mainUI.png)
 
 ## Installation
 
-##### With Docker: ![](https://www.docker.com/sites/default/files/social/docker_facebook_share.png =20x)
+##### With Docker: ![20x20](https://www.docker.com/sites/default/files/social/docker_facebook_share.png)
 
 
 1. Clone repository and go inside the repository folder "site-app-docker"
-
 ```sh
 git clone https://github.com/Fantaso/site-app-docker
 ```
 
 2. Build the docker images
-
 ```sh
 docker-compose build
 ```
-2. Initialize database used in the web app
 
+3. Initialize database used in the web app
 ```sh
 docker-compose run --rm app python manage.py db init
 ```
-3. Create the database mapping ro migrate the database
 
+4. Create the database mapping to migrate the database
 ```sh
 docker-compose run --rm app python manage.py db migrate
 ```
-4. Apply the migration changes detected to the database
 
+5. Apply the migration changes detected to the database
 ```sh
 docker-compose run --rm app python manage.py db upgrade
 ```
-5. Add a test user to login into web app
 
+6. Add a test user to login into web app
 ```sh
 docker-compose run --rm app python manage.py addusers
 ```
-6. Add the crops data to the database
 
+7. Add the crops data to the database
 ```sh
 docker-compose run --rm app python manage.py addcrops
 ```
-7. Run the Docker containers
 
+8. Run the Docker containers
 ```sh
 docker-compose up
 ```
 
 
 
-
 ## Usage
-
 Once docker-compose is done downloading all images and none of the services failed after you have run the containers with `docker-compose up`
+
 
 #### 1. Access Website
 The web application should be running and you can access it in your web browser at _http://0.0.0.0:5000_, which will take you to the website and there in the navigation bar you can find the **login** link.
 
-#### 2. Access App
-You will be prompt to enter **username** and **password**, which we have registered in *Step # 5* of the installation. Or you could register a new user following the link at the login page.
+
+#### 2. Access App - Flask
+Access the web app at _http://0.0.0.0:5000/app_
+You will be prompt to enter **Username** and **Password**, which we have registered in *Step # 6* of the installation. Or you could register a new user following the link at the login page.
 
 Login information:
-- username = fan@fantaso.de
-- password = **123456**
+- Username = fan@fantaso.de
+- Password = **123456**
+
+
+#### 3. Access Database Client - Admirer
+Access the web app at _http://0.0.0.0:8080_
+You will be prompt to enter **System**, **Server**, **Username**, **Password**, **Database** which has been pre-configure within the web app configuration and the docker-compose.yml files.
+
+Login information:
+- System = **PostgreSQL**
+- Server = **db**
+- Username = **postgres**
+- Password = **password**
+- Database = **mydb**
