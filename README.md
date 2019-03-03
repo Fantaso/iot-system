@@ -1,7 +1,7 @@
 # Agrimodule - Website & Web App
 > demo website and demo agrimodule webapp for IoT digital farming.
 
-![](//app/solarvibes/static/images/mainUI.png)
+![](app/solarvibes/static/images/mainUI.png)
 
 ## Installation
 
