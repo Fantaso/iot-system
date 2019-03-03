@@ -1,12 +1,11 @@
 # Agrimodule - Website & Web App
 > demo website and demo agrimodule webapp for IoT digital farming.
 
-
-![very|20x20,20%](app/solarvibes/static/images/mainUI.png)
+![](//app/solarvibes/static/images/mainUI.png)
 
 ## Installation
 
-##### With Docker: ![20x20](https://www.docker.com/sites/default/files/social/docker_facebook_share.png)
+##### With Docker: ![](app/solarvibes/static/images/readme/tech-docker.png)
 
 
 1. Clone repository and go inside the repository folder "site-app-docker"
@@ -68,7 +67,7 @@ Login information:
 - Password = **123456**
 
 
-#### 3. Access Database Client - Admirer
+#### 3. Access Database Client - Adminer
 Access the web app at _http://0.0.0.0:8080_
 You will be prompt to enter **System**, **Server**, **Username**, **Password**, **Database** which has been pre-configure within the web app configuration and the docker-compose.yml files.
 
@@ -78,3 +77,17 @@ Login information:
 - Username = **postgres**
 - Password = **password**
 - Database = **mydb**
+
+
+## Information
+| Technology Stack | |
+| - |:-:|
+| Python          | ![](app/solarvibes/static/images/readme/tech-python.png) |  
+| Flask           | ![](app/solarvibes/static/images/readme/tech-flask.png) |  
+| SQLAlchemy      | ![](app/solarvibes/static/images/readme/tech-sqlalchemy.jpg) |
+| PostgreSQL      | ![](app/solarvibes/static/images/readme/tech-postgresql.png) |
+| Docker          | ![](app/solarvibes/static/images/readme/tech-docker.png) |
+| Docker-Compose  | ![](app/solarvibes/static/images/readme/tech-dockercompose.png) |
+| Adminer         | ![](app/solarvibes/static/images/readme/tech-adminer.png) |
+
+[https://github.com/Fantaso/site-app-docker](https://github.com/fantaso/)
