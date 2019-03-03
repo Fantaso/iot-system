@@ -1,11 +1,11 @@
 # Agrimodule - Website & Web App
 > demo website and demo agrimodule webapp for IoT digital farming.
 
-![](app/solarvibes/static/images/mainUI.png)
+![](app/solarvibes/static/images/readme/mainUI.png)
 
-## Installation
+## Installation:
 
-##### With Docker: ![](app/solarvibes/static/images/readme/tech-docker.png)
+##### With ![](app/solarvibes/static/images/readme/tech-docker.png):
 
 
 1. Clone repository and go inside the repository folder "site-app-docker"
@@ -49,8 +49,7 @@ docker-compose up
 ```
 
 
-
-## Usage
+## Usage:
 Once docker-compose is done downloading all images and none of the services failed after you have run the containers with `docker-compose up`
 
 
@@ -79,7 +78,7 @@ Login information:
 - Database = **mydb**
 
 
-## Information
+## Information:
 | Technology Stack | |
 | - |:-:|
 | Python          | ![](app/solarvibes/static/images/readme/tech-python.png) |  
