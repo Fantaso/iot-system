@@ -1,8 +1,23 @@
-from ass import db, User, Role
 from datetime import date
 from sqlalchemy.sql import func
 
-users = { 	
+
+test_user = {
+			'fantaso':
+					{
+					'name':'fantaso',
+				    'last_name':'fantaso',
+				    'email':'fan@fantaso.de',
+				    'password':'123456',
+				    'birthday': date(1986, 2, 27),
+				    'mobile':'+4917600000000',
+				    'active':True,
+    				'confirmed_at':None
+					}
+			}
+
+
+users1 = {
 			'carlos':
 					{
 					'name':'Carlos',
@@ -14,7 +29,7 @@ users = {
 				    'active':True,
     				'confirmed_at':None
 					},
-			'swathish': 
+			'swathish':
 					{
 					'name':'Swathish',
 				    'last_name':'Ravi',
@@ -35,7 +50,7 @@ users = {
 				    'mobile':'+4917655252526',
 				    'active':True,
     				'confirmed_at':None
-					}, 
+					},
 			'viktor':
 					{
 					'name':'Viktor',
@@ -84,6 +99,7 @@ users = {
 
 # Automatically add users to the db through SQLAlchemy
 def add_users(users):
+	from solarvibes import db, User, Role
 	print('Starting inserting users to db')
 	for user in users:
 		user_to_db = User(**users[user])
