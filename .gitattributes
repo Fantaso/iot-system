@@ -1,6 +1,7 @@
 # Project's specifics
 # ===================
 app/solarvibes/static/* linguist-vendored
+app/solarvibes/templates/* linguist-vendored
 app/solarvibes/site/static* linguist-vendored
 
 # Text
