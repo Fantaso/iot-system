@@ -7,14 +7,15 @@
 <h1 style="text-align: left; margin-top:0px;">
   IoT monitoring system
 </h1>
+> Monitor your plants, keep track of them environment and automate your water pump to irrigate them.
 
 <!-- build -->
-[![Build Status][travis-image]][travis-link]
+<!-- [![Build Status][travis-image]][travis-link] -->
 
 <!-- banner -->
 ![banner][banner]
 
-> Project consists to allow users to manage irrigation system and monitor the growing plants/crop 24/7 with the help of an IoT system. The IoT system is composed by 3 main components:
+Project consists to allow users to manage irrigation system and monitor the growing plants/crop 24/7 with the help of an IoT system. The IoT system is composed by 3 main components:
 * A **[Web application][app-repo-link]**: Allows users to register an account, view data collected from the sensors, `control water pump`, check `projected yields` and manage life-cycle of the growing plants/crop, `manage your sensors and pumps` and more...
 * A **[Rest API][api-repo-link]**: Allows your wireless `pump controllers` & `sensors` (Raspberry Pi) to register and communicate with the web application to be able to send collected sensor data and receive instructions to control the water pump.
 * A **[Raspberry Pi System Repository][raspberry-repo]**: Hardware that allow us to collect and control a remote wireless system. Which is composed, by a `weather sensor` (temperature, humidity & atmospheric pressure), `soil sensors` (moist, temperature & pH) and a `relay system` to control the water pump
