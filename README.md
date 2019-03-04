@@ -112,58 +112,58 @@ You can talk to the API if you have an API client like Postman in order to test 
 
 
 1. Check if the API is working at:
-  * GET
-  * /agrimodule_api/
+    * GET
+    * /agrimodule_api/
 
 
 2. Check if IoT devices license is valid:
-  * GET
-  * /agrimodule_api/check/<identifier>
+    * GET
+    * /agrimodule_api/check/<identifier>
 
 
 3. Register IoT devices and get credentials:
-  * POST
-  * /agrimodule_api/register
-  * Payload:
-    * `identifier` = str
-    * `mac` = str
-  * Response:
-    * `username` = str
-    * `password` = str
+    * POST
+    * /agrimodule_api/register
+    * Payload:
+        * `identifier` = str
+        * `mac` = str
+    * Response:
+        * `username` = str
+        * `password` = str
 
 
 4. Send IoT devices data to web app database:
-  * POST
-  * /agrimodule_api/agrimodule/<agrimodule_id>/set-measurement
-  * Payload:
-    * `agrimodule_id` = int
-    * `timestamp` = datetime
-    * `soil_ph` = float
-    * `soil_nutrient` = float
-    * `soil_temp` = float
-    * `soil_humi` = float
-    * `air_temp` = float
-    * `air_humi` = float
-    * `air_pres` = float
-    * `solar_radiation` = float
-    * `batt_status` = int
-    * `lat` = float
-    * `lon` = float
+    * POST
+    * /agrimodule_api/agrimodule/<agrimodule_id>/set-measurement
+    * Payload:
+        * `agrimodule_id` = int
+        * `timestamp` = datetime
+        * `soil_ph` = float
+        * `soil_nutrient` = float
+        * `soil_temp` = float
+        * `soil_humi` = float
+        * `air_temp` = float
+        * `air_humi` = float
+        * `air_pres` = float
+        * `solar_radiation` = float
+        * `batt_status` = int
+        * `lat` = float
+        * `lon` = float
 
 
 5. Get an IoT specific measurement from the web app:
-  * GET
-  * /agrimodule_api/agrimodule/<agrimodule_id>/get-measurement/<measurement_id>
+    * GET
+    * /agrimodule_api/agrimodule/<agrimodule_id>/get-measurement/<measurement_id>
 
 
 6. Get all data collected by an IoT device:
-  * GET
-  * /agrimodule_api/agrimodule/<agrimodule_id>/get-measurements
+    * GET
+    * /agrimodule_api/agrimodule/<agrimodule_id>/get-measurements
 
 
 7. Unregister IoT devices:
-  * GET
-  * /agrimodule_api/unregister/<identifier>/<mac>
+    * GET
+    * /agrimodule_api/unregister/<identifier>/<mac>
 
 
 
