@@ -75,7 +75,7 @@ docker-compose up
 
 ### 2. Installing Raspberry Sensors
  [Visit Raspberry Pi Repository][raspberry-repo]
-###### Visit  ![docker][docker]:
+
 
 
 ## Usage:
