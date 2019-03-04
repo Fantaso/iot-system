@@ -58,7 +58,8 @@ Project consists to allow users to manage irrigation system and monitor the grow
     git clone https://github.com/Fantaso/site-app-docker
     ```
 
-    2. Build the docker images
+    2. Build the docker images  
+    
     ```sh
     docker-compose build
     ```
