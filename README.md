@@ -168,8 +168,8 @@ You can talk to the API if you have an API client like Postman in order to test 
 
 
 ## Information:
-| Technology Stack |  
-| :- |:-:| :- |
+| Technology Stack |  |  |
+| :- | :-: | :- |
 | Python          | ![back-end][Python]                   | back-end |
 | Flask           | ![web-framework][Flask]               | web-framework |
 | SQLAlchemy      | ![orm][SQLAlchemy]                    | orm |
