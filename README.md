@@ -1,12 +1,30 @@
-# Agrimodule - Website & Web App
-> demo website and demo agrimodule webapp for IoT digital farming.
+<!-- logo -->
+<a href="https://www.fantaso.de">
+<img src="app/solarvibes/static/images/readme/fantaso.png" align="right" />
+</a>
 
-![](app/solarvibes/static/images/readme/mainUI.png)
+<!-- header -->
+<h1 style="text-align: left; margin-top:0px;">
+  IoT monitoring system
+</h1>
+
+<!-- build -->
+[![Build Status][travis-image]][travis-link]
+
+<!-- banner -->
+![banner][banner]
+
+> Project consists to allow users to manage irrigation system and monitor the growing plants/crop 24/7 with the help of an IoT system. The IoT system is composed by 3 main components:
+* A **[Web application][app-repo-link]**: Allows users to register an account, view data collected from the sensors, `control water pump`, check `projected yields` and manage life-cycle of the growing plants/crop, `manage your sensors and pumps` and more...
+* A **[Rest API][api-repo-link]**: Allows your wireless `pump controllers` & `sensors` (Raspberry Pi) to register and communicate with the web application to be able to send collected sensor data and receive instructions to control the water pump.
+* A **[Raspberry Pi System Repository][raspberry-repo]**: Hardware that allow us to collect and control a remote wireless system. Which is composed, by a `weather sensor` (temperature, humidity & atmospheric pressure), `soil sensors` (moist, temperature & pH) and a `relay system` to control the water pump
+
 
 ## Installation:
 
-##### With ![](app/solarvibes/static/images/readme/tech-docker.png):
+### 1.Installing Web Application and Rest API
 
+###### With ![docker][docker]:
 
 1. Clone repository and go inside the repository folder "site-app-docker"
 ```sh
@@ -53,6 +71,10 @@ docker-compose run --rm app python manage.py addlicenses
 docker-compose up
 ```
 
+### 2. Installing Raspberry Sensors
+ [Visit Raspberry Pi Repository][raspberry-repo]
+###### Visit  ![docker][docker]:
+
 
 ## Usage:
 Once docker-compose is done downloading all images and none of the services failed after you have run the containers with `docker-compose up`
@@ -83,15 +105,101 @@ Login information:
 - Database = **mydb**
 
 
-## Information:
-| Technology Stack | |
-| - |:-:|
-| Python          | ![](app/solarvibes/static/images/readme/tech-python.png) |  
-| Flask           | ![](app/solarvibes/static/images/readme/tech-flask.png) |  
-| SQLAlchemy      | ![](app/solarvibes/static/images/readme/tech-sqlalchemy.jpg) |
-| PostgreSQL      | ![](app/solarvibes/static/images/readme/tech-postgresql.png) |
-| Docker          | ![](app/solarvibes/static/images/readme/tech-docker.png) |
-| Docker-Compose  | ![](app/solarvibes/static/images/readme/tech-dockercompose.png) |
-| Adminer         | ![](app/solarvibes/static/images/readme/tech-adminer.png) |
+#### 4. Communicate with your API - Flask
+You can talk to the API if you have an API client like Postman in order to test and check how the process of registering a sensor or a pump controller into your web application.
 
-[https://github.com/Fantaso/site-app-docker](https://github.com/fantaso/)
+
+1. Check if the API is working at:
+  * GET
+  * /agrimodule_api/
+
+
+2. Check if IoT devices license is valid:
+  * GET
+  * /agrimodule_api/check/<identifier>
+
+
+3. Register IoT devices and get credentials:
+  * POST
+  * /agrimodule_api/register
+  * Payload:
+    * `identifier` = str
+    * `mac` = str
+  * Response:
+    * `username` = str
+    * `password` = str
+
+
+4. Send IoT devices data to web app database:
+  * POST
+  * /agrimodule_api/agrimodule/<agrimodule_id>/set-measurement
+  * Payload:
+    * `agrimodule_id` = int
+    * `timestamp` = datetime
+    * `soil_ph` = float
+    * `soil_nutrient` = float
+    * `soil_temp` = float
+    * `soil_humi` = float
+    * `air_temp` = float
+    * `air_humi` = float
+    * `air_pres` = float
+    * `solar_radiation` = float
+    * `batt_status` = int
+    * `lat` = float
+    * `lon` = float
+
+
+5. Get an IoT specific measurement from the web app:
+  * GET
+  * /agrimodule_api/agrimodule/<agrimodule_id>/get-measurement/<measurement_id>
+
+
+6. Get all data collected by an IoT device:
+  * GET
+  * /agrimodule_api/agrimodule/<agrimodule_id>/get-measurements
+
+
+7. Unregister IoT devices:
+  * GET
+  * /agrimodule_api/unregister/<identifier>/<mac>
+
+
+
+## Information:
+| Technology Stack |  
+| :- |:-:| :- |
+| Python          | ![back-end][Python]                   | back-end |
+| Flask           | ![web-framework][Flask]               | web-framework |
+| SQLAlchemy      | ![orm][SQLAlchemy]                    | orm |
+| PostgreSQL      | ![database][PostgreSQL]               | database |
+| Docker          | ![container][Docker]                  | container |
+| Docker-Compose  | ![container-manager][Docker-Compose]  | container-manager |
+| Adminer         | ![database-client][Adminer]           | database-client |
+
+## Maintainer
+Carlos Rosas – [carlosmrosash][linkedin-profile] – fantaso.code@gmail.com
+
+
+
+<!-- links -->
+[github-profile]: https://github.com/fantaso/
+[github-repo]: https://github.com/Fantaso/site-app-docker
+
+[raspberry-repo]: https://github.com/Fantaso/agrimodule-smart-system/tree/master/AgrimoduleHardware/agrimodule_gw
+[app-repo-link]: https://github.com/Fantaso/site-app-docker/tree/master/app
+[api-repo-link]: https://github.com/Fantaso/site-app-docker/tree/master/app/solarvibes/agrimodule_api
+
+[linkedin-profile]: https://www.linkedin.com/in/carlosmrosash/
+
+[travis-link]: https://travis-ci.org/Fantaso/django-docker-travis.svg?branch=master
+[travis-image]: https://travis-ci.org/Fantaso/django-docker-travis
+
+<!-- images -->
+[banner]: app/solarvibes/static/images/readme/mainUI.png
+[Python]: app/solarvibes/static/images/readme/tech-python.png
+[Flask]: app/solarvibes/static/images/readme/tech-flask.png
+[SQLAlchemy]: app/solarvibes/static/images/readme/tech-sqlalchemy.jpg
+[PostgreSQL]: app/solarvibes/static/images/readme/tech-postgresql.png
+[Docker]: app/solarvibes/static/images/readme/tech-docker.png
+[Docker-Compose]: app/solarvibes/static/images/readme/tech-dockercompose.png
+[Adminer]: app/solarvibes/static/images/readme/tech-adminer.png
